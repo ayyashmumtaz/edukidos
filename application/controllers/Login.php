@@ -38,7 +38,8 @@ class Login extends CI_Controller{
 			
 
 		}else{
-			echo "Username dan password salah !";
+			$this->session->set_flashdata('login_gagal');
+			redirect(base_url("Login"));
 		}
 	}
 

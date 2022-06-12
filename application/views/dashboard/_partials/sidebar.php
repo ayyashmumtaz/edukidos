@@ -63,12 +63,12 @@
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">A3</a>
-            <a class="collapse-item" href="utilities-border.html">INDOOR</a>
-            <a class="collapse-item" href="utilities-animation.html">OUTDOOR</a>
-            <a class="collapse-item" href="utilities-other.html">CUTTING</a>
-            <a class="collapse-item" href="utilities-other.html">FINISHING</a>
-            <a class="collapse-item" href="utilities-other.html">LAIN - LAIN</a>
+            <a class="collapse-item" href="<?= site_url('Spk/a3');?>">A3</a>
+            <a class="collapse-item" href="<?= site_url('Spk/indoor');?>">INDOOR</a>
+            <a class="collapse-item" href="<?= site_url('Spk/outdoor');?>">OUTDOOR</a>
+            <a class="collapse-item" href="<?= site_url('Spk/cutting');?>">CUTTING</a>
+            <a class="collapse-item" href="<?= site_url('Spk/finishing');?>">FINISHING</a>
+            <a class="collapse-item" href="<?= site_url('Spk/lain_lain');?>">LAIN - LAIN</a>
 
 
         </div>

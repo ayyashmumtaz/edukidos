@@ -7,28 +7,28 @@
     <div class="col-md-3">
         <div class="form-group">
           <label for="last">ID ORDER</label>
-          <input type="text" class="form-control" value="<?= uniqid();?>" readonly>
+          <input type="text" class="form-control" value="<?= uniqid();?>" name="id_order" readonly>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="form-group">
           <label for="last">TANGGAL ORDER</label>
-          <input type="date" class="form-control" >
+          <input type="date" class="form-control" name="tgl_order">
         </div>
       </div>
       
       <div class="col-md-3">
         <div class="form-group">
           <label for="last">NO. PO</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" name="no_po">
         </div>
       </div>
 
       <div class="col-md-5">
         <div class="form-group">
           <label for="last">NAMA CUSTOMER</label>
-           <select class="form-control" name="layanan">
+           <select class="form-control" name="layanan" name="nama">
             <option selected disabled>-- PILIH CUSTOMER --</option>
                   <?php foreach($customer as $i){ ?>
                   <option value="<?php echo $i['id']; ?>"><?php echo $i['nama']; ?></option>

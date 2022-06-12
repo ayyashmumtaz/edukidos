@@ -20,6 +20,8 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('');?>/assets/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
         <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('');?>/assets/vendor/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
@@ -37,6 +39,8 @@
 
     <!-- Page level plugins -->
     <script src="<?= base_url('');?>/assets/vendor/chart.js/Chart.min.js"></script>
+
+    <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="<?= base_url('');?>/assets/js/demo/chart-area-demo.js"></script>
