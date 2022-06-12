@@ -7,14 +7,14 @@
     <div class="col-md-3">
         <div class="form-group">
           <label for="last">ID ORDER</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" value="<?= uniqid();?>" readonly>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="form-group">
           <label for="last">TANGGAL ORDER</label>
-          <input type="text" class="form-control">
+          <input type="date" class="form-control" >
         </div>
       </div>
       
@@ -28,9 +28,11 @@
       <div class="col-md-5">
         <div class="form-group">
           <label for="last">NAMA CUSTOMER</label>
-          <select class="form-control">
-             
-          </select><a style="margin-top:6px;" class="btn btn-primary btn-sm" href="">Tambah Customer Baru</a>
+           <select class="form-control" name="layanan">
+            <option selected disabled>-- PILIH CUSTOMER --</option>
+                  <?php foreach($customer as $i){ ?>
+                  <option value="<?php echo $i['id']; ?>"><?php echo $i['nama']; ?></option>
+                  <?php } ?></select><a style="margin-top:6px;" class="btn btn-primary btn-sm" href="">Tambah Customer Baru</a>
 
         </div>
       </div>
@@ -133,3 +135,5 @@
 
 
 </div>
+
+

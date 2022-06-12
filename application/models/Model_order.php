@@ -33,6 +33,12 @@ public function jumlahOrderUnfinish()
     }
 }
 
+function get_customer()
+	{
+   return $this->db->get('customer')->result_array();
+	}
+
+
 }
 
 /* End of file Model_order.php */
