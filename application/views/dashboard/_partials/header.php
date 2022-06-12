@@ -42,6 +42,8 @@
     <script src="<?= base_url('');?>/assets/js/demo/chart-area-demo.js"></script>
     <script src="<?= base_url('');?>/assets/js/demo/chart-pie-demo.js"></script>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body id="page-top">

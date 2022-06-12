@@ -1,4 +1,26 @@
 
+               
+            <script type="text/javascript">
+               let timerInterval
+Swal.fire({
+  title: 'Welcome!',
+  html: 'Kamu berhasil login, selamat bekerja!',
+  icon: 'success',
+  timer: 1500,
+  
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+
+})
+            </script>
+            
+       
+
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -156,6 +178,7 @@
                 <!-- /.container-fluid -->
 
             </div>
+
             <!-- End of Main Content -->
 
        

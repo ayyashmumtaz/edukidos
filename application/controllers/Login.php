@@ -19,19 +19,23 @@ class Login extends CI_Controller{
 		$password = $this->input->post('password');
 		$where = array(
 			'username' => $username,
-			'password' => md5($password)
+			'password' => $password
 			);
-		$cek = $this->m_login->cek_login("admin",$where)->num_rows();
+		$cek = $this->Login_model->cek_login("user",$where)->num_rows();
 		if($cek > 0){
 
 			$data_session = array(
-				'nama' => $username,
-				'status' => "login"
+				'username' => $username,
+				'nama' => $nama,
+				'status' => "admin"
 				);
 
 			$this->session->set_userdata($data_session);
 
-			redirect(base_url("admin"));
+
+			$this->session->set_flashdata('login_berhasil');
+			redirect(base_url("Beranda"));
+			
 
 		}else{
 			echo "Username dan password salah !";
