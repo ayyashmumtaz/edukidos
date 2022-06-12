@@ -107,6 +107,15 @@
           <input class="form-control" type="number" name="">
         </div>
       </div>
+      <div class="col-md-3">       
+        <div class="form-group">
+          <label for="last">Finishing</label>
+          <select>
+            <option value="standar" name="finishing">Standar</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+      </div>
          <div class="col-md-12">
           <label for="last">Note Order</label>
           <br>
