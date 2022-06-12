@@ -24,9 +24,10 @@ class Beranda extends CI_Controller
   function __construct(){
     parent::__construct();
   
-    // if($this->session->userdata('status') != "admin"){
-    //   redirect(base_url("login"));
-    // }
+    if($this->session->userdata('status') != "admin"){
+      redirect(base_url("Login"));
+    }
+
     $this->load->model('Model_order');
   }
 
