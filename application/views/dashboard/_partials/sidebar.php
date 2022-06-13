@@ -5,7 +5,7 @@
      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('');?>">
   
     <div class="sidebar-brand-text mx-3">Digital Printing</div>
 </a>
@@ -24,7 +24,11 @@
         <i class="fas fa-fw fa-plus"></i>
         <span>Input Order</span></a>
 </li>
-
+<li class="nav-item">
+    <a class="nav-link" href="<?= site_url('Beranda/berita_acara');?>">
+        <i class="fas fa-fw fa-book"></i>
+        <span>Berita Acara</span></a>
+</li>
 <!-- Divider -->
 <hr class="sidebar-divider">
 
@@ -46,7 +50,6 @@
             <a class="collapse-item" href="<?= site_url('Gudang');?>">Order Gudang</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_masuk');?>">Barang Masuk</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_keluar');?>">Barang Keluar</a>
-            <a class="collapse-item" href="<?= site_url('Gudang/barang_datang');?>">Kedatangan Barang</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_retur');?>">Retur Barang</a>
 
         </div>
@@ -84,12 +87,12 @@
     <div id="rekapHarian" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">A3</a>
-            <a class="collapse-item" href="utilities-border.html">INDOOR</a>
-            <a class="collapse-item" href="utilities-animation.html">OUTDOOR</a>
-            <a class="collapse-item" href="utilities-other.html">CUTTING</a>
-            <a class="collapse-item" href="utilities-other.html">FINISHING</a>
-            <a class="collapse-item" href="utilities-other.html">LAIN - LAIN</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/a3');?>">A3</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/indoor');?>">INDOOR</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/outdoor');?>">OUTDOOR</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/cutting');?>">CUTTING</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/finishing');?>">FINISHING</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/lain_lain');?>">LAIN - LAIN</a>
 
 
         </div>
@@ -275,7 +278,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="btn btn-primary btn-sm mr-2 d-none d-lg-inline small">Douglas McGee</span>
+                                <span class="btn btn-primary btn-sm mr-2 d-none d-lg-inline small"><?= $this->session->userdata('username');?></span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

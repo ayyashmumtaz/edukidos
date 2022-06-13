@@ -33,6 +33,24 @@ public function jumlahOrderUnfinish()
     }
 }
 
+public function jumlahOrderUrgent()
+{   
+    $this->db->select('*');
+  $this->db->from('orderan');
+  $this->db->where('urgensi', 1);
+  $query = $this->db->get();
+
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+}
+
+
 function get_customer()
 	{
    return $this->db->get('customer')->result_array();

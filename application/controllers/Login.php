@@ -33,12 +33,12 @@ class Login extends CI_Controller{
 			$this->session->set_userdata($data_session);
 
 
-			$this->session->set_flashdata('login_berhasil');
+			$this->session->set_flashdata('login_berhasil', ' ');
 			redirect(base_url("Beranda"));
 			
 
 		}else{
-			$this->session->set_flashdata('login_gagal');
+			$this->session->set_flashdata('login_gagal', ' ');
 			redirect(base_url("Login"));
 		}
 	}

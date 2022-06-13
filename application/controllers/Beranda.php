@@ -35,9 +35,18 @@ class Beranda extends CI_Controller
   {
     $data['total_order'] = $this->Model_order->jumlahOrder();
     $data['total_orderUnfinish'] = $this->Model_order->jumlahOrderUnfinish();
+    $data['total_orderUrgent'] = $this->Model_order->jumlahOrderUrgent();
     $this->load->view('dashboard/_partials/header');
     $this->load->view('dashboard/_partials/sidebar');
     $this->load->view('dashboard/index', $data);
+    $this->load->view('dashboard/_partials/footer');
+  }
+
+  public function berita_acara()
+  {
+    $this->load->view('dashboard/_partials/header');
+    $this->load->view('dashboard/_partials/sidebar');
+    $this->load->view('dashboard/berita_acara');
     $this->load->view('dashboard/_partials/footer');
   }
 
