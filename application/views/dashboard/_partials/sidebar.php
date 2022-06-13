@@ -107,12 +107,12 @@
     <div id="produksi" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">A3</a>
-            <a class="collapse-item" href="utilities-border.html">INDOOR</a>
-            <a class="collapse-item" href="utilities-animation.html">OUTDOOR</a>
-            <a class="collapse-item" href="utilities-other.html">CUTTING</a>
-            <a class="collapse-item" href="utilities-other.html">FINISHING</a>
-            <a class="collapse-item" href="utilities-other.html">LAIN - LAIN</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/a3');?>">A3</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/indoor');?>">INDOOR</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/outdoor');?>">OUTDOOR</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/cutting');?>">CUTTING</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/finishing');?>">FINISHING</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/lain_lain');?>">LAIN - LAIN</a>
 
 
         </div>
