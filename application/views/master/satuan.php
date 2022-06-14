@@ -6,7 +6,7 @@
 
 
 <div class="container">
-    <h3>SPK - A3</h3>
+    <h3>Satuan Barang</h3>
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -54,13 +54,7 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td>
-                <td>
-<form action="<?= base_url('Spk/ambil_kerja_a3/')?>" method="post">
-  <input type="hidden" name="id_order" value="<?= $b->id_order;?>">
-  <input type="submit"  style="margin-bottom:2%;"class="btn btn-sm btn-primary" value="Ambil Pekerjaan">
-</form>
-                  
-                  <a class="btn btn-sm btn-primary" href="<?= base_url('Spk/cetak_spk/'). $b->id_order;?>">Cetak SPK</td>
+                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Spk/ambil_kerja/'). $b->id_order;?>">Ambil Pekerjaan</td>
             </tr>
         <?php }?>
         </tbody>

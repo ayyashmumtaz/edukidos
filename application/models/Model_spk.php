@@ -5,38 +5,64 @@ class Model_spk extends CI_Model {
 
 public function getReadya3()
 	{
-	$kategori = array('kategori' => 'a3','status' => 0);
+	$this->db->select('*');
+	$kategori = array('kategori' => '1','status' => 0);
 	$this->db->where($kategori);
-	return $this->db->get('orderan');
+    $this->db->from('orderan');
+    $this->db->join('customer','customer.id = orderan.nama');
+    $this->db->join('kategori','orderan.kategori = kategori.id','LEFT');      
+    $query = $this->db->get();
+    return $query;
 }
 
 public function getReadyIndoor()
 	{
-	$kategori = array('kategori' => 'indoor','status' => 0);
+	$this->db->select('*');
+	$kategori = array('kategori' => '2','status' => 0);
 	$this->db->where($kategori);
-	return $this->db->get('orderan');
+    $this->db->from('orderan');
+    $this->db->join('customer','customer.id = orderan.nama');      
+    $query = $this->db->get();
+    return $query;
 }
 
 public function getReadyOutdoor()
 	{
-	$kategori = array('kategori' => 'outdoor','status' => 0);
+	$this->db->select('*');
+	$kategori = array('kategori' => '3','status' => 0);
 	$this->db->where($kategori);
-	return $this->db->get('orderan');
+    $this->db->from('orderan');
+    $this->db->join('customer','customer.id = orderan.nama');      
+    $query = $this->db->get();
+    return $query;
 }
 
 public function getReadyCutting()
 	{
-	$kategori = array('kategori' => 'cutting','status' => 0);
+	$this->db->select('*');
+	$kategori = array('kategori' => '4','status' => 0);
 	$this->db->where($kategori);
-	return $this->db->get('orderan');
+    $this->db->from('orderan');
+    $this->db->join('customer','customer.id = orderan.nama');      
+    $query = $this->db->get();
+    return $query;
 }
 
 public function getReadyFinishing()
 	{
-	$kategori = array('kategori' => 'finishing','status' => 0);
+	$this->db->select('*');
+	$kategori = array('kategori' => '5','status' => 0);
 	$this->db->where($kategori);
-	return $this->db->get('orderan');
+    $this->db->from('orderan');
+    $this->db->join('customer','customer.id = orderan.nama');      
+    $query = $this->db->get();
+    return $query;
 }
+
+function update_order_produksi($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}	
 }
 
 /* End of file Model_spk.php */

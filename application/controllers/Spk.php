@@ -62,6 +62,25 @@ class Spk extends CI_Controller {
 	$this->load->view('dashboard/_partials/footer');
 	}
 
+	function ambil_kerja_a3(){
+
+	$id_order = $this->input->post('id_order');
+	$spk = $this->session->userdata('username');
+
+	$data = array(
+		'status' => 1,
+		'spk' => $spk
+		);
+
+	$where = array(
+		'id_order' => $id_order
+	);
+
+	$this->Model_spk->update_order_produksi($where,$data,'orderan');
+	$this->session->set_flashdata('update_berhasil', ' ');
+	redirect('Spk/a3');
+}
+
 }
 
 /* End of file Spk.php */

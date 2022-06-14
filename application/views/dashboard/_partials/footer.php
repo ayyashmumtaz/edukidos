@@ -47,6 +47,30 @@
   });
 </script>
 
+
+               <?php if($this->session->flashdata('update_berhasil')): ?>
+             <script type="text/javascript">
+               let timerInterval
+Swal.fire({
+  title: 'Berhasil!',
+  html: 'SPK diterima. Konfirmasi produksi, selamat bekerja!',
+  icon: 'success',
+  timer: 3000,
+  
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+
+})
+            </script>
+                    <?= $this->session->flashdata('update_berhasil') ?>
+           
+        <?php endif ?>
+
 </body>
 
 </html>
