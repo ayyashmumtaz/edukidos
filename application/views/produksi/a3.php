@@ -94,11 +94,12 @@ switch ($favcolor) {
                 </div>
                 <div class="modal-body">Pastikan lagi anda sudah menyelesaikan pekerjaan ini.</div>
                 <div class="modal-footer">
-                      <form action="<?= base_url('produksi/selesai_kerja/')?>" method="post">
-  <input type="hidden" name="id_order" value="<?=$b->id_order?>">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <input type="submit" name="" value="Yakin">
-</form>                </div>
+                  <form action="<?= base_url('produksi/selesai_kerja/')?>" method="post">
+                    <input type="hidden" name="id_order" value="<?=$b->id_order?>">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
+                    <input class="btn btn-primary" type="submit" value="Yakin">
+                  </form>
+                  </div>
             </div>
         </div>
     </div>
