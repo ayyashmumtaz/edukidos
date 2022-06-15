@@ -25,7 +25,7 @@ Swal.fire({
    <hr>
          <h5>Data Customer & Urgensi</h5>
          <hr>
-         <form action="<?= base_url('Order/tambah_order');?>" method="post">
+         <form action="<?= base_url('Order/tambah_order');?>" method="post" enctype="multipart/form-data">
    <div class="row">
 
   
@@ -89,7 +89,7 @@ Swal.fire({
         <div class="form-group">
           <label for="last">Kategori</label>
           <select class="form-control" name="kategori"><?php foreach($kategori as $i){ ?>
-                  <option value="<?php echo $i['id']; ?>"><?php echo $i['nama']; ?></option>
+                  <option value="<?php echo $i['id']; ?>"><?php echo $i['nama_kategori']; ?></option>
                   <?php } ?></select>
         </div>
       </div>
@@ -106,7 +106,7 @@ Swal.fire({
       <div class="col-md-3">
         <div class="form-group">
           <label for="last">File Orderan</label>
-          <input type="file" name="file">
+          <input type="file" id="berkas" name="berkas" >
           <label>max. 100mb</label>
         </div>
       </div>
@@ -219,3 +219,21 @@ Swal.fire({
 }
 </script>
 
+ <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Pilih "Logout" jika kamu sudah selesai melakukan pekerjaan.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="<?= base_url('Login/logout');?>">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>

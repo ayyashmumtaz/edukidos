@@ -78,7 +78,13 @@ class Spk extends CI_Controller {
 
 	$this->Model_spk->update_order_produksi($where,$data,'orderan');
 	$this->session->set_flashdata('update_berhasil', ' ');
-	redirect('Spk/a3');
+	redirect('Beranda');
+}
+
+public function download($file,$filename = NULL)
+{
+	 $data = file_get_contents(base_url('/assets/data/'.$file));
+	force_download($filename, $data);
 }
 
 }

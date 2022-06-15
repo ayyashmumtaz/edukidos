@@ -44,7 +44,33 @@ class Order extends CI_Controller {
 		$catatan = $this->input->post('catatan');
 		$finishing = $this->input->post('finishing');
 
+
  
+		
+
+	$config['upload_path']          = FCPATH.'/assets/data/';
+	$config['allowed_types']        = '*';
+	$config['file_name']            = $id_order;
+	$config['max_size']             = 100000;
+
+	$this->load->library('upload', $config);
+
+	if ( ! $this->upload->do_upload('berkas')){
+	$data['error'] = $this->upload->display_errors();
+	echo $data['error'];
+	}else{
+
+		$fix_upload = $this->upload->data();
+
+		$where = [
+		'id_order' => $id_order
+	];
+
+		$new_data = array(
+		'file' => $fix_upload['file_name']
+		);
+
+		$data_foto = $new_data['file'];
 		$data = array(
 			'id_order' => $id_order,
 			'tgl_order' => $tgl_order,
@@ -56,6 +82,7 @@ class Order extends CI_Controller {
 			'jumlah' => $jumlah,
 			'panjang' => $panjang,
 			'lebar' => $lebar,
+			'file' => $data_foto,
 			'biaya_design' => $biaya_design,
 			'harga_bahan' => $harga_bahan,
 			'catatan' => $catatan,
@@ -63,11 +90,19 @@ class Order extends CI_Controller {
 			'status' => 0,
 			'status_bayar' => 0
 			);
+		
+
+
 		$this->Model_order->input_data($data,'orderan');
 		$this->session->set_flashdata('order_berhasil', ' ');
 		redirect('Order/input_order');
-
 	}
+}
+
+
+		
+
+	
 
 	
 

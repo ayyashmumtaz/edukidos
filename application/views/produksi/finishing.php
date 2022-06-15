@@ -73,8 +73,10 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td><td>
-  <a class="btn btn-sm btn-primary" href="<?= base_url('Spk/ambil_kerja/'). $b->id_order;?>"><i class="fas fa-check"></i> Selesaikan </a>
-</td>
+<form action="<?= base_url('produksi/selesai_kerja/')?>" method="post">
+  <input type="hidden" name="id_order" value="<?=$b->id_order?>">
+     <i class="fas fa-check"> <input type="submit" class="btn btn-sm btn-primary" value="Selesaikan"></i>
+  </form></td>
             </tr>
         <?php }?>
         </tbody>

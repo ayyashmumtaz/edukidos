@@ -3,6 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_order extends CI_Model {
 
+  public function getSumBulanan()
+    {
+        $this->db->select_sum('harga_bahan');
+        $this->db->where('MONTH(tgl_order)', date('m'));
+        $query = $this->db->get('orderan');
+        if ($query->num_rows() > 0) {
+            return $query->row()->harga_bahan;
+        } else {
+            return 0;
+        }
+    }
+
 	public function jumlahOrder()
 {   
     $query = $this->db->get('orderan');
@@ -68,6 +80,11 @@ function get_kategori()
 
   function input_data($data,$table){
     $this->db->insert($table,$data);
+  }
+
+  function update($where,$data,$table){
+    $this->db->where($where);
+    $this->db->update($table,$data);
   }
 
 

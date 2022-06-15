@@ -61,8 +61,12 @@ Swal.fire({
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Pendapatan Bulan Ini</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. </div>
+                                                Pendapatan Bulan Ini (<?php
+    $monthNum = date('m');
+    $dateObj = DateTime::createFromFormat('!m', $monthNum);
+    $monthName = $dateObj->format('F');
+    echo $monthName; ?>)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php $hasil_rupiah = "Rp. " . number_format($total_bulanan,0,',','.'); echo $hasil_rupiah; ?></div>
                                         </div>
                                         <div class="col-auto">
                                         </div>

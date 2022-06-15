@@ -54,13 +54,15 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td>
-                <td>
+                   <td>
 <form action="<?= base_url('Spk/ambil_kerja_a3/')?>" method="post">
   <input type="hidden" name="id_order" value="<?= $b->id_order;?>">
   <input type="submit"  style="margin-bottom:2%;"class="btn btn-sm btn-primary" value="Ambil Pekerjaan">
 </form>
                   
-                  <a class="btn btn-sm btn-primary" href="<?= base_url('Spk/cetak_spk/'). $b->id_order;?>">Cetak SPK</td>
+                  <a class="btn btn-sm btn-primary" style="margin-right: 2%;" href="<?= base_url('Spk/cetak_spk/'). $b->id_order;?>">Cetak SPK</a>
+                           <a href="<?= base_url('Spk/download/'). $b->file;?>"  class="btn btn-sm btn-primary" value="Download Data">Download Data</a>
+                      </td>
             </tr>
         <?php }?>
         </tbody>

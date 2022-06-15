@@ -34,6 +34,7 @@ class Beranda extends CI_Controller
   public function index()
   {
     $data['total_order'] = $this->Model_order->jumlahOrder();
+    $data['total_bulanan'] = $this->Model_order->getSumBulanan();
     $data['total_orderUnfinish'] = $this->Model_order->jumlahOrderUnfinish();
     $data['total_orderUrgent'] = $this->Model_order->jumlahOrderUrgent();
     $this->load->view('dashboard/_partials/header');
