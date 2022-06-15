@@ -4,12 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller{
 
 	function __construct(){
-		parent::__construct();		
+		parent::__construct();	
+		 
 		$this->load->model('Login_model');
 
 	}
 
 	function index(){
+		if($this->session->userdata('status') == "admin"){
+      redirect(base_url("Beranda"));
+    }	
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('login');
 	}
