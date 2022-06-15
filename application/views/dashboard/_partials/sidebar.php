@@ -36,7 +36,11 @@
 <div class="sidebar-heading">
     Lorem Ipsum
 </div>
-
+<li class="nav-item">
+    <a class="nav-link" href="<?= base_url('Beranda/pembayaran');?>">
+        <i class="fas fa-fw fa-money-bill"></i>
+        <span>Pembayaran</span></a>
+</li>
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -117,6 +121,8 @@
 
         </div>
     </div>
+
+
 </li>
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi"
@@ -127,7 +133,7 @@
     <div id="transaksi" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">Data Transaksi</a>
+            <a class="collapse-item" href="">Data Transaksi</a>
 
         </div>
     </div>
@@ -141,7 +147,7 @@
     <div id="laporan" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">Arus Gudang</a>
+            <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Arus Gudang</a>
 
         </div>
     </div>
@@ -177,6 +183,7 @@
     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url('Master/data_bahan');?>">Data Bahan</a>
+            <a class="collapse-item" href="<?= base_url('Master/rekening');?>">Data Rekening</a>
             <a class="collapse-item" href="<?= base_url('Master/karyawan');?>">Karyawan</a>
             <a class="collapse-item" href="<?= base_url('Master/konsumen');?>">Konsumen</a>
             <a class="collapse-item" href="<?= base_url('Master/kategori');?>">Kategori</a>

@@ -51,6 +51,14 @@ class Beranda extends CI_Controller
     $this->load->view('dashboard/_partials/footer');
   }
 
+  public function pembayaran()
+  {
+    $this->load->view('dashboard/_partials/header');
+    $this->load->view('dashboard/_partials/sidebar');
+    $this->load->view('dashboard/pembayaran');
+    $this->load->view('dashboard/_partials/footer');
+  }
+
 }
 
 

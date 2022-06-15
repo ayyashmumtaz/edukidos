@@ -8,6 +8,11 @@ class Master extends CI_Controller {
 		
 	}
 
+	public function data_bahan($value='')
+	{
+		// code...
+	}
+
 }
 
 /* End of file Master.php */
