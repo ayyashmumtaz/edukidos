@@ -6,7 +6,11 @@ class Produksi extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		 if($this->session->userdata('status') != "admin"){
+      redirect(base_url("Login"));
+    }
 		$this->load->model('Model_produksi');
+		$this->load->model('Model_spk');
 	}
 
 	public function index()
@@ -58,6 +62,23 @@ class Produksi extends CI_Controller {
 	$this->load->view('produksi/finishing', $data);				
 	$this->load->view('dashboard/_partials/footer');
 	}
+
+	function selesai_kerja(){
+
+	$id_order = $this->input->post('id_order');
+
+	$data = array(
+		'status' => 2,
+		);
+
+	$where = array(
+		'id_order' => $id_order
+	);
+
+	$this->Model_spk->update_order_produksi($where,$data,'orderan');
+	$this->session->set_flashdata('kerja_selesai', ' ');
+	redirect('Beranda');
+}
 
 
 }
