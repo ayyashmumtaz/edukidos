@@ -29,6 +29,11 @@
         <i class="fas fa-fw fa-book"></i>
         <span>Berita Acara</span></a>
 </li>
+<li class="nav-item">
+    <a class="nav-link" href="<?= site_url('Beranda/surat_jalan');?>">
+        <i class="fas fa-fw fa-book"></i>
+        <span>Surat Jalan</span></a>
+</li>
 <!-- Divider -->
 <hr class="sidebar-divider">
 
@@ -273,7 +278,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="btn btn-primary btn-sm mr-2 d-none d-lg-inline small"><?= $this->session->userdata('username');?></span>
+                                <span class="btn btn-primary btn-sm mr-2 d-none d-lg-inline small"><?php echo $this->session->userdata('username');?></span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

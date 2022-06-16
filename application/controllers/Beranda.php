@@ -27,7 +27,7 @@ class Beranda extends CI_Controller
     if($this->session->userdata('status') != "admin"){
       redirect(base_url("Login"));
     }
-
+    $this->load->model('Login_model');
     $this->load->model('Model_order');
   }
 
@@ -37,6 +37,7 @@ class Beranda extends CI_Controller
     $data['total_bulanan'] = $this->Model_order->getSumBulanan();
     $data['total_orderUnfinish'] = $this->Model_order->jumlahOrderUnfinish();
     $data['total_orderUrgent'] = $this->Model_order->jumlahOrderUrgent();
+
     $this->load->view('dashboard/_partials/header');
     $this->load->view('dashboard/_partials/sidebar');
     $this->load->view('dashboard/index', $data);
@@ -51,11 +52,20 @@ class Beranda extends CI_Controller
     $this->load->view('dashboard/_partials/footer');
   }
 
-  public function pembayaran()
+  public function surat_jalan()
   {
     $this->load->view('dashboard/_partials/header');
     $this->load->view('dashboard/_partials/sidebar');
-    $this->load->view('dashboard/pembayaran');
+    $this->load->view('dashboard/surat_jalan');
+    $this->load->view('dashboard/_partials/footer');
+  }
+
+  public function pembayaran()
+  {
+    $data['allPembayaran'] = $this->Model_order->getAllBayar()->result();;
+    $this->load->view('dashboard/_partials/header');
+    $this->load->view('dashboard/_partials/sidebar');
+    $this->load->view('dashboard/pembayaran', $data);
     $this->load->view('dashboard/_partials/footer');
   }
 

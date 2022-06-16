@@ -87,6 +87,18 @@ function get_kategori()
     $this->db->update($table,$data);
   }
 
+  public function getAllBayar()
+  {
+  $this->db->select('*');
+  $kategori = array('status_bayar' => 0);
+  $this->db->where($kategori);
+    $this->db->from('orderan');
+    $this->db->join('customer','customer.id = orderan.nama');
+    $this->db->join('kategori','orderan.kategori = kategori.id','LEFT');      
+    $query = $this->db->get();
+    return $query;
+}
+
 
 }
 

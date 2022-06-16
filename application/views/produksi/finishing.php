@@ -73,6 +73,7 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td><td>
+  <a href="<?= base_url('Spk/download/'). $b->file;?>" style="margin-bottom: 2%;"  class="btn btn-sm btn-primary" value="Download Data">Download Data</a>
 <form action="<?= base_url('produksi/selesai_kerja/')?>" method="post">
   <input type="hidden" name="id_order" value="<?=$b->id_order?>">
      <i class="fas fa-check"> <input type="submit" class="btn btn-sm btn-primary" value="Selesaikan"></i>

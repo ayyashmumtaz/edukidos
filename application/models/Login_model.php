@@ -7,6 +7,15 @@ class Login_model extends CI_Model {
 		return $this->db->get_where($table,$where);
 	}	
 	
+	public function getNamaUser()
+  {
+  	$name = $this->session->userdata('username');
+ 	 $this->db->select('*');
+ 	 $this->db->where('username', $name);
+    $this->db->from('user');  
+    $query = $this->db->get();
+    return $query->result_array();
+}
 
 }
 
