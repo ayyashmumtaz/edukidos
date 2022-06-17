@@ -33,7 +33,9 @@ class Order extends CI_Controller {
 		$tgl_order = $this->input->post('tgl_order');
 		$no_po = $this->input->post('no_po');
 		$urgensi = $this->input->post('urgensi');
+		$no_telp = $this->input->post('no_telp');
 		$nama = $this->input->post('nama');
+		$nama_kerja = $this->input->post('nama_kerja');
 		$kategori = $this->input->post('kategori');
 		$id_barang  = $this->input->post('id_barang');
 		$jumlah = $this->input->post('jumlah');
@@ -75,7 +77,9 @@ class Order extends CI_Controller {
 			'id_order' => $id_order,
 			'tgl_order' => $tgl_order,
 			'no_po' => $no_po,
+			'nama_kerja' => $nama_kerja,
 			'urgensi' => $urgensi,
+			'no_telp' => $no_telp,
 			'nama' => $nama,
 			'kategori' => $kategori,
 			'id_barang' => $id_barang,
