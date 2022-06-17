@@ -35,8 +35,11 @@ class Beranda extends CI_Controller
   {
     $data['total_order'] = $this->Model_order->jumlahOrder();
     $data['total_bulanan'] = $this->Model_order->getSumBulanan();
+    $data['total_harian'] = $this->Model_order->getSumToday();
     $data['total_orderUnfinish'] = $this->Model_order->jumlahOrderUnfinish();
     $data['total_orderUrgent'] = $this->Model_order->jumlahOrderUrgent();
+    $data['total_orderA3'] = $this->Model_order->jumlahOrderA3();
+    $data['total_orderIndoor'] = $this->Model_order->jumlahOrderIndoor();
 
     $this->load->view('dashboard/_partials/header');
     $this->load->view('dashboard/_partials/sidebar');
@@ -67,6 +70,15 @@ class Beranda extends CI_Controller
     $this->load->view('dashboard/_partials/header');
     $this->load->view('dashboard/_partials/sidebar');
     $this->load->view('dashboard/pembayaran', $data);
+    $this->load->view('dashboard/_partials/footer');
+  }
+
+  public function stok()
+  {
+    $data['allPembayaran'] = $this->Model_order->getAllStok()->result();
+    $this->load->view('dashboard/_partials/header');
+    $this->load->view('dashboard/_partials/sidebar');
+    $this->load->view('dashboard/stok', $data);
     $this->load->view('dashboard/_partials/footer');
   }
 
