@@ -3,9 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Gudang extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Model_gudang');
+	}
+
 	public function index()
 	{
-		
+	$this->load->view('dashboard/_partials/header');
+	$this->load->view('dashboard/_partials/sidebar');
+	$this->load->view('gudang/input');				
+	$this->load->view('dashboard/_partials/footer');
+
 	}
 
 	public function barang_masuk()
