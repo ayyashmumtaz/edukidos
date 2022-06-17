@@ -6,7 +6,8 @@ class Model_order extends CI_Model {
   public function getSumBulanan()
     {
         $this->db->select_sum('harga_bahan');
-        $this->db->where('MONTH(tgl_order)', date('m'));
+        $array = array('MONTH(tgl_order)' => date('m'), 'status_bayar' => 1);
+        $this->db->where($array);
         $query = $this->db->get('orderan');
         if ($query->num_rows() > 0) {
             return $query->row()->harga_bahan;

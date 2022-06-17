@@ -10,7 +10,7 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Status Urgensi</th>
+               
                 <th>Nama Customer</th>
                 
                 <th>Tanggal Order</th>
@@ -24,18 +24,8 @@
             foreach($allPembayaran as $b){
             ?>
             <tr>
-              <td><?php
-$favcolor = $b->urgensi;
-
-switch ($favcolor) {
-  case "1":
-    echo "<button class='btn btn-sm btn-danger'>SEGERA DIKERJAKAN</button>";
-    break;
-  default:
-    echo "Tidak";
-}
-?></td>
-                <td><?= $b->nama?></td>
+    
+                <td><a href="<?= base_url('cek_bayar/').$b->nama;?>"><?= $b->nama_customer?></a></td>
                   
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
