@@ -57,7 +57,7 @@ Swal.fire({
            <select class="form-control" name="nama">
             <option selected disabled>-- PILIH CUSTOMER --</option>
                   <?php foreach($customer as $i){ ?>
-                  <option value="<?php echo $i['id']; ?>"><?php echo $i['nama']; ?></option>
+                  <option value="<?php echo $i['id']; ?>"><?php echo $i['nama_customer']; ?></option>
                   <?php } ?></select><a style="margin-top:6px;" class="btn btn-primary btn-sm" href="">Tambah Customer Baru</a>
 
         </div>
