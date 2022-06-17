@@ -159,12 +159,12 @@
 </li>
 
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="<?= base_url('Beranda/datang_barang');?>">
         <i class="fas fa-fw fa-truck"></i>
         <span>Kedatangan Barang</span></a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="<?= base_url('Beranda/stok');?>">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Stok Barang</span></a>
 </li>

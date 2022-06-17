@@ -10,6 +10,7 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
+                <th>Nama Pekerjaan</th>
                 <th>Nama Customer</th>
                 <th>Kategori</th>
                 <th>Tanggal Order</th>
@@ -24,8 +25,8 @@
             foreach($orderMasuk as $b){
             ?>
             <tr>
-      
-                <td><?= $b->nama?></td>
+                <td><?= $b->nama_kerja?></td>
+                <td><?= $b->nama_customer?></td>
                   <td><?= $b->nama_kategori?></td>
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
@@ -62,7 +63,7 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td><td>
-                             <a href="<?= base_url('beranda/input_surat_jalan/'). $b->id_order;?>" style=""  class="btn btn-sm btn-primary">Input Surat Jalan</a>
+                             <a href="<?= base_url('Beranda/input_surat_jalan/'). $b->id_order;?>" style=""  class="btn btn-sm btn-primary">Input Surat Jalan</a>
 
   
 </td>

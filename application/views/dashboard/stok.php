@@ -6,7 +6,6 @@
 
 
 <div class="container">
-    <h3>Satuan Barang</h3>
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>

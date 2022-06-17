@@ -23,7 +23,7 @@ Swal.fire({
         <?php endif ?>
 <div class="container">
    <hr>
-         <h5>Data Customer & Urgensi</h5>
+         <h5>Data Pemesanan</h5>
          <hr>
          <form action="<?= base_url('Order/tambah_order');?>" method="post" enctype="multipart/form-data">
    <div class="row">
@@ -84,15 +84,6 @@ Swal.fire({
          <hr>
 
    <div class="row">
-     <div class="col-md-3">
-        <div class="form-group">
-          <label for="last">Nama Pekerjaan</label>
-          <input type="text" name="nama_kerja" class="form-control">
-        </div>
-      
-        
-
-      </div>
 
         <div class="col-md-3">
         <div class="form-group">

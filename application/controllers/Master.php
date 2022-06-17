@@ -39,6 +39,14 @@ class Master extends CI_Controller {
 	$this->load->view('master/konsumen', $data);				
 	$this->load->view('dashboard/_partials/footer');	}
 
+	public function karyawan()
+	{
+	$data['orderMasuk'] = $this->Model_master->getKaryawan()->result();;
+	$this->load->view('dashboard/_partials/header');
+	$this->load->view('dashboard/_partials/sidebar');
+	$this->load->view('master/karyawan', $data);				
+	$this->load->view('dashboard/_partials/footer');	}
+
 	public function kategori()
 	{
 	$data['orderMasuk'] = $this->Model_master->getKategori()->result();;

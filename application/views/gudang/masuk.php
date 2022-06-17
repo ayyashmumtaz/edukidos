@@ -10,12 +10,13 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Status Urgensi</th>
-                <th>Nama Customer</th>
-                
                 <th>Tanggal Order</th>
+                <th>Tanggal Datang</th>
+                
+                <th>Nama Barang</th>
                 <th>Qty</th>
-                <th>Status Bayar</th>
+                <th>Harga Barang</th>
+                <th>Total Harga</th>
                 <th>Action</th>
             </tr>
         </thead>
