@@ -45,8 +45,13 @@ Swal.fire({
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Pendapatan Hari Ini</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. </div>
+                                                Pendapatan Hari Ini (<?php echo date('d-m-y'); ?>)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php if ($total_harian == 0) {
+                                                echo 'Rp. 0';
+                                            } else {
+                                               $hasil_rupiah = "Rp. " . number_format($total_harian,0,',','.'); echo $hasil_rupiah;
+                                            }
+                                              ?></div>
                                         </div>
                                         <div class="col-auto">
                                         </div>
@@ -66,7 +71,9 @@ Swal.fire({
     $dateObj = DateTime::createFromFormat('!m', $monthNum);
     $monthName = $dateObj->format('F');
     echo $monthName; ?>)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php $hasil_rupiah = "Rp. " . number_format($total_bulanan,0,',','.'); echo $hasil_rupiah; ?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php if ($total_bulanan == 0) {
+                                                echo 'Rp. 0';
+                                            } else { $hasil_rupiah = "Rp. " . number_format($total_bulanan,0,',','.'); echo $hasil_rupiah; } ?></div>
                                         </div>
                                         <div class="col-auto">
                                         </div>
@@ -155,6 +162,48 @@ Swal.fire({
                                 </div>
                             </div>
                         </div>
+                          <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Orderan A3
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $total_orderA3; ?></div>
+                                                </div>
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Orderan Indoor
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $total_orderIndoor; ?></div>
+                                                </div>
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
 
                         <!-- Pending Requests Card Example -->
