@@ -16,6 +16,19 @@ class Model_order extends CI_Model {
         }
     }
 
+    public function getSumToday()
+    {
+        $this->db->select_sum('harga_bahan');
+        $array = array('tgl_order' => date('y-m-d'), 'status_bayar' => 1);
+        $this->db->where($array);
+        $query = $this->db->get('orderan');
+        if ($query->num_rows() > 0) {
+            return $query->row()->harga_bahan;
+        } else {
+            return 0;
+        }
+    }
+
 	public function jumlahOrder()
 {   
     $query = $this->db->get('orderan');
@@ -63,6 +76,43 @@ public function jumlahOrderUrgent()
     }
 }
 
+public function jumlahOrderA3()
+  {
+    $this->db->select('*');
+    $kategori = array('kategori'=> 1, 'status' => 2);
+    $this->db->where($kategori);
+    $this->db->from('orderan'); 
+    $query = $this->db->get();
+    
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+}
+
+public function jumlahOrderIndoor()
+  {
+    $this->db->select('*');
+    $kategori = array('kategori'=> 2, 'status' => 2);
+    $this->db->where($kategori);
+    $this->db->from('orderan'); 
+    $query = $this->db->get();
+    
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+}
+
+
 public function finishedJob()
   {
     $this->db->select('*');
@@ -101,6 +151,18 @@ function get_kategori()
   }
 
   public function getAllBayar()
+  {
+  $this->db->select('*');
+  $kategori = array('status_bayar' => 0);
+  $this->db->where($kategori);
+    $this->db->from('orderan');
+    $this->db->join('customer','customer.id = orderan.nama');
+    $this->db->join('kategori','orderan.kategori = kategori.id','LEFT');      
+    $query = $this->db->get();
+    return $query;
+}
+
+public function getAllStok()
   {
   $this->db->select('*');
   $kategori = array('status_bayar' => 0);
