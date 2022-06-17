@@ -54,15 +54,16 @@ class Beranda extends CI_Controller
 
   public function surat_jalan()
   {
+    $data['orderMasuk'] = $this->Model_order->finishedJob()->result();;
     $this->load->view('dashboard/_partials/header');
     $this->load->view('dashboard/_partials/sidebar');
-    $this->load->view('dashboard/surat_jalan');
+    $this->load->view('dashboard/surat_jalan', $data);
     $this->load->view('dashboard/_partials/footer');
   }
 
   public function pembayaran()
   {
-    $data['allPembayaran'] = $this->Model_order->getAllBayar()->result();;
+    $data['allPembayaran'] = $this->Model_order->getAllBayar()->result();
     $this->load->view('dashboard/_partials/header');
     $this->load->view('dashboard/_partials/sidebar');
     $this->load->view('dashboard/pembayaran', $data);

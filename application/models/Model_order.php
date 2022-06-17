@@ -62,6 +62,18 @@ public function jumlahOrderUrgent()
     }
 }
 
+public function finishedJob()
+  {
+    $this->db->select('*');
+    $kategori = array('status_bayar'=> 1, 'status' => 2);
+    $this->db->where($kategori);
+    $this->db->from('orderan');
+    $this->db->join('customer','customer.id = orderan.nama');   
+     $this->db->join('kategori','orderan.kategori = kategori.id','LEFT');      
+    $query = $this->db->get();
+    return $query;
+}
+
 
 function get_customer()
 	{
