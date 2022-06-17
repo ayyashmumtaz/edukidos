@@ -19,6 +19,30 @@ public function getRekening()
     $query = $this->db->get();
     return $query;
 }
+
+public function getKaryawan()
+	{
+	$this->db->select('*');
+    $this->db->from('user'); 
+    $query = $this->db->get();
+    return $query;
+}
+
+public function getKonsumen()
+	{
+	$this->db->select('*');
+    $this->db->from('customer'); 
+    $query = $this->db->get();
+    return $query;
+}
+
+public function getKategori()
+	{
+	$this->db->select('*');
+    $this->db->from('kategori'); 
+    $query = $this->db->get();
+    return $query;
+}
 	
 
 }
