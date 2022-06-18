@@ -6,6 +6,10 @@ class Master extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		 $status = $this->session->userdata('role');
+    if(!isset($status)){
+      redirect(base_url("Login"));
+    }
 		$this->load->model('Model_master');
 	}
 

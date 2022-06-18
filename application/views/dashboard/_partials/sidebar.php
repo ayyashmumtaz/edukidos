@@ -14,11 +14,15 @@
 <hr class="sidebar-divider my-0">
 
 <!-- Nav Item - Dashboard -->
+  <?php if($this->session->userdata('role') == 1): ?>
+
 <li class="nav-item">
     <a class="nav-link" href="<?= base_url('');?>">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
+ 
+
 <li class="nav-item">
     <a class="nav-link" href="<?= site_url('Order/input_order');?>">
         <i class="fas fa-fw fa-plus"></i>
@@ -34,18 +38,24 @@
         <i class="fas fa-fw fa-book"></i>
         <span>Surat Jalan</span></a>
 </li>
-<!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">
-    Lorem Ipsum
-</div>
 <li class="nav-item">
     <a class="nav-link" href="<?= base_url('Beranda/pembayaran');?>">
         <i class="fas fa-fw fa-money-bill"></i>
         <span>Pembayaran</span></a>
 </li>
+ <?php endif ?>
+<!-- Divider -->
+  <?php if($this->session->userdata('role') == 1): ?>
+
+<hr class="sidebar-divider">
+
+<!-- Heading -->
+<div class="sidebar-heading">
+    SPK
+</div>
+
+
+
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -64,8 +74,33 @@
         </div>
     </div>
 </li>
+<?php endif?>
 
+  <?php if($this->session->userdata('role') == 3): ?>
+
+
+
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-box"></i>
+        <span>Gudang</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" href="<?= site_url('Gudang');?>">Order Gudang</a>
+            <a class="collapse-item" href="<?= site_url('Gudang/barang_masuk');?>">Barang Masuk</a>
+            <a class="collapse-item" href="<?= site_url('Gudang/barang_keluar');?>">Barang Keluar</a>
+            <a class="collapse-item" href="<?= site_url('Gudang/barang_retur');?>">Retur Barang</a>
+
+        </div>
+    </div>
+</li>
+<?php endif?>
 <!-- Nav Item - Utilities Collapse Menu -->
+ <?php if($this->session->userdata('role') == 2): ?>
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
@@ -87,27 +122,7 @@
     </div>
 </li>
 
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#rekapHarian"
-        aria-expanded="true" aria-controls="rekapHarian">
-        <i class="fas fa-fw fa-calendar"></i>
-        <span>Rekap Harian</span>
-    </a>
-    <div id="rekapHarian" class="collapse" aria-labelledby="headingUtilities"
-        data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('Rekap/a3');?>">A3</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/indoor');?>">INDOOR</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/outdoor');?>">OUTDOOR</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/cutting');?>">CUTTING</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/finishing');?>">FINISHING</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/lain_lain');?>">LAIN - LAIN</a>
-
-
-        </div>
-    </div>
-</li>
-<li class="nav-item">
+    <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produksi"
         aria-expanded="true" aria-controls="produksi">
         <i class="fas fa-fw fa-pen"></i>
@@ -129,6 +144,29 @@
 
 
 </li>
+<?php endif?>
+  <?php if($this->session->userdata('role') == 1): ?>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#rekapHarian"
+        aria-expanded="true" aria-controls="rekapHarian">
+        <i class="fas fa-fw fa-calendar"></i>
+        <span>Rekap Harian</span>
+    </a>
+    <div id="rekapHarian" class="collapse" aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('Rekap/a3');?>">A3</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/indoor');?>">INDOOR</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/outdoor');?>">OUTDOOR</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/cutting');?>">CUTTING</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/finishing');?>">FINISHING</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/lain_lain');?>">LAIN - LAIN</a>
+
+
+        </div>
+    </div>
+</li>
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi"
         aria-expanded="true" aria-controls="transaksi">
@@ -158,6 +196,61 @@
     </div>
 </li>
 
+<?php endif?>
+
+ <?php if($this->session->userdata('role') == 4): ?>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#rekapHarian"
+        aria-expanded="true" aria-controls="rekapHarian">
+        <i class="fas fa-fw fa-calendar"></i>
+        <span>Rekap Harian</span>
+    </a>
+    <div id="rekapHarian" class="collapse" aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('Rekap/a3');?>">A3</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/indoor');?>">INDOOR</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/outdoor');?>">OUTDOOR</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/cutting');?>">CUTTING</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/finishing');?>">FINISHING</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/lain_lain');?>">LAIN - LAIN</a>
+
+
+        </div>
+    </div>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi"
+        aria-expanded="true" aria-controls="transaksi">
+        <i class="fas fa-fw fa-money-bill"></i>
+        <span>Transaksi</span>
+    </a>
+    <div id="transaksi" class="collapse" aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="">Data Transaksi</a>
+
+        </div>
+    </div>
+</li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#laporan"
+        aria-expanded="true" aria-controls="laporan">
+        <i class="fas fa-fw fa-chart-line"></i>
+        <span>Laporan</span>
+    </a>
+    <div id="laporan" class="collapse" aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Arus Gudang</a>
+
+        </div>
+    </div>
+</li>
+
+<?php endif?>
+<?php if($this->session->userdata('role') == 1): ?>
 <li class="nav-item">
     <a class="nav-link" href="<?= base_url('Beranda/datang_barang');?>">
         <i class="fas fa-fw fa-truck"></i>
@@ -168,6 +261,23 @@
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Stok Barang</span></a>
 </li>
+
+<?php endif?>
+
+<?php if($this->session->userdata('role') == 3): ?>
+<li class="nav-item">
+    <a class="nav-link" href="<?= base_url('Beranda/datang_barang');?>">
+        <i class="fas fa-fw fa-truck"></i>
+        <span>Kedatangan Barang</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="<?= base_url('Beranda/stok');?>">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Stok Barang</span></a>
+</li>
+
+<?php endif?>
+  <?php if($this->session->userdata('role') == 1): ?>
 
 <!-- Divider -->
 <hr class="sidebar-divider">
@@ -195,7 +305,7 @@
         </div>
     </div>
 </li>
-
+<?php endif?>
 <!-- Nav Item - Charts -->
 
 
@@ -278,7 +388,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="btn btn-primary btn-sm mr-2 d-none d-lg-inline small"><?php echo $this->session->userdata('username');?></span>
+                                <span class="btn btn-primary btn-sm mr-2 d-none d-lg-inline small"><?php echo $this->session->userdata('nama');?></span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

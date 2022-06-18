@@ -7,13 +7,12 @@ class Login extends CI_Controller{
 		parent::__construct();	
 		 
 		$this->load->model('Login_model');
+		
 
 	}
 
 	function index(){
-		if($this->session->userdata('status') == "admin"){
-      redirect(base_url("Beranda"));
-    }	
+		$status = $this->session->userdata('role');
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('login');
 	}
@@ -21,31 +20,38 @@ class Login extends CI_Controller{
 	function aksi_login(){
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
-		$where = array(
+		$data = array(
 			'username' => $username,
 			'password' => $password
 			);
-		$cek = $this->Login_model->cek_login("user",$where)->num_rows();
-		if($cek == 1){
+	$hasil = $this->Login_model->cek_login($data);
+	if ($hasil->num_rows() == 1) {
 
-			$data_session = array(
-				'username' => $username,
-				'nama' => $nama,
-				'status' => "admin"
-				);
-
-			$this->session->set_userdata($data_session);
-
-
+		foreach ($hasil->result() as $sess) {
+		$sess_data['logged_in'] = 'Sudah Login';
+		$sess_data['nama'] = $sess->nama;
+		$sess_data['username'] = $sess->username;
+		$sess_data['role'] = $sess->role;
+		$this->session->set_userdata($sess_data);
+		}
+	$status = $this->session->userdata('role');
+	if ($status == 1) 
+		 {
 			$this->session->set_flashdata('login_berhasil', ' ');
 			redirect(base_url("Beranda"));
-			
-
-		}else{
-			$this->session->set_flashdata('login_gagal', ' ');
-			redirect(base_url("Login"));
+		}elseif ($status == 2) {
+			$this->session->set_flashdata('login_berhasil', ' ');
+			redirect(base_url("Spk/a3"));
+		}elseif ($status == 3) {
+			$this->session->set_flashdata('login_berhasil', ' ');
+			redirect(base_url("Gudang"));
+		}elseif ($status == 4) {
+			$this->session->set_flashdata('login_berhasil', ' ');
+			redirect(base_url("Spk/a3"));
 		}
 	}
+}
+	
 
 	function logout(){
 		$this->session->sess_destroy();

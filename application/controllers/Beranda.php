@@ -23,17 +23,22 @@ class Beranda extends CI_Controller
     
   function __construct(){
     parent::__construct();
-  
-    if($this->session->userdata('status') != "admin"){
+    $status = $this->session->userdata('role');
+    if(!isset($status)){
       redirect(base_url("Login"));
     }
+
     $this->load->model('Login_model');
     $this->load->model('Model_order');
   }
 
   public function index()
   {
-    $data['total_order'] = $this->Model_order->jumlahOrder();
+    $status = $this->session->userdata('role');
+    if($status != 1){
+    redirect(base_url("Login"));
+    }
+      $data['total_order'] = $this->Model_order->jumlahOrder();
     $data['total_bulanan'] = $this->Model_order->getSumBulanan();
     $data['total_harian'] = $this->Model_order->getSumToday();
     $data['total_orderUnfinish'] = $this->Model_order->jumlahOrderUnfinish();
@@ -45,7 +50,9 @@ class Beranda extends CI_Controller
     $this->load->view('dashboard/_partials/sidebar');
     $this->load->view('dashboard/index', $data);
     $this->load->view('dashboard/_partials/footer');
-  }
+    }
+   
+  
 
   public function berita_acara()
   {
