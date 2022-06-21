@@ -145,6 +145,53 @@
 
 </li>
 <?php endif?>
+
+ <?php if($this->session->userdata('role') == 1): ?>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+        aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-fw fa-wrench"></i>
+        <span>SPK</span>
+    </a>
+    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= site_url('Spk/a3');?>">A3</a>
+            <a class="collapse-item" href="<?= site_url('Spk/indoor');?>">INDOOR</a>
+            <a class="collapse-item" href="<?= site_url('Spk/outdoor');?>">OUTDOOR</a>
+            <a class="collapse-item" href="<?= site_url('Spk/cutting');?>">CUTTING</a>
+            <a class="collapse-item" href="<?= site_url('Spk/finishing');?>">FINISHING</a>
+            <a class="collapse-item" href="<?= site_url('Spk/lain_lain');?>">LAIN - LAIN</a>
+
+
+        </div>
+    </div>
+</li>
+
+    <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produksi"
+        aria-expanded="true" aria-controls="produksi">
+        <i class="fas fa-fw fa-pen"></i>
+        <span>Produksi</span>
+    </a>
+    <div id="produksi" class="collapse" aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('Produksi/a3');?>">A3</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/indoor');?>">INDOOR</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/outdoor');?>">OUTDOOR</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/cutting');?>">CUTTING</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/finishing');?>">FINISHING</a>
+            <a class="collapse-item" href="<?= base_url('Produksi/lain_lain');?>">LAIN - LAIN</a>
+
+
+        </div>
+    </div>
+
+
+</li>
+<?php endif?>
+
   <?php if($this->session->userdata('role') == 1): ?>
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#rekapHarian"

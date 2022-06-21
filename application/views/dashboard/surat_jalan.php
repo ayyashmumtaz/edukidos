@@ -63,7 +63,9 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td><td>
-                             <a href="<?= base_url('Beranda/input_surat_jalan/'). $b->id_order;?>" style=""  class="btn btn-sm btn-primary">Input Surat Jalan</a>
+                             <a href="<?= base_url('Beranda/input_surat_jalan/'). $b->id_order;?>" style="margin-bottom: 2%;"  class="btn btn-sm btn-primary">Input Surat Jalan</a>
+
+                                <a href="<?= base_url('Beranda/input_surat_jalan/'). $b->id_order;?>" style=""  class="btn btn-sm btn-success">Cetak Invoice</a>
 
   
 </td>
