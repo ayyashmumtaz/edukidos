@@ -111,6 +111,23 @@ public function jumlahOrderIndoor()
       return 0;
     }
 }
+public function jumlahOrderOutdoor()
+  {
+    $this->db->select('*');
+    $kategori = array('kategori'=> 3, 'status' => 2);
+    $this->db->where($kategori);
+    $this->db->from('orderan'); 
+    $query = $this->db->get();
+    
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+}
 
 
 public function finishedJob()

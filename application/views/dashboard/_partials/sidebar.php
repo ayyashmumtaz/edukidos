@@ -113,9 +113,6 @@
             <a class="collapse-item" href="<?= site_url('Spk/a3');?>">A3</a>
             <a class="collapse-item" href="<?= site_url('Spk/indoor');?>">INDOOR</a>
             <a class="collapse-item" href="<?= site_url('Spk/outdoor');?>">OUTDOOR</a>
-            <a class="collapse-item" href="<?= site_url('Spk/cutting');?>">CUTTING</a>
-            <a class="collapse-item" href="<?= site_url('Spk/finishing');?>">FINISHING</a>
-            <a class="collapse-item" href="<?= site_url('Spk/lain_lain');?>">LAIN - LAIN</a>
 
 
         </div>
@@ -134,9 +131,7 @@
             <a class="collapse-item" href="<?= base_url('Produksi/a3');?>">A3</a>
             <a class="collapse-item" href="<?= base_url('Produksi/indoor');?>">INDOOR</a>
             <a class="collapse-item" href="<?= base_url('Produksi/outdoor');?>">OUTDOOR</a>
-            <a class="collapse-item" href="<?= base_url('Produksi/cutting');?>">CUTTING</a>
-            <a class="collapse-item" href="<?= base_url('Produksi/finishing');?>">FINISHING</a>
-            <a class="collapse-item" href="<?= base_url('Produksi/lain_lain');?>">LAIN - LAIN</a>
+    
 
 
         </div>
@@ -159,9 +154,7 @@
             <a class="collapse-item" href="<?= site_url('Spk/a3');?>">A3</a>
             <a class="collapse-item" href="<?= site_url('Spk/indoor');?>">INDOOR</a>
             <a class="collapse-item" href="<?= site_url('Spk/outdoor');?>">OUTDOOR</a>
-            <a class="collapse-item" href="<?= site_url('Spk/cutting');?>">CUTTING</a>
-            <a class="collapse-item" href="<?= site_url('Spk/finishing');?>">FINISHING</a>
-            <a class="collapse-item" href="<?= site_url('Spk/lain_lain');?>">LAIN - LAIN</a>
+        
 
 
         </div>
@@ -180,9 +173,7 @@
             <a class="collapse-item" href="<?= base_url('Produksi/a3');?>">A3</a>
             <a class="collapse-item" href="<?= base_url('Produksi/indoor');?>">INDOOR</a>
             <a class="collapse-item" href="<?= base_url('Produksi/outdoor');?>">OUTDOOR</a>
-            <a class="collapse-item" href="<?= base_url('Produksi/cutting');?>">CUTTING</a>
-            <a class="collapse-item" href="<?= base_url('Produksi/finishing');?>">FINISHING</a>
-            <a class="collapse-item" href="<?= base_url('Produksi/lain_lain');?>">LAIN - LAIN</a>
+           
 
 
         </div>
@@ -197,19 +188,15 @@
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#rekapHarian"
         aria-expanded="true" aria-controls="rekapHarian">
         <i class="fas fa-fw fa-calendar"></i>
-        <span>Rekap Harian</span>
+        <span>Finishing</span>
     </a>
     <div id="rekapHarian" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('Rekap/a3');?>">A3</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/indoor');?>">INDOOR</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/outdoor');?>">OUTDOOR</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/cutting');?>">CUTTING</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/finishing');?>">FINISHING</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/lain_lain');?>">LAIN - LAIN</a>
-
-
+            <a class="collapse-item" href="<?= base_url('Rekap/a3');?>">CUTTING</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/indoor');?>">SEAMING</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/outdoor');?>">JILID</a>
+            <a class="collapse-item" href="<?= base_url('Rekap/cutting');?>">PACKING</a>
         </div>
     </div>
 </li>
