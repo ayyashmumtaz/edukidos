@@ -47,23 +47,8 @@ class Produksi extends CI_Controller {
 	$this->load->view('dashboard/_partials/footer');
 	}
 
-	public function cutting()
-	{
-	$data['orderMasuk'] = $this->Model_produksi->getCetakCutting()->result();;
-	$this->load->view('dashboard/_partials/header');
-	$this->load->view('dashboard/_partials/sidebar');
-	$this->load->view('produksi/cutting', $data);				
-	$this->load->view('dashboard/_partials/footer');
-	}
 
-	public function finishing()
-	{
-	$data['orderMasuk'] = $this->Model_produksi->getCetakFinishing()->result();;
-	$this->load->view('dashboard/_partials/header');
-	$this->load->view('dashboard/_partials/sidebar');
-	$this->load->view('produksi/finishing', $data);				
-	$this->load->view('dashboard/_partials/footer');
-	}
+
 
 	function selesai_kerja(){
 

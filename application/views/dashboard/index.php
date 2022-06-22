@@ -90,7 +90,7 @@ Swal.fire({
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $total_orderUnfinish; ?></div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $total_orderFinish; ?></div>
                                                 </div>
                                               
                                             </div>
@@ -111,7 +111,7 @@ Swal.fire({
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $total_orderUnfinish; ?></div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $total_orderComplain; ?></div>
                                                 </div>
                                               
                                             </div>

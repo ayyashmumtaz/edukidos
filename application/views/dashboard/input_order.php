@@ -151,16 +151,13 @@ Swal.fire({
       <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Finishing</label>
-          <select onchange="yesnoCheck(this);" name="finishing">
-            <option value="Standar">Standar</option>
-            <option value="custom">Custom</option>
+          <select name="finishing">
+            <option value="0">Standar</option>
+            <option value="1">Cutting</option>
+            <option value="2">Seaming</option>
+            <option value="3">Jilid</option>
           </select>
         </div>
-      </div>
-       <div id="ifYes" style="display: none;" class="col-md-12">
-          <label for="last">Custom Finishing</label>
-          <br>
-          <textarea class="form-control" name="finishing"></textarea>
       </div>
          <div class="col-md-12">
           <label for="last">Note Order</label>
@@ -191,40 +188,6 @@ Swal.fire({
 <button class="btn btn-lg btn-primary">Submit</button>
 </div>
 </form>
-<script type="text/javascript">
-    $(document).ready(function(){
-             $('#kategori').on('input',function(){
-                 
-                var kode=$(this).val();
-                $.ajax({
-                    type : "POST",
-                    url  : "<?php echo base_url('index.php/pos/get_barang')?>",
-                    dataType : "JSON",
-                    data : {kode: kode},
-                    cache:false,
-                    success: function(data){
-                        $.each(data,function(kode, nama_barang, harga, satuan){
-                            $('[name="nama"]').val(data.nama_barang);
-                            $('[name="harga"]').val(data.harga);
-                            $('[name="satuan"]').val(data.satuan);
-                             
-                        });
-                         
-                    }
-                });
-                return false;
-           });
- 
-        });
-</script>
 
-<script type="text/javascript">
-   function yesnoCheck(that) {
-    if (that.value == "custom") {
-        document.getElementById("ifYes").style.display = "block";
-    } else {
-        document.getElementById("ifYes").style.display = "none";
-    }
-}
-</script>
+
 

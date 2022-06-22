@@ -66,7 +66,7 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="<?= site_url('Gudang');?>">Order Gudang</a>
+            <a class="collapse-item" href="<?= site_url('Gudang');?>">Input Order Gudang</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_masuk');?>">Barang Masuk</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_keluar');?>">Barang Keluar</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_retur');?>">Retur Barang</a>
@@ -90,7 +90,7 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="<?= site_url('Gudang');?>">Order Gudang</a>
+            <a class="collapse-item" href="<?= site_url('Gudang');?>">Input Order Gudang</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_masuk');?>">Barang Masuk</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_keluar');?>">Barang Keluar</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_retur');?>">Retur Barang</a>
@@ -182,6 +182,25 @@
 
 </li>
 <?php endif?>
+  <?php if($this->session->userdata('role') == 5): ?>
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#finishing"
+        aria-expanded="true" aria-controls="finishing">
+        <i class="fas fa-fw fa-calendar"></i>
+        <span>Finishing</span>
+    </a>
+    <div id="finishing" class="collapse" aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('Finishing/cutting');?>">CUTTING</a>
+            <a class="collapse-item" href="<?= base_url('Finishing/seaming');?>">SEAMING</a>
+            <a class="collapse-item" href="<?= base_url('Finishing/jilid');?>">JILID</a>
+            <a class="collapse-item" href="<?= base_url('Finishing/packing');?>">PACKING</a>
+        </div>
+    </div>
+</li>
+<?php endif?>
 
   <?php if($this->session->userdata('role') == 1): ?>
 <li class="nav-item">
@@ -193,10 +212,10 @@
     <div id="rekapHarian" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('Rekap/a3');?>">CUTTING</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/indoor');?>">SEAMING</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/outdoor');?>">JILID</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/cutting');?>">PACKING</a>
+            <a class="collapse-item" href="<?= base_url('Finishing/cutting');?>">CUTTING</a>
+            <a class="collapse-item" href="<?= base_url('Finishing/seaming');?>">SEAMING</a>
+            <a class="collapse-item" href="<?= base_url('Finishing/jilid');?>">JILID</a>
+            <a class="collapse-item" href="<?= base_url('Finishing/packing');?>">PACKING</a>
         </div>
     </div>
 </li>
@@ -210,7 +229,8 @@
     <div id="transaksi" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">Data Transaksi</a>
+            <a class="collapse-item" href="">Data Transaksi Order</a>
+            <a class="collapse-item" href="">Pembelian Gudang</a>
 
         </div>
     </div>
@@ -225,7 +245,7 @@
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Arus Gudang</a>
-
+            <a class="collapse-item" href="<?= base_url('Gudang/export');?>">Export Data</a>
         </div>
     </div>
 </li>
@@ -259,7 +279,9 @@
     <div id="transaksi" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">Data Transaksi</a>
+            <a class="collapse-item" href="">Data Transaksi Order</a>
+            <a class="collapse-item" href="">Pembelian Gudang</a>
+
 
         </div>
     </div>
@@ -274,7 +296,7 @@
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Arus Gudang</a>
-
+            <a class="collapse-item" href="<?= base_url('Gudang/export');?>">Export Data</a>
         </div>
     </div>
 </li>

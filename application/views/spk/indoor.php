@@ -12,7 +12,7 @@
             <tr>
                 <th>Status Urgensi</th>
                 <th>Nama Customer</th>
-                
+                <th>Nama Pekerjaan</th>
                 <th>Tanggal Order</th>
                 <th>Qty</th>
                 <th>Status Bayar</th>
@@ -36,7 +36,7 @@ switch ($favcolor) {
 }
 ?></td>
                 <td><?= $b->nama_customer?></td>
-                  
+                <td><?= $b->nama_kerja?></td>
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
                 <td><?php

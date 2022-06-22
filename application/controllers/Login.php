@@ -48,6 +48,9 @@ class Login extends CI_Controller{
 		}elseif ($status == 4) {
 			$this->session->set_flashdata('login_berhasil', ' ');
 			redirect(base_url("Spk/a3"));
+		}elseif ($status == 5) {
+			$this->session->set_flashdata('login_berhasil', ' ');
+			redirect(base_url("Finishing/cutting"));
 		}
 	}
 }

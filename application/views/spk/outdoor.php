@@ -12,7 +12,7 @@
             <tr>
                 <th>Status Urgensi</th>
                 <th>Nama Customer</th>
-                
+                <th>Nama Pekerjaan</th>
                 <th>Tanggal Order</th>
                 <th>Qty</th>
                 <th>Status Bayar</th>
@@ -35,8 +35,8 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td>
-                <td><?= $b->nama?></td>
-                  
+                <td><?= $b->nama_customer?></td>
+                <td><?= $b->nama_kerja?></td>
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
                 <td><?php
@@ -54,7 +54,7 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td>
-                   <td>
+                  <td>
 <form action="<?= base_url('Spk/ambil_kerja_a3/')?>" method="post">
   <input type="hidden" name="id_order" value="<?= $b->id_order;?>">
   <input type="submit"  style="margin-bottom:2%;"class="btn btn-sm btn-primary" value="Ambil Pekerjaan">
@@ -63,7 +63,6 @@ switch ($favcolor) {
                   <a class="btn btn-sm btn-primary" style="margin-right: 2%;" href="<?= base_url('Spk/cetak_spk/'). $b->id_order;?>">Cetak SPK</a>
                            <a href="<?= base_url('Spk/download/'). $b->file;?>"  class="btn btn-sm btn-primary" value="Download Data">Download Data</a>
                       </td>
-            </tr>
         <?php }?>
         </tbody>
        </table>

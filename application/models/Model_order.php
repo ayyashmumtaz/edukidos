@@ -59,6 +59,40 @@ public function jumlahOrderUnfinish()
     }
 }
 
+public function jumlahOrderFinish()
+{   
+    $this->db->select('*');
+  $this->db->from('orderan');
+  $this->db->where('status', 2);
+  $query = $this->db->get();
+
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+}
+
+public function jumlahOrderComplain()
+{   
+    $this->db->select('*');
+  $this->db->from('orderan');
+  $this->db->where('status', 4);
+  $query = $this->db->get();
+
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+}
+
 public function jumlahOrderUrgent()
 {   
     $this->db->select('*');

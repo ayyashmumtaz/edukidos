@@ -46,23 +46,6 @@ class Spk extends CI_Controller {
 	$this->load->view('dashboard/_partials/footer');
 	}
 
-	public function cutting()
-	{
-	$data['orderMasuk'] = $this->Model_spk->getReadyCutting()->result();;
-	$this->load->view('dashboard/_partials/header');
-	$this->load->view('dashboard/_partials/sidebar');
-	$this->load->view('spk/cutting', $data);				
-	$this->load->view('dashboard/_partials/footer');
-	}
-
-	public function finishing()
-	{
-	$data['orderMasuk'] = $this->Model_spk->getReadyFinishing()->result();;
-	$this->load->view('dashboard/_partials/header');
-	$this->load->view('dashboard/_partials/sidebar');
-	$this->load->view('spk/finishing', $data);				
-	$this->load->view('dashboard/_partials/footer');
-	}
 
 	function ambil_kerja_a3(){
 

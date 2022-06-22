@@ -6,7 +6,7 @@
 
 
 <div class="container">
-    <h3>SPK - A3</h3>
+    <h3>PRODUKSI - A3</h3>
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -37,7 +37,7 @@ switch ($favcolor) {
 }
 ?></td>
                 <td><?= $b->nama?></td>
-                  
+                )
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
                 <td><?php
