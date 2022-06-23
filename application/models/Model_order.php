@@ -225,6 +225,11 @@ public function getAllStok()
     return $query;
 }
 
+  function cari($id){
+        $query= $this->db->get_where('bahan',array('id_bahan'=>$id));
+        return $query;
+    }
+
 
 }
 

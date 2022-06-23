@@ -52,7 +52,13 @@ class Login extends CI_Controller{
 			$this->session->set_flashdata('login_berhasil', ' ');
 			redirect(base_url("Finishing/cutting"));
 		}
-	}
+	}else{
+			$this->session->set_flashdata('login_gagal', ' ');
+			redirect(base_url("Login"));
+		}
+		
+
+	
 }
 	
 

@@ -7,6 +7,7 @@
 
 <div class="container">
     <h3>Data Bahan Baku</h3>
+    <a class="btn btn-sm btn-success" href="<?= base_url('Master/tambah_bahan');?>">+ Tambah Bahan Baku</a>
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -25,15 +26,15 @@
             foreach($dataBahan as $b){
             ?>
             <tr>
-              <td><?php echo $b->id?></td>
+              <td><?php echo $b->id_bahan?></td>
                 <td><?= $b->nama_kategori?></td>
                   
                 <td><?=$b->nama_bahan?></td>
                 <td>1</td>
                 <td><?= $b->harga_jual?></td>
                 <td><?= $b->harga_beli?></td>
-                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/'). $b->id;?>">Edit</a>
-                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_bahan/'). $b->id;?>">Hapus</a></td>
+                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/'). $b->id_bahan;?>">Edit</a>
+                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_bahan/'). $b->id_bahan;?>">Hapus</a></td>
             </tr>
         <?php }?>
         </tbody>

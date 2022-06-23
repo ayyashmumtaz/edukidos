@@ -43,6 +43,11 @@ public function getKategori()
     $query = $this->db->get();
     return $query;
 }
+
+
+function edit_data_bahan($where,$table){      
+    return $this->db->get_where($table,$where);
+}
 	
 
 }

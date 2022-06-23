@@ -106,8 +106,8 @@ Swal.fire({
        <div class="col-md-3">
         <div class="form-group">
           <label for="last">Bahan Baku</label>
-          <select class="form-control" name="id_barang"><?php foreach($bahanBaku as $i){ ?>
-                  <option value="<?php echo $i['id']; ?>"><?php echo $i['nama_bahan']; ?></option>
+          <select class="form-control"  id="id" name="id_barang" onchange="return autofill();"><?php foreach($bahanBaku as $i){ ?>
+                  <option value="<?php echo $i['id_bahan']; ?>"><?php echo $i['nama_bahan']; ?></option>
                   <?php } ?></select>
         </div>
       </div>
@@ -131,7 +131,7 @@ Swal.fire({
          <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Panjang</label>
-          <input class="form-control" type="" name="panjang">
+          <input class="form-control" onchange="return autofill();" id="panjang" type="number" name="panjang">
            <small>Kosongkan jika bahan baku A3.</small>
         </div>
       </div>
@@ -139,13 +139,13 @@ Swal.fire({
       <div class="col-md-3">
         <div class="form-group">
           <label for="last">Lebar</label>
-          <input class="form-control" type="" name="lebar">
+          <input class="form-control" onchange="return autofill();" id="lebar" type="number" name="lebar">
         </div>
       </div>
       <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Jumlah Order</label>
-          <input class="form-control" type="number" min="1" value="1" name="jumlah">
+          <input class="form-control" onchange="return autofill();" id="jumlah" type="number" min="1" value="1" name="jumlah">
         </div>
       </div>
       <div class="col-md-3">       
@@ -172,8 +172,14 @@ Swal.fire({
   <div class="row">
      <div class="col-md-3">       
         <div class="form-group">
+          <label for="last">Biaya Cetak Satuan</label>
+          <input class="form-control" id="harga_jual" type="number" name="harga_bahan" readonly>
+        </div>
+      </div>
+     <div class="col-md-3">       
+        <div class="form-group">
           <label for="last">Biaya Cetak</label>
-          <input class="form-control" type="number" name="harga_bahan">
+          <input class="form-control" id="harga_jual_semua" type="number" name="harga_bahan" readonly>
         </div>
       </div>
 
@@ -190,4 +196,36 @@ Swal.fire({
 </form>
 
 
+<script>
+    function autofill(){
+        var id = document.getElementById('id').value;
+        $.ajax({
+                       url:"<?php echo base_url();?>/Order/cari",
+                       data:'&id='+id,
+                       success:function(data){
+                           var hasil = JSON.parse(data);  
+                      
+                     
+            $.each(hasil, function(key,val){ 
+                var panjang = parseInt(document.getElementById('panjang').value);
+                var lebar = parseInt(document.getElementById('lebar').value);
+                var jumlah = parseInt(document.getElementById('jumlah').value);
+                var hrgJual = parseInt(hasil[0].harga_jual);
 
+              
+                var totalUkuran = panjang+lebar;
+                var totalHargaSatuan =  totalUkuran*hrgJual;
+                var totalSemua = totalHargaSatuan*jumlah;
+                console.log(totalUkuran);
+                console.log(totalSemua);              
+
+                document.getElementById('harga_jual').value=totalHargaSatuan; 
+                document.getElementById('harga_jual_semua').value=totalSemua; 
+                                
+                     
+                });
+            }
+                   });
+                   
+    }
+</script>

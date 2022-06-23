@@ -11,6 +11,7 @@ class Master extends CI_Controller {
       redirect(base_url("Login"));
     }
 		$this->load->model('Model_master');
+		$this->load->model('Model_order');
 	}
 
 	public function index()
@@ -59,6 +60,20 @@ class Master extends CI_Controller {
 	$this->load->view('master/kategori', $data);				
 	$this->load->view('dashboard/_partials/footer');	}
 
+
+
+	public function edit_bahan($id_bahan){
+	
+	$data['kategori'] = $this->Model_order->get_kategori();
+
+	$where = array('id_bahan'=> $id_bahan);
+	$data['bahan'] = $this->Model_master->edit_data_bahan($where,'bahan')->result();
+	$this->load->view('dashboard/_partials/header');
+	$this->load->view('dashboard/_partials/sidebar');
+	$this->load->view('master/edit/edit_bahan', $data);				
+	$this->load->view('dashboard/_partials/footer');	}
+	
+		
 
 
 }

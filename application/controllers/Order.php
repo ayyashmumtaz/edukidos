@@ -105,8 +105,12 @@ class Order extends CI_Controller {
 	}
 }
 
+public function cari(){
+        $id = $this->input->get('id');
+        $cari = $this->Model_order->cari($id)->result();
+        echo json_encode($cari);
+    } 
 
-		
 
 	
 
