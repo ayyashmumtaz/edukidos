@@ -8,6 +8,16 @@ class Finishing extends CI_Controller {
 		
 	}
 
+	public function cutting()
+	{
+		// code...
+	}
+
+	public function seaming()
+	{
+		// code...
+	}
+
 }
 
 /* End of file Finishing.php */
