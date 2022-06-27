@@ -21,7 +21,7 @@ class Spk extends CI_Controller {
 
 	public function a3()
 	{
-	$data['orderMasuk'] = $this->Model_spk->getReadya3()->result();;
+	$data['orderMasuk'] = $this->Model_spk->getReadya3()->result();
 	$this->load->view('dashboard/_partials/header');
 	$this->load->view('dashboard/_partials/sidebar');
 	$this->load->view('spk/a3', $data);				
@@ -30,7 +30,7 @@ class Spk extends CI_Controller {
 
 	public function indoor()
 	{
-	$data['orderMasuk'] = $this->Model_spk->getReadyIndoor()->result();;
+	$data['orderMasuk'] = $this->Model_spk->getReadyIndoor()->result();
 	$this->load->view('dashboard/_partials/header');
 	$this->load->view('dashboard/_partials/sidebar');
 	$this->load->view('spk/indoor', $data);				
@@ -39,7 +39,7 @@ class Spk extends CI_Controller {
 
 	public function outdoor()
 	{
-	$data['orderMasuk'] = $this->Model_spk->getReadyOutdoor()->result();;
+	$data['orderMasuk'] = $this->Model_spk->getReadyOutdoor()->result();
 	$this->load->view('dashboard/_partials/header');
 	$this->load->view('dashboard/_partials/sidebar');
 	$this->load->view('spk/outdoor', $data);				
