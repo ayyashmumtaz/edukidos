@@ -1,3 +1,27 @@
+
+               <?php if($this->session->flashdata('kerja_selesai')): ?>
+             <script type="text/javascript">
+               let timerInterval
+Swal.fire({
+  title: 'Pembayaran Berhasil!',
+  html: 'Pembayaran berhasil, pekerjaan selesai!',
+  icon: 'success',
+  timer: 1500,
+  
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+
+})
+            </script>
+                    <?= $this->session->flashdata('kerja_selesai') ?>
+           
+        <?php endif ?>
+
 <script type="text/javascript">
     $(document).ready(function () {
     $('#example').DataTable();

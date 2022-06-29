@@ -245,6 +245,7 @@
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Arus Gudang</a>
+            <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Laporan Cetak</a>
             <a class="collapse-item" href="<?= base_url('Gudang/export');?>">Export Data</a>
         </div>
     </div>

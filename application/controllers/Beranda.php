@@ -92,6 +92,38 @@ class Beranda extends CI_Controller
     $this->load->view('dashboard/_partials/footer');
   }
 
+ public function input_surat_jalan($id_order){
+  
+  $data['kategori'] = $this->Model_order->get_kategori();
+
+  $where = array('id_order'=> $id_order);
+  $data['bahan'] = $this->Model_order->input_surat_jalan($where,'orderan')->result();
+  $this->load->view('dashboard/_partials/header');
+  $this->load->view('dashboard/_partials/sidebar');
+  $this->load->view('dashboard/input_surat_jalan', $data);       
+  $this->load->view('dashboard/_partials/footer');  
+
+  }
+
+
+  function update_surat_jalan(){
+  $id_surat = $this->input->post('id_surat');
+  $id_order = $this->input->post('id_order');
+  $plat_nomor = $this->input->post('plat_nomor');
+  $jenis_kendaraan = $this->input->post('jenis_kendaraan');
+
+  $data = array(
+    'id_surat' => $id_surat,
+    'id_order' => $id_order,
+    'jenis_kendaraan' => $jenis_kendaraan,
+    'plat_nomor' => $plat_nomor
+    );
+
+  $this->Model_order->input_data($data,'surat_jalan');
+  $this->session->set_flashdata('surat_berhasil', ' ');
+  redirect('Beranda/surat_jalan');
+}
+
 }
 
 

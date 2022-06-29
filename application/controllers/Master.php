@@ -72,6 +72,30 @@ class Master extends CI_Controller {
 	$this->load->view('dashboard/_partials/sidebar');
 	$this->load->view('master/edit/edit_bahan', $data);				
 	$this->load->view('dashboard/_partials/footer');	}
+
+	function update_bahan(){
+
+	$id_bahan = $this->input->post('id_bahan');
+	$id_kategori = $this->input->post('kategori');
+	$nama_bahan = $this->input->post('nama_bahan');
+	$harga_beli = $this->input->post('harga_beli');
+	$harga_jual = $this->input->post('harga_jual');
+
+	$data = array(
+		'harga_beli' => $harga_beli,
+		'nama_bahan' => $nama_bahan,
+		'harga_jual' => $harga_jual,
+		'id_kategori' => $id_kategori
+		);
+
+	$where = array(
+		'id_bahan' => $id_bahan
+	);
+
+	$this->Model_master->update_data($where,$data,'bahan');
+	$this->session->set_flashdata('update_berhasil', ' ');
+	redirect('Master/data_bahan');
+}
 	
 		
 

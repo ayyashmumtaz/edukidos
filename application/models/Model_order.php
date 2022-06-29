@@ -230,6 +230,15 @@ public function getAllStok()
         return $query;
     }
 
+    function suratJalan($id){
+        $query= $this->db->get_where('orderan',array('id_order'=>$id));
+        return $query;
+    }
+
+  function input_surat_jalan($where,$table){      
+   return $this->db->select('*')->from($table)->join('customer', 'customer.id=orderan.nama')->join('bahan', 'bahan.id_bahan=orderan.id_barang')->where($where)->get();
+}
+
 
 }
 

@@ -1,27 +1,4 @@
 
-               <?php if($this->session->flashdata('order_berhasil')): ?>
-             <script type="text/javascript">
-               let timerInterval
-Swal.fire({
-  title: 'Order Berhasil!',
-  html: 'Order telah di input, silahkan konfirmasi SPK!',
-  icon: 'success',
-  timer: 1500,
-  
-  didOpen: () => {
-    Swal.showLoading()
-    const b = Swal.getHtmlContainer().querySelector('b')
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-
-})
-            </script>
-                    <?= $this->session->flashdata('order_berhasil') ?>
-           
-        <?php endif ?>
-
 
   
 <div class="container">

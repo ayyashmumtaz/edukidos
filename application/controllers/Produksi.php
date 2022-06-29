@@ -68,6 +68,23 @@ class Produksi extends CI_Controller {
 }
 
 
+function konfirmasi_bayar(){
+
+	$id_order = $this->input->post('id_order');
+
+	$data = array(
+		'status_bayar' => 1,
+		);
+
+	$where = array(
+		'id_order' => $id_order
+	);
+
+	$this->Model_spk->update_order_produksi($where,$data,'orderan');
+	$this->session->set_flashdata('kerja_selesai', ' ');
+	redirect('Beranda/pembayaran');
+}
+
 }
 
 /* End of file Produksi.php */
