@@ -66,7 +66,7 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="<?= site_url('Gudang');?>">Input Order Gudang</a>
+            <a class="collapse-item" href="<?= site_url('Gudang');?>">Input Barang Masuk</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_masuk');?>">Barang Masuk</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_keluar');?>">Barang Keluar</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_retur');?>">Retur Barang</a>
@@ -90,7 +90,7 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="<?= site_url('Gudang');?>">Input Order Gudang</a>
+            <a class="collapse-item" href="<?= site_url('Gudang');?>">Input Barang Masuk</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_masuk');?>">Barang Masuk</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_keluar');?>">Barang Keluar</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_retur');?>">Retur Barang</a>
@@ -221,21 +221,6 @@
 </li>
 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi"
-        aria-expanded="true" aria-controls="transaksi">
-        <i class="fas fa-fw fa-money-bill"></i>
-        <span>Transaksi</span>
-    </a>
-    <div id="transaksi" class="collapse" aria-labelledby="headingUtilities"
-        data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">Data Transaksi Order</a>
-            <a class="collapse-item" href="">Pembelian Gudang</a>
-
-        </div>
-    </div>
-</li>
-<li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#laporan"
         aria-expanded="true" aria-controls="laporan">
         <i class="fas fa-fw fa-chart-line"></i>
@@ -246,7 +231,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Arus Gudang</a>
             <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Laporan Cetak</a>
-            <a class="collapse-item" href="<?= base_url('Gudang/export');?>">Export Data</a>
+            
         </div>
     </div>
 </li>
@@ -254,39 +239,44 @@
 <?php endif?>
 
  <?php if($this->session->userdata('role') == 4): ?>
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#rekapHarian"
-        aria-expanded="true" aria-controls="rekapHarian">
-        <i class="fas fa-fw fa-calendar"></i>
-        <span>Finishing</span>
-    </a>
-    <div id="rekapHarian" class="collapse" aria-labelledby="headingUtilities"
-        data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('Rekap/a3');?>">CUTTING</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/indoor');?>">SEAMING</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/outdoor');?>">JILID</a>
-            <a class="collapse-item" href="<?= base_url('Rekap/cutting');?>">PACKING</a>
-        </div>
-    </div>
+    <li class="nav-item">
+    <a class="nav-link" href="<?= site_url('Order/input_order');?>">
+        <i class="fas fa-fw fa-plus"></i>
+        <span>Input Order</span></a>
 </li>
-
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#transaksi"
-        aria-expanded="true" aria-controls="transaksi">
+    <a class="nav-link" href="<?= site_url('Beranda/berita_acara');?>">
+        <i class="fas fa-fw fa-book"></i>
+        <span>Berita Acara</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="<?= site_url('Beranda/surat_jalan');?>">
+        <i class="fas fa-fw fa-book"></i>
+        <span>Surat Jalan</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="<?= base_url('Beranda/pembayaran');?>">
         <i class="fas fa-fw fa-money-bill"></i>
-        <span>Transaksi</span>
+        <span>Pembayaran</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+        aria-expanded="true" aria-controls="collapsePages">
+        <i class="fas fa-fw fa-bars"></i>
+        <span>Master Data</span>
     </a>
-    <div id="transaksi" class="collapse" aria-labelledby="headingUtilities"
-        data-parent="#accordionSidebar">
+    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">Data Transaksi Order</a>
-            <a class="collapse-item" href="">Pembelian Gudang</a>
-
-
+            <a class="collapse-item" href="<?= base_url('Master/data_bahan');?>">Data Bahan</a>
+            <a class="collapse-item" href="<?= base_url('Master/rekening');?>">Data Rekening</a>
+            <a class="collapse-item" href="<?= base_url('Master/karyawan');?>">Karyawan</a>
+            <a class="collapse-item" href="<?= base_url('Master/konsumen');?>">Konsumen</a>
+            <a class="collapse-item" href="<?= base_url('Master/kategori');?>">Kategori</a>
         </div>
     </div>
 </li>
+
+
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#laporan"
         aria-expanded="true" aria-controls="laporan">
@@ -297,7 +287,7 @@
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Arus Gudang</a>
-            <a class="collapse-item" href="<?= base_url('Gudang/export');?>">Export Data</a>
+            
         </div>
     </div>
 </li>

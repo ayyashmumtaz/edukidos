@@ -11,13 +11,16 @@ class Gudang extends CI_Controller {
       redirect(base_url("Login"));
     }
 		$this->load->model('Model_gudang');
+		$this->load->model('Model_order');
 	}
 
 	public function index()
 	{
+			$data['bahanBaku'] = $this->Model_order->get_bahanBaku();
+
 	$this->load->view('dashboard/_partials/header');
 	$this->load->view('dashboard/_partials/sidebar');
-	$this->load->view('gudang/input');				
+	$this->load->view('gudang/input', $data);				
 	$this->load->view('dashboard/_partials/footer');
 
 	}

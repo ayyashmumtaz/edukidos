@@ -42,8 +42,8 @@
                         break;
                 }
             ?></td>
-                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/'). $b->id_user;?>">Edit</a>
-                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_bahan/'). $b->id_user;?>">Hapus</a></td>
+                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_karyawan/'). $b->id_user;?>">Edit</a>
+                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_karyawan/'). $b->id_user;?>">Hapus</a></td>
             </tr>
         <?php }?>
         </tbody>

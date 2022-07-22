@@ -6,30 +6,25 @@
 
 
 <div class="container">
-    <h3>Data Rekening</h3>
+    <h3>Data Kategori</h3>
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Atas Nama</th>
-                
-                <th>Nomor Rekening</th>
-                <th>Bank</th>
+                <th>Nama Kategori</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            foreach($rekening as $b){
+            foreach($kategori as $b){
             ?>
             <tr>
               <td><?php echo $b->id?></td>
-                <td><?= $b->atas_nama?></td>
-                  
-                <td><?=$b->norek?></td>
-                <td><?= $b->bank?></td>
-                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/'). $b->id;?>">Edit</a>
-                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_bahan/'). $b->id;?>">Hapus</a></td>
+                <td><?= $b->nama_kategori?></td>
+
+                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_kategori/'). $b->id;?>">Edit</a>
+                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_kategori/'). $b->id;?>">Hapus</a></td>
             </tr>
         <?php }?>
         </tbody>

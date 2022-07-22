@@ -70,7 +70,7 @@ class Produksi extends CI_Controller {
 
 function konfirmasi_bayar(){
 
-	$id_order = $this->input->post('id_order');
+	$id_order = $this->uri->segment(3);
 
 	$data = array(
 		'status_bayar' => 1,

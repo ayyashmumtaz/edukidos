@@ -152,7 +152,7 @@ Swal.fire({
         <div class="form-group">
           <label for="last">Finishing</label>
           <select name="finishing">
-            <option value="0">Standar</option>
+            <option value="0">Packing</option>
             <option value="1">Cutting</option>
             <option value="2">Seaming</option>
             <option value="3">Jilid</option>

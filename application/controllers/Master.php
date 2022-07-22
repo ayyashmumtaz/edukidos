@@ -38,7 +38,7 @@ class Master extends CI_Controller {
 
 	public function konsumen()
 	{
-	$data['orderMasuk'] = $this->Model_master->getKonsumen()->result();;
+	$data['konsumen'] = $this->Model_master->getKonsumen()->result();;
 	$this->load->view('dashboard/_partials/header');
 	$this->load->view('dashboard/_partials/sidebar');
 	$this->load->view('master/konsumen', $data);				
@@ -54,7 +54,7 @@ class Master extends CI_Controller {
 
 	public function kategori()
 	{
-	$data['orderMasuk'] = $this->Model_master->getKategori()->result();;
+	$data['kategori'] = $this->Model_master->getKategori()->result();;
 	$this->load->view('dashboard/_partials/header');
 	$this->load->view('dashboard/_partials/sidebar');
 	$this->load->view('master/kategori', $data);				

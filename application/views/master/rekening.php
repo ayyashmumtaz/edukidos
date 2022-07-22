@@ -28,8 +28,8 @@
                   
                 <td><?=$b->norek?></td>
                 <td><?= $b->bank?></td>
-                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/'). $b->id;?>">Edit</a>
-                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_bahan/'). $b->id;?>">Hapus</a></td>
+                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_rekening/'). $b->id;?>">Edit</a>
+                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_rekening/'). $b->id;?>">Hapus</a></td>
             </tr>
         <?php }?>
         </tbody>

@@ -47,7 +47,7 @@ class Login extends CI_Controller{
 			redirect(base_url("Gudang"));
 		}elseif ($status == 4) {
 			$this->session->set_flashdata('login_berhasil', ' ');
-			redirect(base_url("Spk/a3"));
+			redirect(base_url("Order/input_order"));
 		}elseif ($status == 5) {
 			$this->session->set_flashdata('login_berhasil', ' ');
 			redirect(base_url("Finishing/cutting"));
