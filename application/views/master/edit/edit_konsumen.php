@@ -30,6 +30,6 @@
          <?php endforeach ?>
 
       </div>
-      <button class="btn btn-md btn-primary">Tambah Konsumen</button>
+      <button class="btn btn-md btn-primary">Update Konsumen</button>
    </form>
 </div>
