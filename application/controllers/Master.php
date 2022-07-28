@@ -404,6 +404,14 @@ class Master extends CI_Controller {
 		redirect('Master/karyawan');
 	}
 
+	public function hapus_karyawan($id_user)
+	{
+		$where = array('id_user' => $id_user);
+		$this->Model_master->hapus_data($where, 'user');
+		$this->session->set_flashdata('hapus-berhasil', ' ');
+		redirect('Master/karyawan');
+	}
+
 }
 
 /* End of file Master.php */
