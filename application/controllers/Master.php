@@ -198,6 +198,13 @@ class Master extends CI_Controller {
 		redirect('Master/rekening');
 	}
 
+	public function hapus_rekening($id_rekening)
+	{
+		$where = array('id' => $id_rekening);
+		$this->Model_master->hapus_data($where, 'rekening');
+		$this->session->set_flashdata('hapus-berhasil', ' ');
+		redirect('Master/rekening');
+	}
 
 
 }
