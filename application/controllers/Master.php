@@ -267,6 +267,14 @@ class Master extends CI_Controller {
 		$this->session->set_flashdata('update-berhasil', ' ');
 		redirect('Master/konsumen');
 	}
+
+	public function hapus_konsumen($id_customer)
+	{
+		$where = array('id' => $id_customer);
+		$this->Model_master->hapus_data($where, 'customer');
+		$this->session->set_flashdata('hapus-berhasil', ' ');
+		redirect('Master/konsumen');
+	}
 	
 
 
