@@ -135,7 +135,33 @@ class Master extends CI_Controller {
 		$this->session->set_flashdata('hapus-berhasil', ' ');
 		redirect('Master/data_bahan');
 	}
-		
+	
+	public function tambah_rekening()
+	{
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/create/tambah_rekening');				
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function rekening_save()
+	{
+		$id = uniqid();
+		$atas_nama = $this->input->post('atas_nama');
+		$norek = $this->input->post('norek');
+		$bank = $this->input->post('bank');
+
+		$data = array(
+			'id' => $id,
+			'atas_nama' => $atas_nama,
+			'norek' => $norek,
+			'bank' => $bank
+			);
+
+		$this->Model_master->insert_data($data, 'rekening');
+		$this->session->set_flashdata('input-berhasil', ' ');
+		redirect('Master/rekening');
+	}
 
 
 }
