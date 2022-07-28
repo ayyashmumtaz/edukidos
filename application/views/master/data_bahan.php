@@ -22,6 +22,27 @@ Swal.fire({
            
         <?php endif ?>
 
+<?php if ($this->session->flashdata('input-berhasil')) : ?>
+   <script type="text/javascript">
+      let timerInterval
+      Swal.fire({
+         title: 'Data Berhasil Ditambahkan!',
+         html: ' ',
+         icon: 'success',
+         timer: 1500,
+
+         didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+         },
+         willClose: () => {
+            clearInterval(timerInterval)
+         }
+
+      })
+   </script>
+   <?= $this->session->flashdata('input-berhasil') ?>
+<?php endif ?>
 
 <script type="text/javascript">
     $(document).ready(function () {

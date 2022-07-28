@@ -52,7 +52,11 @@ function edit_data_bahan($where,$table){
 function update_data($where,$data,$table){
         $this->db->where($where);
         $this->db->update($table,$data);
-    }   
+    }
+    
+    public function insert_data($data,$table){
+        $this->db->insert($table,$data);
+    }
 	
 
 }

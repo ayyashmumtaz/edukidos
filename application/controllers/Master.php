@@ -96,7 +96,37 @@ class Master extends CI_Controller {
 	$this->session->set_flashdata('update_berhasil', ' ');
 	redirect('Master/data_bahan');
 }
+
+	public function tambah_bahan()
+	{
+		$data['kategori'] = $this->Model_order->get_kategori();
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/create/tambah_bahan', $data);				
+		$this->load->view('dashboard/_partials/footer');
+	}
 	
+	public function bahan_save()
+	{
+		$id = uniqid();
+		$id_kategori = $this->input->post('id_kategori');
+		$nama_bahan = $this->input->post('nama_bahan');
+		$harga_beli = $this->input->post('harga_beli');
+		$harga_jual = $this->input->post('harga_jual');
+
+		$data = array(
+			'id_bahan' => $id,
+			'id_kategori' => $id_kategori,
+			'nama_bahan' => $nama_bahan,
+			'harga_beli' => $harga_beli,
+			'harga_jual' => $harga_jual
+			);
+
+		$this->Model_master->insert_data($data, 'bahan');
+		$this->session->set_flashdata('input-berhasil', ' ');
+		redirect('Master/data_bahan');
+	}
 		
 
 
