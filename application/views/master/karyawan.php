@@ -26,6 +26,28 @@
    <?= $this->session->flashdata('input-berhasil') ?>
 <?php endif ?>
 
+<?php if ($this->session->flashdata('update-berhasil')) : ?>
+   <script type="text/javascript">
+      let timerInterval
+      Swal.fire({
+         title: 'Data Karyawan Berhasil Diupdate!',
+         html: ' ',
+         icon: 'success',
+         timer: 1500,
+
+         didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+         },
+         willClose: () => {
+            clearInterval(timerInterval)
+         }
+         
+      })
+   </script>
+   <?= $this->session->flashdata('update-berhasil') ?>
+<?php endif ?>
+
 <div class="container">
     <h3>Data Karyawan</h3>
     <a class="btn btn-sm btn-success mb-2" href="<?= base_url('Master/tambah_karyawan');?>">+ Tambah Karyawan</a>

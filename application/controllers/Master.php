@@ -367,6 +367,43 @@ class Master extends CI_Controller {
 		redirect('Master/karyawan');
 	}
 
+	public function edit_karyawan($id_user)
+	{
+
+		$data['karyawan'] = $this->Model_master->getKaryawan();
+		$where = array('id_user'=> $id_user);
+		$data['karyawan'] = $this->Model_master->edit_data_karyawan($where, 'user')->result();
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/edit/edit_karyawan', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function update_karyawan()
+	{
+		$id_user = $this->input->post('id_user');
+		$nama_karyawan = $this->input->post('nama');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$role = 5;
+
+		$data = array(
+			'nama' => $nama_karyawan,
+			'username' => $username,
+			'password' => $password,
+			'role' => $role
+			);
+
+		$where = array(
+			'id_user' => $id_user
+		);
+
+		$this->Model_master->update_data($where, $data, 'user');
+		$this->session->set_flashdata('update-berhasil', ' ');
+		redirect('Master/karyawan');
+	}
+
 }
 
 /* End of file Master.php */
