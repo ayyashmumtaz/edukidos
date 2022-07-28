@@ -4,9 +4,32 @@
 });
 </script>
 
+<?php if ($this->session->flashdata('input-berhasil')) : ?>
+   <script type="text/javascript">
+      let timerInterval
+      Swal.fire({
+         title: 'Data Konsumen Ditambahkan!',
+         html: ' ',
+         icon: 'success',
+         timer: 1500,
+
+         didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+         },
+         willClose: () => {
+            clearInterval(timerInterval)
+         }
+
+      })
+   </script>
+   <?= $this->session->flashdata('input-berhasil') ?>
+<?php endif ?>
+
 
 <div class="container">
     <h3>Data Konsumen</h3>
+    <a class="btn btn-sm btn-success" href="<?= base_url('Master/tambah_konsumen');?>">+ Tambah Konsumen</a>
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>

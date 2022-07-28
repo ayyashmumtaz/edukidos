@@ -206,6 +206,34 @@ class Master extends CI_Controller {
 		redirect('Master/rekening');
 	}
 
+	public function tambah_konsumen()
+	{
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/create/tambah_konsumen');				
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function konsumen_save()
+	{
+		$id = uniqid();
+		$nama_customer = $this->input->post('nama_customer');
+		$alamat = $this->input->post('alamat');
+		$no_telp = $this->input->post('no_telp');
+
+		$data = array(
+			'id' => $id,
+			'nama_customer' => $nama_customer,
+			'alamat' => $alamat,
+			'no_telp' => $no_telp
+			);
+
+		$this->Model_master->insert_data($data, 'customer');
+		$this->session->set_flashdata('input-berhasil', ' ');
+		redirect('Master/konsumen');
+	}
+	
+
 
 }
 
