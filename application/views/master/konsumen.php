@@ -26,6 +26,28 @@
    <?= $this->session->flashdata('input-berhasil') ?>
 <?php endif ?>
 
+<?php if ($this->session->flashdata('update-berhasil')) : ?>
+   <script type="text/javascript">
+      let timerInterval
+      Swal.fire({
+         title: 'Data Konsumen Berhasil Update!',
+         html: ' ',
+         icon: 'success',
+         timer: 1500,
+
+         didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+         },
+         willClose: () => {
+            clearInterval(timerInterval)
+         }
+
+      })
+   </script>
+   <?= $this->session->flashdata('update-berhasil') ?>
+<?php endif ?>
+
 
 <div class="container">
     <h3>Data Konsumen</h3>

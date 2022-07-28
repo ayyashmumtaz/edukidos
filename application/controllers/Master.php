@@ -232,6 +232,41 @@ class Master extends CI_Controller {
 		$this->session->set_flashdata('input-berhasil', ' ');
 		redirect('Master/konsumen');
 	}
+
+	public function edit_konsumen($id_customer)
+	{
+
+		$data['customer'] = $this->Model_master->getKonsumen();
+		$where = array('id'=> $id_customer);
+		$data['customer'] = $this->Model_master->edit_data_konsumen($where, 'customer')->result();
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/edit/edit_konsumen', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function update_konsumen()
+	{
+		$id = $this->input->post('id');
+		$nama_customer = $this->input->post('nama_customer');
+		$alamat = $this->input->post('alamat');
+		$no_telp = $this->input->post('no_telp');
+
+		$data = array(
+			'nama_customer' => $nama_customer,
+			'alamat' => $alamat,
+			'no_telp' => $no_telp
+			);
+
+		$where = array(
+			'id' => $id
+		);
+
+		$this->Model_master->update_data($where, $data, 'customer');
+		$this->session->set_flashdata('update-berhasil', ' ');
+		redirect('Master/konsumen');
+	}
 	
 
 
