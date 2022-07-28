@@ -329,6 +329,14 @@ class Master extends CI_Controller {
 		$this->session->set_flashdata('update-berhasil', ' ');
 		redirect('Master/kategori');
 	}
+
+	public function hapus_kategori($id_kategori)
+	{
+		$where = array('id' => $id_kategori);
+		$this->Model_master->hapus_data($where, 'kategori');
+		$this->session->set_flashdata('hapus-berhasil', ' ');
+		redirect('Master/kategori');
+	}
 }
 
 /* End of file Master.php */

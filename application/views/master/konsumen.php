@@ -96,7 +96,7 @@
                 <td><?=$b->alamat?></td>
                 <td><?= $b->no_telp?></td>
                 <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_konsumen/'). $b->id;?>">Edit</a>
-                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_konsumen/'). $b->id;?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Bahan ID : <?= $b->id ?> Ini?');">Hapus</a></td>
+                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_konsumen/'). $b->id;?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Konsumen ID : <?= $b->id ?> Ini?');">Hapus</a></td>
             </tr>
         <?php }?>
         </tbody>

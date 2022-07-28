@@ -98,7 +98,7 @@
                 <td><?=$b->norek?></td>
                 <td><?= $b->bank?></td>
                 <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_rekening/'). $b->id;?>">Edit</a>
-                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_rekening/'). $b->id;?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Bahan ID : <?= $b->id ?> Ini?');">Hapus</a></td>
+                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_rekening/'). $b->id;?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Rekening ID : <?= $b->id ?> Ini?');">Hapus</a></td>
             </tr>
         <?php }?>
         </tbody>
