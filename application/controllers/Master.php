@@ -275,9 +275,29 @@ class Master extends CI_Controller {
 		$this->session->set_flashdata('hapus-berhasil', ' ');
 		redirect('Master/konsumen');
 	}
-	
 
+	public function tambah_kategori()
+	{
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/create/tambah_kategori');				
+		$this->load->view('dashboard/_partials/footer');
+	}
 
+	public function kategori_save()
+	{
+		$id = uniqid();
+		$nama_kategori = $this->input->post('nama_kategori');
+
+		$data = array(
+			'id' => $id,
+			'nama_kategori' => $nama_kategori
+			);
+
+		$this->Model_master->insert_data($data, 'kategori');
+		$this->session->set_flashdata('input-berhasil', ' ');
+		redirect('Master/kategori');
+	}
 }
 
 /* End of file Master.php */
