@@ -23,8 +23,8 @@
         <div class="col-md-3">
         <div class="form-group">
           <label for="last">Kategori</label>
-          <select class="form-control" name="kategori"><?php foreach($kategori as $i){ ?>
-                  <option value="<?php echo $i['id']; ?>"><?php echo $i['nama_kategori']; ?></option>
+          <select class="form-control" name="kategori"><?php foreach($kategori as $k){ ?>
+                  <option <?php if($k['id'] == $bahan[0]->id_kategori) { echo 'selected';} ?> value="<?= $k['id']; ?>"><?php echo $k['nama_kategori']; ?></option>
                   <?php } ?></select>
         </div>
       </div>
@@ -49,7 +49,7 @@
    </div>
     
 
-       <input class="btn btn-primary" type="submit" name="">
+       <input class="btn btn-primary" type="submit" name="" value="Update Bahan">
 
 
 
