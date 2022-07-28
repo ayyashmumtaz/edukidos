@@ -44,6 +44,28 @@ Swal.fire({
    <?= $this->session->flashdata('input-berhasil') ?>
 <?php endif ?>
 
+<?php if ($this->session->flashdata('hapus-berhasil')) : ?>
+   <script type="text/javascript">
+        let timerInterval
+        Swal.fire({
+          title: 'Data Berhasil Dihapus!',
+          html: ' ',
+          icon: 'success',
+          timer: 1500,
+
+          didOpen: () => {
+              Swal.showLoading()
+              const b = Swal.getHtmlContainer().querySelector('b')
+          },
+          willClose: () => {
+              clearInterval(timerInterval)
+          }
+
+        })
+   </script>
+   <?= $this->session->flashdata('hapus-berhasil') ?>
+<?php endif ?>
+
 <script type="text/javascript">
     $(document).ready(function () {
     $('#example').DataTable();
@@ -54,6 +76,7 @@ Swal.fire({
 <div class="container">
     <h3>Data Bahan Baku</h3>
     <a class="btn btn-sm btn-success" href="<?= base_url('Master/tambah_bahan');?>">+ Tambah Bahan Baku</a>
+    <div class="table-responsive">
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -79,10 +102,13 @@ Swal.fire({
                 <td>1</td>
                 <td><?= $b->harga_jual?></td>
                 <td><?= $b->harga_beli?></td>
-                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/'). $b->id_bahan;?>">Edit</a>
-                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_bahan/'). $b->id_bahan;?>">Hapus</a></td>
+                <td>
+                  <a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/'). $b->id_bahan;?>">Edit</a>
+                  <a class="btn btn-sm btn-danger remove" href="<?= base_url('Master/hapus_bahan/'). $b->id_bahan;?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Bahan ID : <?= $b->id_bahan ?> Ini?');">Hapus</a>
+                </td>
             </tr>
         <?php }?>
         </tbody>
        </table>
+       </div>
 </div>

@@ -127,6 +127,14 @@ class Master extends CI_Controller {
 		$this->session->set_flashdata('input-berhasil', ' ');
 		redirect('Master/data_bahan');
 	}
+
+	public function hapus_bahan($id_bahan)
+	{
+		$where = array('id_bahan' => $id_bahan);
+		$this->Model_master->hapus_data($where, 'bahan');
+		$this->session->set_flashdata('hapus-berhasil', ' ');
+		redirect('Master/data_bahan');
+	}
 		
 
 
