@@ -337,6 +337,36 @@ class Master extends CI_Controller {
 		$this->session->set_flashdata('hapus-berhasil', ' ');
 		redirect('Master/kategori');
 	}
+
+	public function tambah_karyawan()
+	{
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/create/tambah_karyawan');				
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function karyawan_save()
+	{
+		$id = uniqid();
+		$nama_karyawan = $this->input->post('nama');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$role = 5;
+
+		$data = array(
+			'id_user' => $id,
+			'nama' => $nama_karyawan,
+			'username' => $username,
+			'password' => $password,
+			'role' => $role
+			);
+
+		$this->Model_master->insert_data($data, 'user');
+		$this->session->set_flashdata('input-berhasil', ' ');
+		redirect('Master/karyawan');
+	}
+
 }
 
 /* End of file Master.php */

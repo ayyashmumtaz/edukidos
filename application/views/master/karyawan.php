@@ -4,9 +4,32 @@
 });
 </script>
 
+<?php if ($this->session->flashdata('input-berhasil')) : ?>
+   <script type="text/javascript">
+      let timerInterval
+      Swal.fire({
+         title: 'Karyawan Berhasil Ditambahkan!',
+         html: ' ',
+         icon: 'success',
+         timer: 1500,
+
+         didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+         },
+         willClose: () => {
+            clearInterval(timerInterval)
+         }
+         
+      })
+   </script>
+   <?= $this->session->flashdata('input-berhasil') ?>
+<?php endif ?>
 
 <div class="container">
-    <h3>Data Rekening</h3>
+    <h3>Data Karyawan</h3>
+    <a class="btn btn-sm btn-success mb-2" href="<?= base_url('Master/tambah_karyawan');?>">+ Tambah Karyawan</a>
+    <div class="table-responsive">
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -28,13 +51,19 @@
                   
                 <td><?=$b->nama?></td>
                 <td><?php switch ($b->role) {
-                    case 0:
-                        echo 'Superuser';
-                        break;
                     case 1:
-                        echo 'Admin';
+                        echo 'Direktur';
                         break;
                     case 2:
+                        echo 'SPK';
+                        break;
+                    case 3:
+                        echo 'Gudang';
+                        break;
+                    case 4:
+                        echo 'Admin';
+                        break;
+                    case 5:
                         echo 'Karyawan';
                         break;
                     default:
@@ -48,4 +77,5 @@
         <?php }?>
         </tbody>
        </table>
+       </div>
 </div>
