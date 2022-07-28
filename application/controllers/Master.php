@@ -163,6 +163,42 @@ class Master extends CI_Controller {
 		redirect('Master/rekening');
 	}
 
+	public function edit_rekening($id_rekening)
+	{
+
+		$data['rekening'] = $this->Model_master->getRekening();
+		$where = array('id'=> $id_rekening);
+		$data['rekening'] = $this->Model_master->edit_data_rekening($where, 'rekening')->result();
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/edit/edit_rekening', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function update_rekening()
+	{
+		$id = $this->input->post('id');
+		$atas_nama = $this->input->post('atas_nama');
+		$norek = $this->input->post('norek');
+		$bank = $this->input->post('bank');
+
+		$data = array(
+			'atas_nama' => $atas_nama,
+			'norek' => $norek,
+			'bank' => $bank
+			);
+
+		$where = array(
+			'id' => $id
+		);
+
+		$this->Model_master->update_data($where, $data, 'rekening');
+		$this->session->set_flashdata('update_berhasil', ' ');
+		redirect('Master/rekening');
+	}
+
+
 
 }
 
