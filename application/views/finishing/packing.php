@@ -57,7 +57,7 @@
                         }
                         ?></td>
                   <td><?php
-                        $favcolor = $b->status_bayar;
+                        $favcolor = $b->status;
 
                         switch ($favcolor) {
                            case "0":
