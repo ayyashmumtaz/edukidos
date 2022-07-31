@@ -7,6 +7,7 @@
 
 <div class="container">
     <h3>PRODUKSI - A3</h3>
+    <div class="table-responsive">
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -22,7 +23,7 @@
         </thead>
         <tbody>
             <?php
-            foreach($orderMasuk as $b){
+            foreach($finishCutting as $b){
             ?>
             <tr>
               <td><?php
@@ -36,7 +37,7 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td>
-                <td><?= $b->nama?></td>
+                <td><?= $b->nama_customer?></td>
                 )
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
@@ -81,5 +82,6 @@ switch ($favcolor) {
         <?php }?>
         </tbody>
        </table>
+       </div>
 </div>
 
