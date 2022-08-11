@@ -36,7 +36,7 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td>
-                <td><?= $b->nama?></td>
+                <td><?= $b->nama_customer?></td>
                 <td><?= $b->nama_kerja?></td>
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
@@ -56,7 +56,7 @@ switch ($favcolor) {
 }
 ?></td>
                 <td><?php
-$favcolor = $b->status_bayar;
+$favcolor = $b->status;
 
 switch ($favcolor) {
   case "0":

@@ -10,15 +10,16 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Status Urgensi</th>
                 <th>Nama Customer</th>
                 <th>Nama Pekerjaan</th>
                 <th>Tanggal Order</th>
                 <th>Qty</th>
+                <th>Status Urgensi</th>
+                <th>Status Pekerjaan</th>
                 <th>Status Bayar</th>
                 <th>Finishing</th>
                 <th>Action</th>
-                <th>Status</th>
+               
             </tr>
         </thead>
         <tbody>
@@ -26,7 +27,12 @@
             foreach($orderMasuk as $b){
             ?>
             <tr>
-              <td><?php
+      
+                <td><?= $b->nama_customer?></td>
+                <td><?= $b->nama_kerja?></td>
+                <td><?=$b->tgl_order?></td>
+                <td><?=$b->jumlah?></td>
+                <td><?php
 $favcolor = $b->urgensi;
 
 switch ($favcolor) {
@@ -37,10 +43,24 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td>
-                <td><?= $b->nama_customer?></td>
-                <td><?= $b->nama_kerja?></td>
-                <td><?=$b->tgl_order?></td>
-                <td><?=$b->jumlah?></td>
+<td><?php
+$favcolor = $b->status;
+
+switch ($favcolor) {
+  case "0":
+    echo "<button class='btn btn-sm btn-danger'>Belum Dikerjakan</button>";
+    break;
+    case "1":
+    echo "<button class='btn btn-sm btn-warning'>Sedang Dikerjakan</button>";
+    break;
+    case "2":
+    echo "<button class='btn btn-sm btn-success'>Selesai</button>";
+    break;
+
+  default:
+    echo "Tidak";
+}
+?></td>
                 <td><?php
 $favcolor = $b->status_bayar;
 
@@ -87,24 +107,7 @@ switch ($favcolor) {
                   <a class="btn btn-sm btn-primary" style="margin-bottom: 2%;" href="<?= base_url('Spk/cetak_spk/'). $b->id_order;?>">Cetak SPK</a>
                            <a href="<?= base_url('Spk/download/'). $b->file;?>"  class="btn btn-sm btn-primary" value="Download Data">Download Data</a>
                       </td>
-                       <td><?php
-$favcolor = $b->status_bayar;
-
-switch ($favcolor) {
-  case "0":
-    echo "<button class='btn btn-sm btn-danger'>Belum Dikerjakan</button>";
-    break;
-    case "1":
-    echo "<button class='btn btn-sm btn-warning'>Sedang Dikerjakan</button>";
-    break;
-    case "2":
-    echo "<button class='btn btn-sm btn-success'>Selesai</button>";
-    break;
-
-  default:
-    echo "Tidak";
-}
-?></td>
+                       
         <?php }?>
         </tbody>
        </table>
