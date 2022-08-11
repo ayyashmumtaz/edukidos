@@ -21,6 +21,28 @@ Swal.fire({
                     <?= $this->session->flashdata('login_berhasil') ?>
            
         <?php endif ?>
+
+        <?php if ($this->session->flashdata('kerja_selesai')) : ?>
+   <script type="text/javascript">
+      let timerInterval
+      Swal.fire({
+         title: 'Alhamdulillah Kerja Anda Selesai!',
+         html: ' ',
+         icon: 'success',
+         timer: 1500,
+
+         didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+         },
+         willClose: () => {
+            clearInterval(timerInterval)
+         }
+         
+      })
+   </script>
+   <?= $this->session->flashdata('kerja_selesai') ?>
+<?php endif ?>
           
             
        

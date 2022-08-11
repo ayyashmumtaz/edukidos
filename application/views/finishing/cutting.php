@@ -6,7 +6,7 @@
 
 
 <div class="container">
-    <h3>PRODUKSI - A3</h3>
+    <h3>FINISHING - CUTTING</h3>
     <div class="table-responsive">
     <table id="example" class="display" style="width:100%">
         <thead>
@@ -38,7 +38,6 @@ switch ($favcolor) {
 }
 ?></td>
                 <td><?= $b->nama_customer?></td>
-                )
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
                 <td><?php

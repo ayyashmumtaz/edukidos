@@ -13,6 +13,7 @@ class Produksi extends CI_Controller {
     }
 		$this->load->model('Model_produksi');
 		$this->load->model('Model_spk');
+		$this->load->model('Model_finishing');
 	}
 
 	public function index()
@@ -83,6 +84,23 @@ function konfirmasi_bayar(){
 	$this->Model_spk->update_order_produksi($where,$data,'orderan');
 	$this->session->set_flashdata('kerja_selesai', ' ');
 	redirect('Beranda/pembayaran');
+}
+
+public function finishing()
+{
+	$id_order = $this->uri->segment(3);
+
+	$data = array(
+		'status' => 2,
+		);
+
+	$where = array(
+		'id_order' => $id_order
+	);
+
+	$this->Model_finishing->update_status_finishing($where,$data,'orderan');
+	$this->session->set_flashdata('kerja_selesai', ' ');
+	redirect('Beranda');
 }
 
 }
