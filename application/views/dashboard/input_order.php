@@ -53,12 +53,12 @@ Swal.fire({
 
       <div class="col-md-5">
         <div class="form-group">
-          <label for="last">NAMA CUSTOMER</label>
+          <label for="last">NAMA KONSUMEN</label>
            <select class="form-control" name="nama">
-            <option selected disabled>-- PILIH CUSTOMER --</option>
+            <option selected disabled>-- PILIH KONSUMEN --</option>
                   <?php foreach($customer as $i){ ?>
                   <option value="<?php echo $i['id']; ?>"><?php echo $i['nama_customer']; ?></option>
-                  <?php } ?></select><a style="margin-top:6px;" class="btn btn-primary btn-sm" href="">Tambah Customer Baru</a>
+                  <?php } ?></select><a style="margin-top:6px;" class="btn btn-primary btn-sm" href="<?= base_url('Master/tambah_konsumen');?>">Tambah Konsumen Baru</a>
 
         </div>
       </div>
@@ -173,20 +173,20 @@ Swal.fire({
      <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Biaya Cetak Satuan</label>
-          <input class="form-control" id="harga_jual" type="number" name="harga_bahan" readonly>
+          <input class="form-control" id="harga_jual" type="text" name="harga_bahan" readonly>
         </div>
       </div>
      <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Biaya Cetak</label>
-          <input class="form-control" id="harga_jual_semua" type="number" name="harga_bahan" readonly>
+          <input class="form-control" id="harga_jual_semua" type="text" name="harga_bahan" readonly>
         </div>
       </div>
 
         <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Biaya Design</label>
-          <input class="form-control" type="number" name="biaya_design">
+          <input class="form-control" type="text" name="biaya_design" id="rupiah">
         </div>
       </div>
   </div>
@@ -195,6 +195,27 @@ Swal.fire({
 </div>
 </form>
 
+<script type="text/javascript">
+  var rupiah = document.getElementById('rupiah');
+  rupiah.addEventListener('keyup', function(e) {
+      rupiah.value = formatRupiah(this.value, 'Rp ');
+  });
+
+  function formatRupiah(angka, prefix) {
+      var number_string = angka.replace(/[^,\d]/g, '').toString(),
+          split = number_string.split(','),
+          sisa = split[0].length % 3,
+          rupiah = split[0].substr(0, sisa),
+          ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+      if (ribuan) {
+          separator = sisa ? '.' : '';
+          rupiah += separator + ribuan.join('.');
+      }
+      rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+      return prefix == undefined ? rupiah : (rupiah ? 'Rp ' + rupiah : '');
+  }
+</script>
 
 <script>
     function autofill(){
@@ -207,6 +228,16 @@ Swal.fire({
                       
                      
             $.each(hasil, function(key,val){ 
+                function formatRupiah(money) {
+                  return new Intl.NumberFormat('id-ID',
+                    { 
+                      style: 'currency', 
+                      currency: 'IDR', 
+                      minimumFractionDigits: 0 
+                    } 
+                  ).format(money);
+                }
+
                 var panjang = parseInt(document.getElementById('panjang').value);
                 var lebar = parseInt(document.getElementById('lebar').value);
                 var jumlah = parseInt(document.getElementById('jumlah').value);
@@ -219,8 +250,8 @@ Swal.fire({
                 console.log(totalUkuran);
                 console.log(totalSemua);              
 
-                document.getElementById('harga_jual').value=totalHargaSatuan; 
-                document.getElementById('harga_jual_semua').value=totalSemua; 
+                document.getElementById('harga_jual').value=formatRupiah(totalHargaSatuan); 
+                document.getElementById('harga_jual_semua').value=formatRupiah(totalSemua); 
                                 
                      
                 });
@@ -238,5 +269,5 @@ Swal.fire({
     //         $("#hilang").css("display", "block");
     //     }
     // });
-})
+// })
 </script>

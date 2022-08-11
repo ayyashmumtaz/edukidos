@@ -37,7 +37,7 @@ switch ($favcolor) {
 }
 ?></td>
                 <td><?= $b->nama_customer?></td>
-                <td><?= $b->nama?></td>
+
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
                 <td><?php
