@@ -97,7 +97,7 @@ Swal.fire({
         <div class="col-md-3">
         <div class="form-group">
           <label for="last">Kategori</label>
-          <select class="form-control" name="kategori"><?php foreach($kategori as $i){ ?>
+          <select class="form-control" name="kategori" id="kategori"><?php foreach($kategori as $i){ ?>
                   <option value="<?php echo $i['id']; ?>"><?php echo $i['nama_kategori']; ?></option>
                   <?php } ?></select>
         </div>
@@ -124,11 +124,10 @@ Swal.fire({
 
    </div>
          <hr>
-         <h5>Ukuran & Catatan</h5>
+         <h5>Ukuran</h5>
          <hr>
-   <div class="row">
-
-         <div class="col-md-3">       
+   <div class="row" id="hilang">
+   <div class="col-md-3" >       
         <div class="form-group">
           <label for="last">Panjang</label>
           <input class="form-control" onchange="return autofill();" id="panjang" type="number" name="panjang">
@@ -136,13 +135,20 @@ Swal.fire({
         </div>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3" >
         <div class="form-group">
           <label for="last">Lebar</label>
           <input class="form-control" onchange="return autofill();" id="lebar" type="number" name="lebar">
         </div>
       </div>
-      <div class="col-md-3">       
+      
+      </div>
+      <hr>
+         <h5>Total Biaya</h5>
+         <hr>
+  <br>
+  <div class="row">
+  <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Jumlah Order</label>
           <input class="form-control" onchange="return autofill();" id="jumlah" type="number" min="1" value="1" name="jumlah">
@@ -164,12 +170,6 @@ Swal.fire({
           <br>
           <textarea class="form-control" name="catatan"></textarea>
       </div>
-      </div>
-      <hr>
-         <h5>Total Biaya</h5>
-         <hr>
-  <br>
-  <div class="row">
      <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Biaya Cetak Satuan</label>
@@ -228,4 +228,15 @@ Swal.fire({
                    });
                    
     }
+
+    // $(document).ready(function () {
+    // $('#kategori').on("change", function () {
+    //     if ($(this).val()== 1) {
+    //         $("#hilang").css("display", "none");
+    //     }
+    //     else{
+    //         $("#hilang").css("display", "block");
+    //     }
+    // });
+})
 </script>
