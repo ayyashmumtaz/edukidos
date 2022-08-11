@@ -100,8 +100,8 @@ Swal.fire({
                   
                 <td><?=$b->nama_bahan?></td>
                 <td>1</td>
-                <td><?= $b->harga_jual?></td>
-                <td><?= $b->harga_beli?></td>
+                <td><?= 'Rp '.number_format($b->harga_jual,0,',','.') ?></td>
+                <td><?= 'Rp '.number_format($b->harga_beli,0,',','.') ?></td>
                 <td>
                   <a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/'). $b->id_bahan;?>">Edit</a>
                   <a class="btn btn-sm btn-danger remove" href="<?= base_url('Master/hapus_bahan/'). $b->id_bahan;?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Bahan ID : <?= $b->id_bahan ?> Ini?');">Hapus</a>
