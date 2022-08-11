@@ -77,7 +77,7 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>ID</th>
+                <th class="col-1">ID</th>
                 <th>Nama</th>
                 
                 <th>Alamat</th>
