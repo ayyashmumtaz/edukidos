@@ -72,14 +72,14 @@
 
 <div class="container">
     <h3>Data Kategori</h3>
-    <a class="btn btn-sm btn-success mb-2" href="<?= base_url('Master/tambah_kategori');?>">+ Tambah Kategori</a>
+    <!-- <a class="btn btn-sm btn-success mb-2" href="<?= base_url('Master/tambah_kategori');?>">+ Tambah Kategori</a> -->
     <div class="table-responsive">
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>ID</th>
+                <th class="col-1">ID</th>
                 <th>Nama Kategori</th>
-                <th>Action</th>
+                <!-- <th>Action</th> -->
             </tr>
         </thead>
         <tbody>
@@ -90,8 +90,8 @@
               <td><?php echo $b->id?></td>
                 <td><?= $b->nama_kategori?></td>
 
-                <td><a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_kategori/'). $b->id;?>">Edit</a>
-                  <a class="btn btn-sm btn-danger" href="<?= base_url('Master/hapus_kategori/'). $b->id;?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Kategori ID : <?= $b->id ?> Ini?');">Hapus</a></td>
+                <!-- <td><a class="btn btn-sm btn-primary" href="<?//= base_url('Master/edit_kategori/'). $b->id;?>">Edit</a> -->
+                  <!-- <td><a class="btn btn-sm btn-danger" href="<?//= base_url('Master/hapus_kategori/'). $b->id;?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Kategori ID : <?//= $b->id ?> Ini?');">Hapus</a></td> -->
             </tr>
         <?php }?>
         </tbody>
