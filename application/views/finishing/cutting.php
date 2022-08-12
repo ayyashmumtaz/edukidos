@@ -11,11 +11,11 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Status Urgensi</th>
+                <th>Nama Pekerjaan</th>
                 <th>Nama Customer</th>
-                
                 <th>Tanggal Order</th>
                 <th>Qty</th>
+                <th>Status Urgensi</th>
                 <th>Status Bayar</th>
                 <th>Status Pekerjaan</th>
                 <th>Action</th>
@@ -26,17 +26,7 @@
             foreach($finishCutting as $b){
             ?>
             <tr>
-              <td><?php
-$favcolor = $b->urgensi;
-
-switch ($favcolor) {
-  case "1":
-    echo "<button class='btn btn-sm btn-danger'>SEGERA DIKERJAKAN</button>";
-    break;
-  default:
-    echo "Tidak";
-}
-?></td>
+                <td><?php echo $b->nama_kerja; ?></td>
                 <td><?= $b->nama_customer?></td>
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
@@ -53,6 +43,17 @@ switch ($favcolor) {
 
   default:
     echo "Tidak";
+}
+?></td>
+  <td><?php
+$favcolor = $b->urgensi;
+
+switch ($favcolor) {
+  case "1":
+    echo "<button class='btn btn-sm btn-danger'>SEGERA DIKERJAKAN</button>";
+    break;
+  default:
+    echo "<button class='btn btn-sm btn-success'>TIDAK URGENT</button>";
 }
 ?></td>
                 <td><?php
@@ -73,7 +74,7 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td><td>
-                             <a href="<?= base_url('Spk/download/'). $b->file;?>" style=""  class="btn btn-sm btn-primary" value="Download Data">Download Data</a>
+                         
 
     <a class="btn btn-sm btn-primary" href="<?= base_url('Produksi/finishing/'.$b->id_order)?>">Selesaikan</a>
 </td>

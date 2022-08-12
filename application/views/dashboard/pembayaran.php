@@ -49,7 +49,7 @@ Swal.fire({
             ?>
             <tr>
               <td><a href="<?= base_url('Pembayaran/cek_bayar/').$b->id_order;?>"><?= $b->nama_kerja?></a></td>
-                <td><a href=""><?= $b->nama_customer?></a></td>
+                <td><?= $b->nama_customer?></td>
                   
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>

@@ -104,7 +104,7 @@ switch ($favcolor) {
   <input type="submit"  style="margin-bottom:2%;"class="btn btn-sm btn-primary" value="Ambil Pekerjaan">
 </form>
                   
-                  <a class="btn btn-sm btn-primary" style="margin-bottom: 2%;" href="<?= base_url('Spk/cetak_spk/'). $b->id_order;?>">Cetak SPK</a>
+                  
                            <a href="<?= base_url('Spk/download/'). $b->file;?>"  class="btn btn-sm btn-primary" value="Download Data">Download Data</a>
                       </td>
                        
