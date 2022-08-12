@@ -15,6 +15,7 @@
                 <th>Nama Customer</th>
                 <th>Tanggal Order</th>
                 <th>Qty</th>
+                <th>Finishing</th>
                 <th>Status Bayar</th>
                 <th>Status Urgensi</th>
                 <th>Status Pekerjaan</th>
@@ -31,6 +32,27 @@
 
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
+                <td><?php
+$favcolor = $b->finishing;
+
+switch ($favcolor) {
+  case "0":
+    echo "Packing";
+    break;
+    case "1":
+    echo "Cutting";
+      break;
+    case "2":
+    echo "Seaming";
+    break;
+    case "3":
+    echo "Jilid";
+    break;
+
+  default:
+    echo "Tidak";
+}
+?></td>
                 <td><?php
 $favcolor = $b->status_bayar;
 

@@ -62,7 +62,7 @@ $favcolor = $b->finishing;
 
 switch ($favcolor) {
   case "0":
-    echo "Standar";
+    echo "Packing";
     break;
     case "1":
     echo "Cutting";
@@ -97,7 +97,7 @@ switch ($favcolor) {
     echo "<button class='btn btn-sm btn-warning'>Sedang Dikerjakan</button>";
     break;
     case "2":
-    echo "<button class='btn btn-sm btn-success'>Selesai</button>";
+    echo "<button class='btn btn-sm btn-success'>Finishing</button>";
     break;
 
   default:

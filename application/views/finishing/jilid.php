@@ -16,7 +16,7 @@
 
                <th>Tanggal Order</th>
                <th>Qty</th>
-               <th>Status Bayar</th>
+     
                <th>Status Pekerjaan</th>
                <th>Action</th>
             </tr>
@@ -40,21 +40,7 @@
                   <td><?= $b->nama_customer ?></td>
                   <td><?= $b->tgl_order ?></td>
                   <td><?= $b->jumlah ?></td>
-                  <td><?php
-                        $favcolor = $b->status_bayar;
-
-                        switch ($favcolor) {
-                           case "0":
-                              echo "<button class='btn btn-sm btn-danger'>Belum Lunas</button>";
-                              break;
-                           case "1":
-                              echo "<button class='btn btn-sm btn-success'>Sudah Lunas</button>";
-                              break;
-
-                           default:
-                              echo "Tidak";
-                        }
-                        ?></td>
+            
                   <td><?php
                         $favcolor = $b->status;
 
@@ -66,7 +52,7 @@
                               echo "<button class='btn btn-sm btn-warning'>Sedang Dikerjakan</button>";
                               break;
                            case "2":
-                              echo "<button class='btn btn-sm btn-success'>Selesai</button>";
+                              echo "<button class='btn btn-sm btn-success'>Finishing</button>";
                               break;
 
                            default:
