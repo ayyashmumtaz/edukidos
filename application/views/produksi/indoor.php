@@ -7,6 +7,7 @@
 
 <div class="container">
     <h3>PRODUKSI - INDOOR</h3>
+    <div class="table-responsive">
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -75,7 +76,7 @@ switch ($favcolor) {
     echo "Tidak";
 }
 ?></td><td>
-                             <a href="<?= base_url('Spk/download/'). $b->file;?>" style=""  class="btn btn-sm btn-primary" value="Download Data">Download Data</a>
+                             <a href="<?= base_url('Spk/download/'). $b->file;?>" style="margin-bottom: 2%;"  class="btn btn-sm btn-primary" value="Download Data">Download Data</a>
                              <a class="btn btn-sm btn-primary" style="margin-bottom: 2%;" href="<?= base_url('Spk/cetak_spk/'). $b->id_order;?>">Cetak SPK</a>
     <a class="btn btn-sm btn-primary" href="<?= base_url('Produksi/finishing/'.$b->id_order)?>">Selesaikan</a>
 </td>
@@ -83,5 +84,6 @@ switch ($favcolor) {
         <?php }?>
         </tbody>
        </table>
+</div>
 </div>
 

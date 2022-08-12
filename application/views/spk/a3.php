@@ -7,6 +7,7 @@
 
 <div class="container">
     <h3>SPK - A3</h3>
+    <div class="table-responsive">
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -111,4 +112,5 @@ switch ($favcolor) {
         <?php }?>
         </tbody>
        </table>
+       </div>
 </div>

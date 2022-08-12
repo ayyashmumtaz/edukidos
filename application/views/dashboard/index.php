@@ -22,12 +22,12 @@ Swal.fire({
            
         <?php endif ?>
 
-        <?php if ($this->session->flashdata('kerja_selesai')) : ?>
+        <?php if ($this->session->flashdata('kerja_selesai_produksi')) : ?>
    <script type="text/javascript">
       let timerInterval
       Swal.fire({
-         title: 'Alhamdulillah Kerja Anda Selesai!',
-         html: ' ',
+         title: 'Produksi Selesai!',
+         html: 'Segera Lakukan Finishing!',
          icon: 'success',
          timer: 1500,
 
@@ -41,7 +41,7 @@ Swal.fire({
          
       })
    </script>
-   <?= $this->session->flashdata('kerja_selesai') ?>
+   <?= $this->session->flashdata('kerja_selesai_produksi') ?>
 <?php endif ?>
           
             

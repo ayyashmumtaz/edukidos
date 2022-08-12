@@ -60,7 +60,7 @@
                   <td>
                      <a href="<?= base_url('Spk/download/') . $b->file; ?>" style="" class="btn btn-sm btn-primary" value="Download Data">Download Data</a>
 
-                     <a class="btn btn-sm btn-primary" href="<?= base_url('Produksi/finishing/' . $b->id_order) ?>">Selesaikan</a>
+                     <a class="btn btn-sm btn-primary" href="<?= base_url('Finishing/finishing/' . $b->id_order) ?>">Selesaikan</a>
                   </td>
                </tr>
             <?php } ?>

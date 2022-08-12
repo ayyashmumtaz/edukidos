@@ -4,6 +4,27 @@
 });
 </script>
 
+<?php if ($this->session->flashdata('kerja_selesai_finishing')) : ?>
+   <script type="text/javascript">
+      let timerInterval
+      Swal.fire({
+         title: 'Kerja Anda Selesai',
+         html: 'Terimakasih Atas Kerja Kerasnya!',
+         icon: 'success',
+         timer: 1500,
+
+         didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+         },
+         willClose: () => {
+            clearInterval(timerInterval)
+         }
+         
+      })
+   </script>
+   <?= $this->session->flashdata('kerja_selesai_finishing') ?>
+<?php endif ?>
 
 <div class="container">
     <h3>List Pengiriman | Surat Jalan</h3>
@@ -56,6 +77,9 @@ switch ($favcolor) {
     echo "<button class='btn btn-sm btn-warning'>Sedang Dikerjakan</button>";
     break;
     case "2":
+    echo "<button class='btn btn-sm btn-info'>Proses Finishing</button>";
+    break;
+    case "3":
     echo "<button class='btn btn-sm btn-success'>Selesai</button>";
     break;
 

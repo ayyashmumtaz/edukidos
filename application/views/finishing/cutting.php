@@ -62,7 +62,7 @@ switch ($favcolor) {
 ?></td><td>
                          
 
-    <a class="btn btn-sm btn-primary" href="<?= base_url('Produksi/finishing/'.$b->id_order)?>">Selesaikan</a>
+    <a class="btn btn-sm btn-primary" href="<?= base_url('Finishing/finishing/'.$b->id_order)?>">Selesaikan</a>
 </td>
             </tr>
         <?php }?>

@@ -99,7 +99,7 @@ public function finishing()
 	);
 
 	$this->Model_finishing->update_status_finishing($where,$data,'orderan');
-	$this->session->set_flashdata('kerja_selesai', ' ');
+	$this->session->set_flashdata('kerja_selesai_produksi', ' ');
 	redirect('Beranda');
 }
 

@@ -11,7 +11,6 @@ class Finishing extends CI_Controller
 
 	public function index()
 	{
-		
 	}
 
 	public function packing()
@@ -51,6 +50,23 @@ class Finishing extends CI_Controller
 		$this->load->view('dashboard/_partials/sidebar');
 		$this->load->view('finishing/jilid', $data);
 		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function finishing()
+	{
+		$id_order = $this->uri->segment(3);
+
+		$data = array(
+			'status' => 3,
+		);
+
+		$where = array(
+			'id_order' => $id_order
+		);
+
+		$this->Model_finishing->update_status_finishing($where, $data, 'orderan');
+		$this->session->set_flashdata('kerja_selesai_finishing', ' ');
+		redirect('Beranda/surat_jalan');
 	}
 }
 
