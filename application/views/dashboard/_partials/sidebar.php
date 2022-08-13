@@ -1,3 +1,20 @@
+<script>
+   jQuery(function($) {
+      var path = window.location.href;
+      $().ready(function() {
+         $('#navbar').find('a').each(function() {
+            if ($(this).attr('href') == path) {
+               $('.nav-link').removeClass('collapsed');
+               $('.nav-item').removeClass('active');
+               $(this).addClass('active');
+               $(this).parent().addClass('active').parent().addClass('show');
+            }
+         });
+      });
+   });
+</script>
+
+<div id="navbar">
     <!-- Page Wrapper -->
     <div id="wrapper">
 
