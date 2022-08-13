@@ -63,7 +63,7 @@ public function jumlahOrderFinish()
 {   
     $this->db->select('*');
   $this->db->from('orderan');
-  $this->db->where('status', 2);
+  $this->db->where('status', 3);
   $query = $this->db->get();
 
     if($query->num_rows()>0)

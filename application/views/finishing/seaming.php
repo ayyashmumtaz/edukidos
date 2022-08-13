@@ -39,7 +39,7 @@
                   <td><?= $b->nama_customer ?></td>
                   <td><?= $b->tgl_order ?></td>
                   <td><?= $b->jumlah ?></td>
-                  
+                  <td><?php
                         $favcolor = $b->status;
 
                         switch ($favcolor) {
