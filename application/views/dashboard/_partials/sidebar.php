@@ -6,8 +6,8 @@
             if ($(this).attr('href') == path) {
                $('.nav-link').removeClass('collapsed');
                $('.nav-item').removeClass('active');
-               $(this).addClass('active');
-               $(this).parent().addClass('active').parent().addClass('show');
+               // $(this).addClass('active');
+               $(this).parent().addClass('active').parent().addClass('show').parent().addClass('active');
             }
          });
       });
@@ -448,7 +448,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="btn btn-primary btn-sm mr-2 d-none d-lg-inline small"><?php echo $this->session->userdata('nama');?></span>
+                                <div class="btn btn-primary btn-sm">
+                                    <span class="mr-2 d-none d-lg-inline small"><?php echo $this->session->userdata('nama');?></span><i class="fa-solid fa-user"></i>
+                                </div>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
