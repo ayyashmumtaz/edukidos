@@ -6,7 +6,7 @@
             if ($(this).attr('href') == path) {
                $('.nav-link').removeClass('collapsed');
                $('.nav-item').removeClass('active');
-               // $(this).addClass('active');
+               $(this).addClass('active');
                $(this).parent().addClass('active').parent().addClass('show').parent().addClass('active');
             }
          });
