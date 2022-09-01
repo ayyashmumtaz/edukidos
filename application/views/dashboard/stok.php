@@ -22,7 +22,8 @@
                         <td><?= $b->nama_bahan ?></td>
                         <td><?= $b->nama_kategori ?></td>
                         <td><?= $b->stok ?></td>
-                    <?php endforeach; ?>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
 
         </table>
