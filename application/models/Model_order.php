@@ -215,17 +215,10 @@ function get_kategori()
 
 public function getAllStok()
   {
-  $this->db->select('*');
-  $this->db->from('stok');
-  $this->db->join('bahan', 'stok.id_barang = bahan.id_bahan');
-  $this->db->join('kategori', 'bahan.id_kategori = kategori.id');
-  // $kategori = array('status_bayar' => 1);
-  // $this->db->where($kategori);
-  //   $this->db->from('orderan');
-  //   $this->db->join('bahan', 'orderan.id_barang = bahan.id_bahan');
-  //   $this->db->join('stok', 'orderan.id_barang = stok.id_barang');
-  //   $this->db->join('customer','customer.id = orderan.nama');
-  //   $this->db->join('kategori','orderan.kategori = kategori.id','LEFT');      
+    $this->db->select('*');
+    $this->db->from('stok');
+    $this->db->join('bahan', 'stok.id_barang = bahan.id_bahan');
+    $this->db->join('kategori', 'bahan.id_kategori = kategori.id');   
     $query = $this->db->get();
     return $query;
 }
