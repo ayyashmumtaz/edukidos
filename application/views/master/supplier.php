@@ -10,7 +10,7 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th class="col-1">ID</th>
+                <th>ID</th>
                 <th>Atas Nama</th>
                 
                 <th>Nomor Rekening</th>

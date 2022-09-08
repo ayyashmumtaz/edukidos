@@ -1,6 +1,9 @@
 <script type="text/javascript">
     $(document).ready(function () {
-    $('#example').DataTable();
+      $('#example').DataTable({
+      "columnDefs": [
+    { "width": "2%", "targets": 0 }
+  ]
 });
 </script>
 

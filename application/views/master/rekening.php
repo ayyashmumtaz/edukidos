@@ -1,6 +1,9 @@
 <script type="text/javascript">
     $(document).ready(function () {
-    $('#example').DataTable();
+      $('#example').DataTable({
+      "columnDefs": [
+    { "width": "2%", "targets": 0 }
+  ]
 });
 </script>
 
@@ -79,7 +82,7 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th class="col-1">ID</th>
+                <th>ID</th>
                 <th>Atas Nama</th>
                 
                 <th>Nomor Rekening</th>
