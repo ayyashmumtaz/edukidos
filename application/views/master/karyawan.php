@@ -3,7 +3,8 @@
       $('#example').DataTable({
       "columnDefs": [
     { "width": "2%", "targets": 0 }
-  ]
+   ]
+})
 });
 </script>
 
