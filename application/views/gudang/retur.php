@@ -10,10 +10,11 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-            <th>No PO</th>
+                <th>Nomor PO</th>
+                <th>Tanggal Datang</th>
                 <th>Kategori</th>
+                <th>Nama Barang</th>
                 <th>Jumlah</th>
-                <th>Nama Bahan</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -21,10 +22,12 @@
             <?php
             foreach($barangRetur as $b){
             ?>
-            <td><?=$b->no_po ?></td>
-                <td><?=$b->nama_kategori?></td>
-                <td><?=$b->jumlah?></td>
-                <td><?=$b->nama_bahan?></td>
+            <tr>
+                <td><?= $b->no_po ?></td>
+                <td><?= $b->tgl_beli ?></td>
+                <td><?= $b->nama_kategori ?></td>
+                <td><?= $b->nama_bahan ?></td>
+                <td><?= $b->jumlah ?></td>
                 <td><a class="btn btn-sm btn-danger" href="<?= base_url('Gudang/retur_barang/'). $b->id_beli;?>">Retur Barang</td>
             </tr>
         <?php }?>
