@@ -1,18 +1,44 @@
 <script type="text/javascript">
-    $(document).ready(function () {
-    $('#example').DataTable();
-});
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "columnDefs": [{
+                "width": "18%",
+                "targets": 0
+            }]
+        });
+    });
 </script>
 
+<?php if ($this->session->flashdata('pembelian_sukses')) : ?>
+   <script type="text/javascript">
+      let timerInterval
+      Swal.fire({
+         title: 'Pembelian Stok Sukses!',
+         html: 'Order telah di input, silahkan di cek!',
+         icon: 'success',
+         timer: 1500,
+
+         didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+         },
+         willClose: () => {
+            clearInterval(timerInterval)
+         }
+      })
+   </script>
+   <?= $this->session->flashdata('pembelian_sukses') ?>
+<?php endif ?>
 
 <div class="container">
     <h3>Data Stok</h3>
+    <a class="btn btn-sm btn-success mb-3" href="<?= base_url('Gudang/tambah_stok');?>">+ Tambah Stok</a>
     <div class="table-responsive">
         <table id="example" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th class="col-2">Nama Bahan</th>
-                    <th class="col-2">Kategori</th>
+                    <th>Nama Bahan</th>
+                    <th>Kategori</th>
                     <th>Stok</th>
                 </tr>
             </thead>
