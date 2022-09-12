@@ -14,7 +14,7 @@
               <th>Nomor PO</th>
                 <th>Tanggal Datang</th>
                 <th>Kategori</th>
-                <th>Nama Barang</th>
+                <th>Nama Bahan</th>
                 <th>Jumlah</th>
             </tr>
         </thead>

@@ -26,6 +26,14 @@ class Model_gudang extends CI_Model {
    	return $query->result();      
    }
 
+   public function getBarangKeluar()
+   {
+      $this->db->select('*');
+      $this->db->from('orderan');
+      $this->db->join('bahan', 'orderan.id_barang = bahan.id_bahan');
+      $query = $this->db->get();
+      return $query->result();
+   }
 }
 
 /* End of file Model_gudang.php */
