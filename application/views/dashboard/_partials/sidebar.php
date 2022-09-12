@@ -246,7 +246,6 @@
     <div id="laporan" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Arus Gudang</a>
             <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Laporan Cetak</a>
             
         </div>
@@ -293,21 +292,6 @@
     </div>
 </li>
 
-
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#laporan"
-        aria-expanded="true" aria-controls="laporan">
-        <i class="fas fa-fw fa-chart-line"></i>
-        <span>Laporan</span>
-    </a>
-    <div id="laporan" class="collapse" aria-labelledby="headingUtilities"
-        data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('Gudang/arus_gudang');?>">Arus Gudang</a>
-            
-        </div>
-    </div>
-</li>
 
 <?php endif?>
 
