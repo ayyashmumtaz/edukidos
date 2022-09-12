@@ -27,9 +27,10 @@ class Gudang extends CI_Controller {
 
 	public function barang_masuk()
 	{
+		$data['barangMasuk'] = $this->Model_gudang->getHistoryStok();
 	$this->load->view('dashboard/_partials/header');
 	$this->load->view('dashboard/_partials/sidebar');
-	$this->load->view('gudang/masuk');				
+	$this->load->view('gudang/masuk',$data);				
 	$this->load->view('dashboard/_partials/footer');
 	}
 
@@ -51,9 +52,11 @@ class Gudang extends CI_Controller {
 
 	public function barang_retur()
 	{
+		$data['barangRetur'] = $this->Model_gudang->getBarangRetur();
+
 	$this->load->view('dashboard/_partials/header');
 	$this->load->view('dashboard/_partials/sidebar');
-	$this->load->view('gudang/retur');				
+	$this->load->view('gudang/retur', $data);				
 	$this->load->view('dashboard/_partials/footer');
 	}
 
@@ -70,12 +73,14 @@ class Gudang extends CI_Controller {
 	public function insert_pembelian()
 	{
 		$id_beli= uniqid();
+		$no_po = $this->input->post('no_po');
 		$id_barang = $this->input->post('id_barang');
 		$jumlah = $this->input->post('jumlah');
 		$tanggal = $this->input->post('tanggal');
 
 		$data = array(
 			'id_beli' => $id_beli,
+			'no_po' => $no_po,
 			'id_barang' => $id_barang,
 			'jumlah' => $jumlah,
 			'tgl_beli' => $tanggal,

@@ -10,24 +10,24 @@
 </script>
 
 <?php if ($this->session->flashdata('pembelian_sukses')) : ?>
-   <script type="text/javascript">
-      let timerInterval
-      Swal.fire({
-         title: 'Pembelian Stok Sukses!',
-         html: 'Order telah di input, silahkan di cek!',
-         icon: 'success',
-         timer: 1500,
+    <script type="text/javascript">
+        let timerInterval
+        Swal.fire({
+            title: 'Pembelian Stok Sukses!',
+            html: 'Order telah di input, silahkan di cek!',
+            icon: 'success',
+            timer: 1500,
 
-         didOpen: () => {
-            Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
-         },
-         willClose: () => {
-            clearInterval(timerInterval)
-         }
-      })
-   </script>
-   <?= $this->session->flashdata('pembelian_sukses') ?>
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        })
+    </script>
+    <?= $this->session->flashdata('pembelian_sukses') ?>
 <?php endif ?>
 
 <div class="container">
@@ -37,16 +37,16 @@
         <table id="example" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>Nama Bahan</th>
                     <th>Kategori</th>
+                    <th>Nama Bahan</th>
                     <th>Stok</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($allPembayaran as $b) : ?>
                     <tr>
-                        <td><?= $b->nama_bahan ?></td>
                         <td><?= $b->nama_kategori ?></td>
+                        <td><?= $b->nama_bahan ?></td>
                         <td><?= $b->stok ?></td>
                     </tr>
                 <?php endforeach; ?>

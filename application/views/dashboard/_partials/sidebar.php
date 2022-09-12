@@ -83,7 +83,7 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="<?= site_url('Gudang');?>">Input Barang Masuk</a>
+            <a class="collapse-item" href="<?= site_url('Beranda/stok');?>">Data Stok</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_masuk');?>">Barang Masuk</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_keluar');?>">Barang Keluar</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_retur');?>">Retur Barang</a>
@@ -107,7 +107,7 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="<?= site_url('Gudang');?>">Input Barang Masuk</a>
+            <a class="collapse-item" href="<?= site_url('Beranda/stok');?>">Data Stok</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_masuk');?>">Barang Masuk</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_keluar');?>">Barang Keluar</a>
             <a class="collapse-item" href="<?= site_url('Gudang/barang_retur');?>">Retur Barang</a>
@@ -310,33 +310,7 @@
 </li>
 
 <?php endif?>
-<?php if($this->session->userdata('role') == 1): ?>
-<li class="nav-item">
-    <a class="nav-link" href="<?= base_url('Beranda/datang_barang');?>">
-        <i class="fas fa-fw fa-truck"></i>
-        <span>Kedatangan Barang</span></a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="<?= base_url('Beranda/stok');?>">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Stok Barang</span></a>
-</li>
 
-<?php endif?>
-
-<?php if($this->session->userdata('role') == 3): ?>
-<li class="nav-item">
-    <a class="nav-link" href="<?= base_url('Beranda/datang_barang');?>">
-        <i class="fas fa-fw fa-truck"></i>
-        <span>Kedatangan Barang</span></a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="<?= base_url('Beranda/stok');?>">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Stok Barang</span></a>
-</li>
-
-<?php endif?>
   <?php if($this->session->userdata('role') == 1): ?>
 
 <!-- Divider -->

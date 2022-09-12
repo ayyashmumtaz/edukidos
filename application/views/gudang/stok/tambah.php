@@ -10,7 +10,14 @@
    <form action="<?= base_url('Gudang/insert_pembelian'); ?>" method="post">
       <div class="row">
 
-         <div class="col-md-4">
+         <div class="col-md-6">
+            <div class="form-group">
+               <label for="last">NOMER PO</label>
+               <input type="text" class="form-control" name="no_po">
+            </div>
+         </div>
+
+         <div class="col-md-6">
             <div class="form-group">
                <label for="last">BAHAN BAKU</label>
                <select class="form-control" id="id" name="id_barang" onchange="return autofill();"><?php foreach ($bahanBaku as $i) { ?>
@@ -20,14 +27,14 @@
             </div>
          </div>
 
-         <div class="col-md-4">
+         <div class="col-md-6">
             <div class="form-group">
                <label for="last">JUMLAH</label>
                <input type="number" class="form-control" name="jumlah">
             </div>
          </div>
 
-         <div class="col-md-4">
+         <div class="col-md-6">
             <div class="form-group">
                <label for="last">TANGGAL</label>
                <input type="date" class="form-control" name="tanggal">
