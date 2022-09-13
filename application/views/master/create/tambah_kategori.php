@@ -8,7 +8,7 @@
          <div class="col-md-6">
             <div class="form-group">
                <label for="last">NAMA KATEGORI</label>
-               <input type="text" class="form-control" name="nama_kategori">
+               <input type="text" class="form-control" name="nama_kategori" required>
             </div>
          </div>
 

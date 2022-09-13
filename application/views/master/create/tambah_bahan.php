@@ -13,14 +13,14 @@
          <div class="col-md-3">
             <div class="form-group">
                <label for="last">NAMA BAHAN</label>
-               <input type="text" class="form-control" name="nama_bahan">
+               <input type="text" class="form-control" name="nama_bahan" required>
             </div>
          </div>
 
          <div class="col-md-3">
             <div class="form-group">
                <label for="last">KATEGORI BAHAN</label>
-               <select class="form-control" name="id_kategori">
+               <select class="form-control" name="id_kategori" required>
                   <option selected disabled>-- PILIH KATEGORI --</option>
                   <?php foreach ($kategori as $k) { ?>
                      <option value="<?php echo $k['id']; ?>"><?php echo $k['nama_kategori']; ?></option>
@@ -32,14 +32,14 @@
          <div class="col-md-3">
             <div class="form-group">
                <label for="last">HARGA BELI</label>
-               <input type="number" class="form-control" name="harga_beli">
+               <input type="number" class="form-control" name="harga_beli" required>
             </div>
          </div>
 
          <div class="col-md-3">
             <div class="form-group">
                <label for="last">HARGA JUAL</label>
-               <input type="number" class="form-control" name="harga_jual">
+               <input type="number" class="form-control" name="harga_jual" required>
             </div>
          </div>
       </div>

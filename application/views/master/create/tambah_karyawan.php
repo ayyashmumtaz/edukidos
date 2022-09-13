@@ -13,28 +13,28 @@
          <div class="col-md-6">
             <div class="form-group">
                <label for="last">NAMA</label>
-               <input type="text" class="form-control" name="nama">
+               <input type="text" class="form-control" name="nama" required>
             </div>
          </div>
 
          <div class="col-md-6">
             <div class="form-group">
                <label for="last">USERNAME</label>
-               <input type="text" class="form-control" name="username">
+               <input type="text" class="form-control" name="username" required>
             </div>
          </div>
 
          <div class="col-md-6">
             <div class="form-group">
                <label for="last">PASSWORD</label>
-               <input type="password" class="form-control" name="password" id="password">
+               <input type="password" class="form-control" name="password" id="password" required>
             </div>
          </div>
 
          <div class="col-md-6">
             <div class="form-group">
                <label for="last">CONFIRMASI PASSWORD</label>
-               <input type="password" class="form-control" name="password" id="confirm_password">
+               <input type="password" class="form-control" name="password" id="confirm_password" required>
                <span id='message'></span>
             </div>
          </div>

@@ -94,13 +94,13 @@ Swal.fire({
      <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Plat Nomor</label>
-          <input class="form-control" type="text" name="plat_nomor">
+          <input class="form-control" type="text" name="plat_nomor" required>
         </div>
       </div>
       <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Jenis Kendaraan</label>
-          <input class="form-control" type="text" name="jenis_kendaraan" >
+          <input class="form-control" type="text" name="jenis_kendaraan" required>
         </div>
       </div>
    

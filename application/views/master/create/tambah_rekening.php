@@ -13,21 +13,21 @@
          <div class="col-md-4">
             <div class="form-group">
                <label for="last">NAMA PEMILIK (A.N.)</label>
-               <input type="text" class="form-control" name="atas_nama">
+               <input type="text" class="form-control" name="atas_nama" required>
             </div>
          </div>
 
          <div class="col-md-4">
             <div class="form-group">
                <label for="last">NO. REKENING</label>
-               <input type="number" class="form-control" name="norek">
+               <input type="number" class="form-control" name="norek" required>
             </div>
          </div>
 
          <div class="col-md-4">
             <div class="form-group">
                <label for="last">NAMA BANK</label>
-               <input type="text" class="form-control" name="bank">
+               <input type="text" class="form-control" name="bank" required>
             </div>
          </div>
       </div>

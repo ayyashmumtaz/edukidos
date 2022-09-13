@@ -40,21 +40,21 @@ Swal.fire({
       <div class="col-md-3">
         <div class="form-group">
           <label for="last">TANGGAL ORDER</label>
-          <input type="date" class="form-control" name="tgl_order">
+          <input type="date" class="form-control" name="tgl_order" required>
         </div>
       </div>
       
       <div class="col-md-3">
         <div class="form-group">
           <label for="last">NO. PO</label>
-          <input type="text" class="form-control" name="no_po">
+          <input type="text" class="form-control" name="no_po" required>
         </div>
       </div>
 
       <div class="col-md-5">
         <div class="form-group">
           <label for="last">NAMA KONSUMEN</label>
-           <select class="form-control" name="nama">
+           <select class="form-control" name="nama" required>
             <option selected disabled>-- PILIH KONSUMEN --</option>
                   <?php foreach($customer as $i){ ?>
                   <option value="<?php echo $i['id']; ?>"><?php echo $i['nama_customer']; ?></option>
@@ -65,7 +65,7 @@ Swal.fire({
       <div class="col-md-3">
         <div class="form-group">
           <label for="last">NO. TELEPON</label>
-          <input type="text" name="no_telp" class="form-control">
+          <input type="text" name="no_telp" class="form-control" required>
         </div>
         <input type="hidden" name="urgensi" value="0">
          <input type="checkbox" name="urgensi" value="1"> URGENT
@@ -87,7 +87,7 @@ Swal.fire({
      <div class="col-md-3">
         <div class="form-group">
           <label for="last">Nama Pekerjaan</label>
-          <input type="text" name="nama_kerja" class="form-control">
+          <input type="text" name="nama_kerja" class="form-control" required>
         </div>
       
         
@@ -97,7 +97,7 @@ Swal.fire({
         <div class="col-md-3">
         <div class="form-group">
           <label for="last">Kategori</label>
-          <select class="form-control" name="kategori" id="kategori"><?php foreach($kategori as $i){ ?>
+          <select class="form-control" name="kategori" id="kategori" required><?php foreach($kategori as $i){ ?>
                   <option value="<?php echo $i['id']; ?>"><?php echo $i['nama_kategori']; ?></option>
                   <?php } ?></select>
         </div>
@@ -106,7 +106,7 @@ Swal.fire({
        <div class="col-md-3">
         <div class="form-group">
           <label for="last">Bahan Baku</label>
-          <select class="form-control"  id="id" name="id_barang" onchange="return autofill();"><?php foreach($bahanBaku as $i){ ?>
+          <select class="form-control"  id="id" name="id_barang" onchange="return autofill();" required><?php foreach($bahanBaku as $i){ ?>
                   <option value="<?php echo $i['id_bahan']; ?>"><?php echo $i['nama_bahan']; ?></option>
                   <?php } ?></select>
         </div>
@@ -115,7 +115,7 @@ Swal.fire({
       <div class="col-md-3">
         <div class="form-group">
           <label for="last">File Orderan</label>
-          <input type="file" id="berkas" name="berkas" >
+          <input type="file" id="berkas" name="berkas" required>
           <label>max. 100mb</label>
         </div>
       </div>
@@ -130,7 +130,7 @@ Swal.fire({
    <div class="col-md-3" >       
         <div class="form-group">
           <label for="last">Panjang</label>
-          <input class="form-control" onchange="return autofill();" id="panjang" type="number" name="panjang">
+          <input class="form-control" onchange="return autofill();" id="panjang" type="number" name="panjang" required>
            <small>Kosongkan jika bahan baku A3.</small>
         </div>
       </div>
@@ -138,7 +138,7 @@ Swal.fire({
       <div class="col-md-3" >
         <div class="form-group">
           <label for="last">Lebar</label>
-          <input class="form-control" onchange="return autofill();" id="lebar" type="number" name="lebar">
+          <input class="form-control" onchange="return autofill();" id="lebar" type="number" name="lebar" required>
         </div>
       </div>
       
@@ -151,13 +151,13 @@ Swal.fire({
   <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Jumlah Order</label>
-          <input class="form-control" onchange="return autofill();" id="jumlah" type="number" min="1" value="1" name="jumlah">
+          <input class="form-control" onchange="return autofill();" id="jumlah" type="number" min="1" value="1" name="jumlah" required>
         </div>
       </div>
       <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Finishing</label>
-          <select name="finishing">
+          <select name="finishing" required>
             <option value="0">Packing</option>
             <option value="1">Cutting</option>
             <option value="2">Seaming</option>
@@ -206,7 +206,7 @@ Swal.fire({
               <i class="fa-solid fa-rupiah-sign"></i>
             </div>
           </div> 
-          <input class="form-control" type="number" name="biaya_design">
+          <input class="form-control" type="number" name="biaya_design" required>
         </div>       
         </div>
       </div>

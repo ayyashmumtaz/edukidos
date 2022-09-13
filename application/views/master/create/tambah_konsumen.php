@@ -13,21 +13,21 @@
          <div class="col-md-6">
             <div class="form-group">
                <label for="last">NAMA</label>
-               <input type="text" class="form-control" name="nama_customer">
+               <input type="text" class="form-control" name="nama_customer" required>
             </div>
          </div>
 
          <div class="col-md-6">
             <div class="form-group">
                <label for="last">NO. TELPHONE</label>
-               <input type="number" class="form-control" name="no_telp">
+               <input type="number" class="form-control" name="no_telp" required>
             </div>
          </div>
 
          <div class="col-md-12">
             <div class="form-group">
                <label for="last">ALAMAT</label>
-               <textarea class="form-control" name="alamat"></textarea>
+               <textarea class="form-control" name="alamat" required></textarea>
             </div>
          </div>
 
