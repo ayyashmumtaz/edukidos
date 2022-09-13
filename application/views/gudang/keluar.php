@@ -17,7 +17,7 @@
             <tr>
               <th>Tanggal Pesanan</th>
               <th>Nama Bahan</th>
-              <th>Jumlah</th>
+              <th>Qty</th>
             </tr>
         </thead>
         <tbody>

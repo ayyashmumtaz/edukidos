@@ -15,7 +15,7 @@
                 <th>Tanggal Datang</th>
                 <th>Kategori</th>
                 <th>Nama Bahan</th>
-                <th>Jumlah</th>
+                <th>Qty</th>
             </tr>
         </thead>
         <tbody>
