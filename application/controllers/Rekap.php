@@ -63,6 +63,25 @@ class Rekap extends CI_Controller {
 	$this->load->view('dashboard/_partials/footer');
 	}
 
+	public function laporan_cetak()
+	{
+		$data['laporanCetak'] = $this->Model_rekap->getLaporanCetak();
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('rekap/laporan', $data);				
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function detail($id_order)
+	{
+		$data['rekapDetail'] = $this->Model_rekap->getDetailLaporan($id_order);
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('rekap/detail', $data);				
+		$this->load->view('dashboard/_partials/footer');
+	}
+
 }
 
 /* End of file Rekap.php */

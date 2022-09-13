@@ -119,6 +119,15 @@ class Beranda extends CI_Controller
     'plat_nomor' => $plat_nomor
     );
 
+    $data2 = array (
+      'status' => 4
+    );
+
+    $where2 = array(
+      'id_order' => $id_order
+    );
+
+    $this->Model_order->update($where2,$data2,'orderan');
   $this->Model_order->input_data($data,'surat_jalan');
   $this->session->set_flashdata('surat_berhasil', ' ');
   redirect('Beranda/surat_jalan');

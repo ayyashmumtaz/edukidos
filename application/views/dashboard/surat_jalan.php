@@ -26,8 +26,31 @@
    <?= $this->session->flashdata('kerja_selesai_finishing') ?>
 <?php endif ?>
 
+<?php if ($this->session->flashdata('surat_berhasil')) : ?>
+   <script type="text/javascript">
+      let timerInterval
+      Swal.fire({
+         title: 'Surat Jalan Berhasil di Input!',
+         html: 'Silahkan Lakukan Pengiriman',
+         icon: 'success',
+         timer: 1500,
+
+         didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+         },
+         willClose: () => {
+            clearInterval(timerInterval)
+         }
+         
+      })
+   </script>
+   <?= $this->session->flashdata('surat_berhasil') ?>
+<?php endif ?>
+
 <div class="container">
     <h3>List Pengiriman | Surat Jalan</h3>
+    <div class="table-responsive">
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -80,7 +103,7 @@ switch ($favcolor) {
     echo "<button class='btn btn-sm btn-info'>Proses Finishing</button>";
     break;
     case "3":
-    echo "<button class='btn btn-sm btn-success'>Selesai</button>";
+    echo "<button class='btn btn-sm btn-danger'>Belum di Input</button>";
     break;
 
   default:
@@ -97,5 +120,6 @@ switch ($favcolor) {
         <?php }?>
         </tbody>
        </table>
+       </div>
 </div>
  
