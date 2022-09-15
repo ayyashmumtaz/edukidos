@@ -168,7 +168,7 @@ Swal.fire({
          <div class="col-md-12">
           <label for="last">Note Order</label>
           <br>
-          <textarea class="form-control" name="catatan"></textarea>
+          <textarea class="form-control mb-3" name="catatan"></textarea>
       </div>
      <div class="col-md-3">       
         <div class="form-group">
