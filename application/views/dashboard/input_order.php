@@ -173,52 +173,66 @@ Swal.fire({
      <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Biaya Cetak Satuan</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
-              <i class="fa-solid fa-rupiah-sign"></i>
-            </div>
-          </div> 
-          <input class="form-control" id="harga_jual" type="number" name="harga_bahan" readonly>
+          <input class="form-control" id="harga_jual" type="text" name="harga_bahan" readonly>
           </div>
         </div>
-      </div>
      <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Biaya Cetak</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
-              <i class="fa-solid fa-rupiah-sign"></i>
-            </div>
-          </div> 
-          <input class="form-control" id="harga_jual_semua" type="number" name="harga_bahan" readonly>
+          <input class="form-control" id="harga_jual_semua" type="text" name="harga_bahan" readonly>
           </div>
         </div>
-      </div>
 
         <div class="col-md-3">       
         <div class="form-group">
           <label for="last">Biaya Design</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
-              <i class="fa-solid fa-rupiah-sign"></i>
-            </div>
-          </div> 
-          <input class="form-control" type="number" name="biaya_design" required>
+          <input class="form-control" type="text" name="biaya_design" id="rupiah" required>
         </div>       
         </div>
       </div>
-  </div>
 
 <button class="btn btn-lg btn-primary">Submit</button>
 </div>
 </form>
 
+<script>
+  var rupiah = document.getElementById("rupiah");
+    rupiah.addEventListener("keyup", function(e) {
+      // tambahkan 'Rp.' pada saat form di ketik
+      // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+      rupiah.value = formatRupiah(this.value, "Rp. ");
+    });
+
+    /* Fungsi formatRupiah */
+    function formatRupiah(angka, prefix) {
+      var number_string = angka.replace(/[^,\d]/g, "").toString(),
+        split = number_string.split(","),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+      // tambahkan titik jika yang di input sudah menjadi angka ribuan
+      if (ribuan) {
+        separator = sisa ? "." : "";
+        rupiah += separator + ribuan.join(".");
+      }
+
+      rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
+      return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
+      console.log(rupiah);
+    }
+
+</script>
 
 <script>
     function autofill(){
+
+        const formatRupiah = (money) => {
+          return new Intl.NumberFormat('id-ID',
+            { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }
+          ).format(money);
+        }
+        
         var id = document.getElementById('id').value;
         $.ajax({
                        url:"<?php echo base_url();?>/Order/cari",
@@ -241,8 +255,8 @@ Swal.fire({
                 console.log(totalUkuran);
                 console.log(totalSemua);              
 
-                document.getElementById('harga_jual').value=totalHargaSatuan; 
-                document.getElementById('harga_jual_semua').value=totalSemua; 
+                document.getElementById('harga_jual').value=formatRupiah(totalHargaSatuan); 
+                document.getElementById('harga_jual_semua').value=formatRupiah(totalSemua); 
                                 
                      
                 });

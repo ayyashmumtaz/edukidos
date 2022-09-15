@@ -48,6 +48,8 @@ class Order extends CI_Controller {
 		$catatan = $this->input->post('catatan');
 		$finishing = $this->input->post('finishing');
 
+		$hapusSelainAngka_biayaDesign = preg_replace('/[^0-9]/', '', $biaya_design);
+		$hapusSelainAngka_hargaBahan = preg_replace('/[^0-9]/', '', $harga_bahan);
 
  
 		
@@ -89,8 +91,8 @@ class Order extends CI_Controller {
 			'panjang' => $panjang,
 			'lebar' => $lebar,
 			'file' => $data_foto,
-			'biaya_design' => $biaya_design,
-			'harga_bahan' => $harga_bahan,
+			'biaya_design' => $hapusSelainAngka_biayaDesign,
+			'harga_bahan' => $hapusSelainAngka_hargaBahan,
 			'catatan' => $catatan,
 			'finishing' => $finishing,
 			'status' => 0,
