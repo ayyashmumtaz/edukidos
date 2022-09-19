@@ -7,6 +7,11 @@ class Model_gudang extends CI_Model {
       $this->db->insert($table, $data);
    }
 
+   public function update_data($where, $data, $table){
+      $this->db->where($where);
+      $this->db->update($table, $data);
+   }
+
    public function getHistoryStok(){
    	$this->db->select('*');
    	$this->db->from('pembelian');
@@ -21,9 +26,21 @@ class Model_gudang extends CI_Model {
       $this->db->select('*');
    	$this->db->from('pembelian');
    	$this->db->join('bahan', 'pembelian.id_barang = bahan.id_bahan');
+   	$this->db->join('stok_retur', 'pembelian.id_beli = stok_retur.id_beli');
    	$this->db->join('kategori', 'bahan.id_kategori = kategori.id');
    	$query = $this->db->get();
    	return $query->result();      
+   }
+
+   public function getStokRetur()
+   {
+      $this->db->select('*');
+      $this->db->from('stok_retur');
+      $this->db->join('pembelian', 'stok_retur.id_beli = pembelian.id_beli');
+      $this->db->join('bahan', 'stok_retur.id_barang = bahan.id_bahan');
+   	$this->db->join('kategori', 'bahan.id_kategori = kategori.id');
+      $query = $this->db->get();
+      return $query->result();
    }
 
    public function getBarangKeluar()
@@ -33,6 +50,29 @@ class Model_gudang extends CI_Model {
       $this->db->join('bahan', 'orderan.id_barang = bahan.id_bahan');
       $query = $this->db->get();
       return $query->result();
+   }
+
+   public function BarangRetur($id_beli)
+   {
+      $this->db->select('*');
+      $this->db->from('pembelian');
+   	$this->db->join('bahan', 'pembelian.id_barang = bahan.id_bahan');
+      $this->db->join('kategori', 'bahan.id_kategori = kategori.id');
+      $this->db->where('pembelian.id_beli', $id_beli);
+      $query = $this->db->get();
+      return $query->row();
+   }
+
+   public function detailStokRetur($id)
+   {
+      $this->db->select('*');
+      $this->db->from('stok_retur');
+      $this->db->join('pembelian', 'stok_retur.id_beli = pembelian.id_beli');
+      $this->db->join('bahan', 'stok_retur.id_barang = bahan.id_bahan');
+   	$this->db->join('kategori', 'bahan.id_kategori = kategori.id');
+      $this->db->where('stok_retur.id_retur', $id);
+      $query = $this->db->get();
+      return $query->row();
    }
 }
 

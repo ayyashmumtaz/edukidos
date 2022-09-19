@@ -53,7 +53,8 @@ class Gudang extends CI_Controller {
 
 	public function barang_retur()
 	{
-		$data['barangRetur'] = $this->Model_gudang->getBarangRetur();
+		// $data['barangRetur'] = $this->Model_gudang->getBarangRetur();
+		$data['stokRetur'] = $this->Model_gudang->getStokRetur();
 
 	$this->load->view('dashboard/_partials/header');
 	$this->load->view('dashboard/_partials/sidebar');
@@ -106,8 +107,56 @@ class Gudang extends CI_Controller {
 			$this->session->set_flashdata('pembelian_sukses', ' ');
 			redirect('Beranda/stok');
 		}
+	}
 
+	public function retur_barang($id_beli)
+	{
+		$data['barangRetur'] = $this->Model_gudang->BarangRetur($id_beli);
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('gudang/stok/retur_barang', $data);				
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function retur_update()
+	{
+		$id_beli = $this->input->post('id_beli');
+		$jumlah = $this->input->post('jumlah');
+		$where = array('id_beli' => $id_beli);
 		
+		$id_barang = $this->input->post('id_barang');
+		$stok_lama = $this->input->post('stok_lama');
+		$tanggal_retur = $this->input->post('tanggal_retur');
+		$keterangan = $this->input->post('keterangan');
+
+		$data_pembelian = array(
+			'jumlah' => $stok_lama - $jumlah
+		);
+
+		$data_stokRetur = array(
+			'id_retur' => uniqid(),
+			'id_beli' => $id_beli,
+			'id_barang' => $id_barang,
+			'stok_lama' => $stok_lama,
+			'tanggal_retur' => $tanggal_retur,
+			'keterangan' => $keterangan
+		);
+
+		$this->Model_gudang->input_data($data_stokRetur, 'stok_retur');
+		$this->Model_gudang->update_data($where, $data_pembelian, 'pembelian');
+		$this->session->set_flashdata('retur_sukses', ' ');
+		redirect('Gudang/barang_masuk');
+	}
+
+	public function retur_detail($id_beli)
+	{
+		$data['returDetail'] = $this->Model_gudang->detailStokRetur($id_beli);
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('gudang/stok/retur_detail', $data);				
+		$this->load->view('dashboard/_partials/footer');
 	}
 
 	
