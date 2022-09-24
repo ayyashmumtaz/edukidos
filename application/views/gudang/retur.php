@@ -14,7 +14,6 @@
                 <th>Nomor PO</th>
                 <th>Kategori</th>
                 <th>Nama Bahan</th>
-                <th>Qty Lama</th>
                 <th>Tanggal Retur</th>
                 <th>Jumlah Retur</th>
                 <th>Action</th>
@@ -28,9 +27,8 @@
                 <td><?= $b->no_po ?></td>
                 <td><?= $b->nama_kategori ?></td>
                 <td><?= $b->nama_bahan ?></td>
-                <td><?= $b->stok_lama ?></td>
                 <td><?= $b->tanggal_retur ?></td>
-                <td><?= ($b->stok_lama - $b->jumlah) ?></td>
+                <td><?= $b->jumlah_retur ?></td>
                 <td><a class="btn btn-sm btn-info" href="<?= base_url('Gudang/retur_detail/'). $b->id_retur;?>">Detail</td>
             </tr>
         <?php }?>

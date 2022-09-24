@@ -27,7 +27,7 @@
                            </tr>
                            <tr>
                               <td><strong>Qty Lama</strong></td>
-                              <td><?= $returDetail->stok_lama ?></td>
+                              <td><?= $returDetail->jumlah ?></td>
                            </tr>
                            <td></td>
                            <tr>
@@ -36,7 +36,7 @@
                            </tr>
                            <tr>
                               <td><strong>Jumlah Retur</strong></td>
-                              <td><?= ($returDetail->stok_lama - $returDetail->jumlah) ?></td>
+                              <td><?= $returDetail->jumlah_retur ?></td>
                            </tr>
                            <tr>
                               <td><strong>Keterangan Retur</strong></td>

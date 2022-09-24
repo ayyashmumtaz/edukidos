@@ -123,28 +123,28 @@ class Gudang extends CI_Controller {
 	{
 		$id_beli = $this->input->post('id_beli');
 		$jumlah = $this->input->post('jumlah');
-		$where = array('id_beli' => $id_beli);
+		// $where = array('id_beli' => $id_beli);
 		
 		$id_barang = $this->input->post('id_barang');
-		$stok_lama = $this->input->post('stok_lama');
+		// $stok_lama = $this->input->post('stok_lama');
 		$tanggal_retur = $this->input->post('tanggal_retur');
 		$keterangan = $this->input->post('keterangan');
 
-		$data_pembelian = array(
-			'jumlah' => $stok_lama - $jumlah
-		);
+		// $data_pembelian = array(
+		// 	'jumlah' => $stok_lama - $jumlah,
+		// );
 
 		$data_stokRetur = array(
 			'id_retur' => uniqid(),
 			'id_beli' => $id_beli,
 			'id_barang' => $id_barang,
-			'stok_lama' => $stok_lama,
+			'jumlah_retur' => $jumlah,
 			'tanggal_retur' => $tanggal_retur,
 			'keterangan' => $keterangan
 		);
 
 		$this->Model_gudang->input_data($data_stokRetur, 'stok_retur');
-		$this->Model_gudang->update_data($where, $data_pembelian, 'pembelian');
+		// $this->Model_gudang->update_data($where, $data_pembelian, 'pembelian');
 		$this->session->set_flashdata('retur_sukses', ' ');
 		redirect('Gudang/barang_masuk');
 	}
