@@ -11,6 +11,8 @@
 
     <title>Edukidos Digital Printing App</title>
 
+    <!-- logo -->
+    <link rel="icon" href="<?php echo base_url('assets/img/edukidos_logo.png') ?>" type="image/png">
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('');?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
