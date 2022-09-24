@@ -45,10 +45,12 @@ Swal.fire({
       </div>
       
       <div class="col-md-3">
-        <div class="form-group">
+        <div class="form-group mb-2">
           <label for="last">NO. PO</label>
           <input type="text" class="form-control" name="no_po" required>
         </div>
+        <input type="hidden" name="urgensi" value="0">
+         <input type="checkbox" name="urgensi" value="1"> URGENT
       </div>
 
       <div class="col-md-5">
@@ -63,12 +65,11 @@ Swal.fire({
         </div>
       </div>
       <div class="col-md-3">
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="last">NO. TELEPON</label>
           <input type="text" name="no_telp" class="form-control" required>
-        </div>
-        <input type="hidden" name="urgensi" value="0">
-         <input type="checkbox" name="urgensi" value="1"> URGENT
+        </div> -->
+        
 
       </div>
 
