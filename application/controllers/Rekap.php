@@ -82,6 +82,29 @@ class Rekap extends CI_Controller {
 		$this->load->view('dashboard/_partials/footer');
 	}
 
+	public function genCode(){
+		$this->db->select('RIGHT(orderan.no_inv,5) as no_inv', FALSE);
+		$this->db->order_by('no_inv','DESC');    
+		$this->db->limit(1);    
+		$query = $this->db->get('orderan');
+			if($query->num_rows() <> 0){      
+				 $data = $query->row();
+				 $kode = intval($data->no_inv) + 1; 
+			}
+			else{      
+				 $kode = 1;  
+			}
+		$batas = str_pad($kode, 5, "0", STR_PAD_LEFT);    
+		$kodetampil = "INV-".$batas;
+		echo json_encode($kodetampil);
+	}
+
+	public function cetak_inv()
+	{
+		
+		$this->load->view('rekap/invoice');
+	}
+
 }
 
 /* End of file Rekap.php */

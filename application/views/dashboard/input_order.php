@@ -21,7 +21,7 @@ Swal.fire({
                     <?= $this->session->flashdata('order_berhasil') ?>
            
         <?php endif ?>
-<div class="container">
+<div class="container" >
    <hr>
          <h5>Data Customer & Urgensi</h5>
          <hr>
@@ -65,10 +65,10 @@ Swal.fire({
         </div>
       </div>
       <div class="col-md-3">
-        <!-- <div class="form-group">
-          <label for="last">NO. TELEPON</label>
-          <input type="text" name="no_telp" class="form-control" required>
-        </div> -->
+        <div class="form-group">
+          <label for="last">NO. INVOICE</label>
+          <input type="text" name="no_inv" id="no_inv" class="form-control" readonly>
+        </div>
         
 
       </div>
@@ -276,4 +276,19 @@ Swal.fire({
     //     }
     // });
 // })
+</script>
+
+<script>
+    function cekInvoice(){
+$.ajax({
+               url:"<?php echo base_url();?>/Rekap/genCode",
+               success:function(data){
+                   var hasil = JSON.parse(data);  
+                   console.log(hasil); 
+                   document.getElementById('no_inv').value=hasil;
+      }
+           });
+           
+}
+cekInvoice();
 </script>
