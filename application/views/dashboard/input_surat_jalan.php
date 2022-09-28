@@ -93,6 +93,12 @@ Swal.fire({
       </div>
      <div class="col-md-3">       
         <div class="form-group">
+          <label for="last">Tanggal Kirim</label>
+          <input class="form-control" type="date" name="tgl_kirim" required>
+        </div>
+      </div>
+     <div class="col-md-3">       
+        <div class="form-group">
           <label for="last">Plat Nomor</label>
           <input class="form-control" type="text" name="plat_nomor" required>
         </div>

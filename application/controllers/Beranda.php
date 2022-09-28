@@ -109,6 +109,7 @@ class Beranda extends CI_Controller
   function update_surat_jalan(){
   $id_surat = $this->input->post('id_surat');
   $id_order = $this->input->post('id_order');
+  $tgl_kirim = $this->input->post('tgl_kirim');
   $plat_nomor = $this->input->post('plat_nomor');
   $jenis_kendaraan = $this->input->post('jenis_kendaraan');
 
@@ -116,6 +117,7 @@ class Beranda extends CI_Controller
     'id_surat' => $id_surat,
     'id_order' => $id_order,
     'jenis_kendaraan' => $jenis_kendaraan,
+    'tgl_kirim' => $tgl_kirim,
     'plat_nomor' => $plat_nomor
     );
 

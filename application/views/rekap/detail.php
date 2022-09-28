@@ -24,6 +24,10 @@
                            <td><?= $rekapDetail->nama_customer ?></td>
                         </tr>
                         <tr>
+                           <td><strong>Tanggal Order</strong></td>
+                           <td><?= $rekapDetail->tgl_order ?></td>
+                        </tr>
+                        <tr>
                            <td><strong>No. Handphone</strong></td>
                            <td><?= $rekapDetail->no_telp ?></td>
                         </tr>
@@ -32,8 +36,12 @@
                            <td><?= $rekapDetail->nama_kategori ?></td>
                         </tr>
                         <tr>
-                           <td><strong>Tanggal Order</strong></td>
-                           <td><?= $rekapDetail->tgl_order ?></td>
+                           <td><strong>Bahan</strong></td>
+                           <td><?= $rekapDetail->nama_bahan ?></td>
+                        </tr>
+                        <tr>
+                           <td><strong>Tanggal Selesai</strong></td>
+                           <td><?= $rekapDetail->tgl_kirim ?></td>
                         </tr>
                         <tr>
                            <td><strong>Jumlah</strong></td>
