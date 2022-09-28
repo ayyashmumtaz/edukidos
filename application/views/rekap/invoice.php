@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>A simple, clean, and responsive HTML invoice template</title>
-
 		<style>
 			.invoice-box {
 				max-width: 800px;
@@ -97,21 +91,20 @@
 				text-align: left;
 			}
 		</style>
-	</head>
 
-	<body>
-		<div class="invoice-box">
+		<div class="invoice-box mt-3">
 			<table cellpadding="0" cellspacing="0">
 				<tr class="top">
 					<td colspan="2">
 						<table>
 							<tr>
 								<td class="title">
-									<img src="https://www.sparksuite.com/images/logo.png" style="width: 100%; max-width: 300px" />
+									<img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 20%; max-width: 300px; float:left" />
+									<h1 class="mt-3 ml-5 pl-5"><b>INVOICE</b></h1>
 								</td>
 
 								<td>
-									Invoice #: 123<br />
+									<b>COMPANY</b><br />
 									Created: January 1, 2015<br />
 									Due: February 1, 2015
 								</td>
@@ -122,66 +115,94 @@
 
 				<tr class="information">
 					<td colspan="2">
+						<hr class="mb-3 mt-0">
 						<table>
 							<tr>
 								<td>
-									Sparksuite, Inc.<br />
-									12345 Sunny Road<br />
-									Sunnyville, CA 12345
+									<b>CUSTOMER</b><br />
+									<?= $rekapDetail->nama_customer ?><br />
+									<?= $rekapDetail->alamat ?><br />
+									<?= $rekapDetail->no_telp ?><br />
 								</td>
 
-								<td>
-									Acme Corp.<br />
-									John Doe<br />
-									john@example.com
+								<td style="float: right;">
+									<b>Tanggal Selesai</b><br />
+									<?= $rekapDetail->tgl_kirim ?><br />
+
+								</td>
+
+								<td style="float: right;">
+									<b>Invoice Number</b><br />
+									<?= $rekapDetail->no_inv ?><br />
+
+									<br>
+
+									<b>Nama Pekerjaan</b><br />
+									<?= $rekapDetail->nama_kerja ?><br />
+								</td>
+
+								<td style="float: right;">
+									<b>Tanggal Order</b><br />
+									<?= $rekapDetail->tgl_order ?><br />
+
+									<br>
+
+									<b>Kategori</b><br />
+									<?= $rekapDetail->nama_kategori ?><br />
 								</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
-
+			</table>
+			<table>
 				<tr class="heading">
-					<td>Payment Method</td>
-
-					<td>Check #</td>
-				</tr>
-
-				<tr class="details">
-					<td>Check</td>
-
-					<td>1000</td>
-				</tr>
-
-				<tr class="heading">
-					<td>Item</td>
-
-					<td>Price</td>
+					<td>Deskripsi</td>
+					<td>Harga</td>
+					<td style="text-align: center;">Panjang</td>
+					<td style="text-align: center;">Lebar</td>
+					<td>Qty</td>
+					<td>Jumlah</td>
 				</tr>
 
 				<tr class="item">
-					<td>Website design</td>
+					<td><?= $rekapDetail->nama_bahan ?></td>
+					<td><?= 'Rp. ' . number_format($rekapDetail->harga_jual, 0, ',', '.') ?></td>
+					<td style="text-align: center;"><?= $rekapDetail->panjang ?></td>
+					<td style="text-align: center;"><?= $rekapDetail->lebar ?></td>
+					<td><?= $rekapDetail->jumlah  ?></td>
 
-					<td>$300.00</td>
+					<?php
+					$totalUkuran = $rekapDetail->panjang + $rekapDetail->lebar;
+					$totalHargaSatuan =  $totalUkuran * $rekapDetail->harga_jual;
+					$totalSemua = $totalHargaSatuan * $rekapDetail->jumlah;
+					?>
+					
+					<td><?= 'Rp. ' . number_format($totalSemua, 0, ',', '.')  ?></td>
 				</tr>
 
 				<tr class="item">
-					<td>Hosting (3 months)</td>
-
-					<td>$75.00</td>
+					<td>Biaya Design</td>
+					<td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
+					<td style="text-align: center;">-</td>
+					<td style="text-align: center;">-</td>
+					<td>-</td>
+					<td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
 				</tr>
 
-				<tr class="item last">
-					<td>Domain name (1 year)</td>
-
-					<td>$10.00</td>
-				</tr>
 
 				<tr class="total">
 					<td></td>
-
-					<td>Total: $385.00</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					
+					<td style="float: right;"><b>Total</b></td>
+					<?php 
+					$biaya_design = $rekapDetail->biaya_design;
+					$total = $totalSemua + $biaya_design;
+					?>
+					<td><b><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></b></td>
 				</tr>
 			</table>
 		</div>
-	</body>
-</html>

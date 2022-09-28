@@ -99,10 +99,11 @@ class Rekap extends CI_Controller {
 		echo json_encode($kodetampil);
 	}
 
-	public function cetak_inv()
+	public function cetak_inv($id_order)
 	{
-		
-		$this->load->view('rekap/invoice');
+		$data['rekapDetail'] = $this->Model_rekap->getDetailLaporan($id_order);
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('rekap/invoice', $data);
 	}
 
 }

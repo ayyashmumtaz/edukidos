@@ -33,6 +33,7 @@ class Order extends CI_Controller {
 	function tambah_order(){
 		$id_order = $this->input->post('id_order');
 		$tgl_order = $this->input->post('tgl_order');
+		$no_inv = $this->input->post('no_inv');
 		$no_po = $this->input->post('no_po');
 		$urgensi = $this->input->post('urgensi');
 		$no_telp = $this->input->post('no_telp');
@@ -81,6 +82,7 @@ class Order extends CI_Controller {
 			'id_order' => $id_order,
 			'tgl_order' => $tgl_order,
 			'no_po' => $no_po,
+			'no_inv' => $no_inv,
 			'nama_kerja' => $nama_kerja,
 			'urgensi' => $urgensi,
 			'no_telp' => $no_telp,
