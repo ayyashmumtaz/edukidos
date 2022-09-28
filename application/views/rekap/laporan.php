@@ -13,6 +13,7 @@
                <th>Nama Pekerjaan</th>
                <th>Nama Customer</th>
                <th>Kategori</th>
+               <th>Bahan</th>
                <th>Tanggal Order</th>
                <th>Qty</th>
                <th>Status Bayar</th>
@@ -28,6 +29,7 @@
                   <td><?= $b->nama_kerja ?></td>
                   <td><?= $b->nama_customer ?></td>
                   <td><?= $b->nama_kategori ?></td>
+                  <td><?= $b->nama_bahan ?></td>
                   <td><?= $b->tgl_order ?></td>
                   <td><?= $b->jumlah ?></td>
                   <td><?php
@@ -48,6 +50,8 @@
                   <td><?= $b->plat_nomor ?></td>
                   <td>
                      <a href="<?= base_url('Rekap/detail/') . $b->id_order; ?>" style="margin-bottom: 2%;" class="btn btn-sm btn-info">Detail</a>
+                     <a href="<?= base_url('Rekap/cetak_inv/') . $b->id_order; ?>" style="margin-bottom: 2%;" class="btn btn-sm btn-primary">Cetak Invoice</a>
+                     <a href="<?= base_url('Rekap/cetak_suratJalan/') . $b->id_order; ?>" style="margin-bottom: 2%;" class="btn btn-sm btn-primary">Cetak Surat Jalan</a>
                   </td>
                </tr>
             <?php } ?>

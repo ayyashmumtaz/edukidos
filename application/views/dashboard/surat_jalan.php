@@ -57,6 +57,7 @@
                 <th>Nama Pekerjaan</th>
                 <th>Nama Customer</th>
                 <th>Kategori</th>
+                <th>Bahan</th>
                 <th>Tanggal Order</th>
                 <th>Qty</th>
                 <th>Status Bayar</th>
@@ -72,6 +73,7 @@
                 <td><?= $b->nama_kerja?></td>
                 <td><?= $b->nama_customer?></td>
                   <td><?= $b->nama_kategori?></td>
+                  <td><?= $b->nama_bahan?></td>
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
                 <td><?php
@@ -112,7 +114,6 @@ switch ($favcolor) {
 ?></td><td>
                              <a href="<?= base_url('Beranda/input_surat_jalan/'). $b->id_order;?>" style="margin-bottom: 2%;"  class="btn btn-sm btn-primary">Input Surat Jalan</a>
 
-                                <a href="<?= base_url('Beranda/input_surat_jalan/'). $b->id_order;?>" style=""  class="btn btn-sm btn-success">Cetak Invoice</a>
 
   
 </td>
