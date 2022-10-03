@@ -155,54 +155,56 @@
 					</td>
 				</tr>
 			</table>
-			<table>
-				<tr class="heading">
-					<td>Deskripsi</td>
-					<td>Harga</td>
-					<td style="text-align: center;">Panjang</td>
-					<td style="text-align: center;">Lebar</td>
-					<td>Qty</td>
-					<td>Jumlah</td>
-				</tr>
+			<div class="table-responsive">
+				<table>
+					<tr class="heading">
+						<td>Deskripsi</td>
+						<td>Harga</td>
+						<td style="text-align: center;">Panjang</td>
+						<td style="text-align: center;">Lebar</td>
+						<td>Qty</td>
+						<td>Jumlah</td>
+					</tr>
 
-				<tr class="item">
-					<td><?= $rekapDetail->nama_bahan ?></td>
-					<td><?= 'Rp. ' . number_format($rekapDetail->harga_jual, 0, ',', '.') ?></td>
-					<td style="text-align: center;"><?= $rekapDetail->panjang ?></td>
-					<td style="text-align: center;"><?= $rekapDetail->lebar ?></td>
-					<td><?= $rekapDetail->jumlah  ?></td>
+					<tr class="item">
+						<td><?= $rekapDetail->nama_bahan ?></td>
+						<td><?= 'Rp. ' . number_format($rekapDetail->harga_jual, 0, ',', '.') ?></td>
+						<td style="text-align: center;"><?= $rekapDetail->panjang ?></td>
+						<td style="text-align: center;"><?= $rekapDetail->lebar ?></td>
+						<td><?= $rekapDetail->jumlah  ?></td>
 
-					<?php
-					$totalUkuran = $rekapDetail->panjang + $rekapDetail->lebar;
-					$totalHargaSatuan =  $totalUkuran * $rekapDetail->harga_jual;
-					$totalSemua = $totalHargaSatuan * $rekapDetail->jumlah;
-					?>
-					
-					<td><?= 'Rp. ' . number_format($totalSemua, 0, ',', '.')  ?></td>
-				</tr>
+						<?php
+						$totalUkuran = $rekapDetail->panjang + $rekapDetail->lebar;
+						$totalHargaSatuan =  $totalUkuran * $rekapDetail->harga_jual;
+						$totalSemua = $totalHargaSatuan * $rekapDetail->jumlah;
+						?>
 
-				<tr class="item">
-					<td>Biaya Design</td>
-					<td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
-					<td style="text-align: center;">-</td>
-					<td style="text-align: center;">-</td>
-					<td>-</td>
-					<td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
-				</tr>
+						<td><?= 'Rp. ' . number_format($totalSemua, 0, ',', '.')  ?></td>
+					</tr>
+
+					<tr class="item">
+						<td>Biaya Design</td>
+						<td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
+						<td style="text-align: center;">-</td>
+						<td style="text-align: center;">-</td>
+						<td>-</td>
+						<td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
+					</tr>
 
 
-				<tr class="total">
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					
-					<td style="float: right;"><b>Total</b></td>
-					<?php 
-					$biaya_design = $rekapDetail->biaya_design;
-					$total = $totalSemua + $biaya_design;
-					?>
-					<td><b><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></b></td>
-				</tr>
-			</table>
+					<tr class="total">
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+
+						<td style="float: right;"><b>Total</b></td>
+						<?php
+						$biaya_design = $rekapDetail->biaya_design;
+						$total = $totalSemua + $biaya_design;
+						?>
+						<td><b><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></b></td>
+					</tr>
+				</table>
+			</div>
 		</div>

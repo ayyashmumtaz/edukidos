@@ -51,7 +51,7 @@
                   <td>
                      <a href="<?= base_url('Rekap/detail/') . $b->id_order; ?>" style="margin-bottom: 2%;" class="btn btn-sm btn-info">Detail</a>
                      <a href="<?= base_url('Rekap/cetak_inv/') . $b->id_order; ?>" style="margin-bottom: 2%;" class="btn btn-sm btn-primary">Cetak Invoice</a>
-                     <a href="<?= base_url('Rekap/cetak_suratJalan/') . $b->id_order; ?>" style="margin-bottom: 2%;" class="btn btn-sm btn-primary">Cetak Surat Jalan</a>
+                     <a href="<?= base_url('Rekap/cetak_surat_jalan/') . $b->id_order; ?>" style="margin-bottom: 2%;" class="btn btn-sm btn-primary">Cetak Surat Jalan</a>
                   </td>
                </tr>
             <?php } ?>
