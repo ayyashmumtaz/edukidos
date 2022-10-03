@@ -36,7 +36,6 @@ class Order extends CI_Controller {
 		$no_inv = $this->input->post('no_inv');
 		$no_po = $this->input->post('no_po');
 		$urgensi = $this->input->post('urgensi');
-		$no_telp = $this->input->post('no_telp');
 		$nama = $this->input->post('nama');
 		$nama_kerja = $this->input->post('nama_kerja');
 		$kategori = $this->input->post('kategori');
@@ -85,7 +84,6 @@ class Order extends CI_Controller {
 			'no_inv' => $no_inv,
 			'nama_kerja' => $nama_kerja,
 			'urgensi' => $urgensi,
-			'no_telp' => $no_telp,
 			'nama' => $nama,
 			'kategori' => $kategori,
 			'id_barang' => $id_barang,
