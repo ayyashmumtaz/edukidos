@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2022 at 06:37 PM
+-- Generation Time: Oct 07, 2022 at 03:07 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -54,16 +54,16 @@ CREATE TABLE `customer` (
   `id` varchar(255) NOT NULL,
   `nama_customer` varchar(255) NOT NULL,
   `alamat` text NOT NULL,
-  `no_telp` text NOT NULL
+  `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `nama_customer`, `alamat`, `no_telp`) VALUES
-('631ee80d1f5d9', 'Mas Adul', 'Jl. Kebenaran', '08523212324'),
-('631fead535095', 'Rafii Yuuki', 'Banten', '085721888654');
+INSERT INTO `customer` (`id`, `nama_customer`, `alamat`, `email`) VALUES
+('631ee80d1f5d9', 'Mas Adul', 'Jl. Kebaksdbka laksdjla laksj dlkajs dlkalsk jdaslk jl askjdhak aksdjhakl laskdjalk laskd as;ldk laksjdlak lkasd lkjasd', 'abdul@gmail.com'),
+('631fead535095', 'Rafii Yuuki', 'Banten', 'rafi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -95,10 +95,10 @@ CREATE TABLE `orderan` (
   `id_order` varchar(255) NOT NULL,
   `tgl_order` date NOT NULL,
   `no_po` text NOT NULL,
+  `no_inv` varchar(255) NOT NULL,
   `nama_kerja` varchar(255) NOT NULL,
   `urgensi` int(1) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `no_telp` text NOT NULL,
   `kategori` varchar(255) NOT NULL,
   `id_barang` varchar(255) NOT NULL,
   `jumlah` int(255) NOT NULL,
@@ -114,15 +114,6 @@ CREATE TABLE `orderan` (
   `spk` varchar(255) DEFAULT NULL,
   `op_finishing` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orderan`
---
-
-INSERT INTO `orderan` (`id_order`, `tgl_order`, `no_po`, `nama_kerja`, `urgensi`, `nama`, `no_telp`, `kategori`, `id_barang`, `jumlah`, `file`, `panjang`, `lebar`, `biaya_design`, `harga_bahan`, `catatan`, `finishing`, `status`, `status_bayar`, `spk`, `op_finishing`) VALUES
-('631ef95ba3dc1', '2022-09-12', 'P0001', 'Buat Buku', 0, '631ee80d1f5d9', '085232435', '3', '631ee7b6d7296', 1, '631ef95ba3dc1.jpeg', 10, 20, 100000, 2400000, 'Buruan', '1', 4, 1, 'superadmin', ''),
-('631f3bc05b49d', '2022-09-12', 'PO002', 'Buat Kalender', 1, '631ee80d1f5d9', '6546546', '2', '631ee7d6db8cf', 2, '631f3bc05b49d.jpeg', 20, 10, 1000000, 3600000, '', '1', 2, 1, 'superadmin', ''),
-('6322ac33a9f6b', '2022-09-15', 'PO003', 'Buat Poster', 1, '631fead535095', '085721883952', '3', '631ee7b6d7296', 5, '6322ac33a9f6b.jpeg', 10, 20, 10000000, 12000000, 'yang bagus dan cepat', '0', 3, 1, 'superadmin', '');
 
 --
 -- Triggers `orderan`
@@ -170,14 +161,6 @@ CREATE TABLE `pembelian` (
   `jumlah` int(255) NOT NULL,
   `tgl_beli` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `pembelian`
---
-
-INSERT INTO `pembelian` (`id_beli`, `id_barang`, `no_po`, `jumlah`, `tgl_beli`) VALUES
-('632861383db1a', '631ee7e8ee99a', 'PO010', 200, '2022-09-19'),
-('632912d29b753', '631ee7b6d7296', 'PO006', 300, '2022-09-20');
 
 --
 -- Triggers `pembelian`
@@ -239,7 +222,7 @@ CREATE TABLE `stok` (
 
 INSERT INTO `stok` (`id_barang`, `stok`) VALUES
 ('631ee7b6d7296', 328),
-('631ee7e8ee99a', 190);
+('631ee7e8ee99a', 180);
 
 -- --------------------------------------------------------
 
@@ -256,13 +239,6 @@ CREATE TABLE `stok_retur` (
   `tanggal_retur` date NOT NULL,
   `action` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `stok_retur`
---
-
-INSERT INTO `stok_retur` (`id_retur`, `id_beli`, `id_barang`, `jumlah_retur`, `keterangan`, `tanggal_retur`, `action`) VALUES
-('632e5093ac959', '632861383db1a', '631ee7e8ee99a', 10, 'bau', '2022-09-24', '');
 
 --
 -- Triggers `stok_retur`
@@ -286,16 +262,9 @@ CREATE TABLE `surat_jalan` (
   `id_surat` varchar(255) NOT NULL,
   `id_order` varchar(255) NOT NULL,
   `plat_nomor` varchar(255) NOT NULL,
+  `tgl_kirim` date DEFAULT NULL,
   `jenis_kendaraan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `surat_jalan`
---
-
-INSERT INTO `surat_jalan` (`id_surat`, `id_order`, `plat_nomor`, `jenis_kendaraan`) VALUES
-('631fdaa290a24', '631ef95ba3dc1', 'A 123 B', 'Motor'),
-('63230a34a2b25', '6322ac33a9f6b', 'B 3443 DA', 'Mobil');
 
 -- --------------------------------------------------------
 
