@@ -29,6 +29,18 @@ class Model_rekap extends CI_Model {
       $query = $this->db->get();
       return $query->row();
    }
+
+   public function getDetailOrder($id_order)
+   {
+      $this->db->select('*');
+      $this->db->from('orderan');
+      $this->db->join('bahan', 'orderan.id_barang = bahan.id_bahan');
+      $this->db->join('customer', 'customer.id = orderan.nama');
+      $this->db->join('kategori', 'orderan.kategori = kategori.id',);
+      $this->db->where('orderan.id_order', $id_order);
+      $query = $this->db->get();
+      return $query->row();
+   }
 }
 
 /* End of file Model_rekap.php */

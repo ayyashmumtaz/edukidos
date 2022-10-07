@@ -12,6 +12,7 @@ class Order extends CI_Controller {
     }
     
 		$this->load->model('Model_order');
+		$this->load->model('Model_rekap');
 	}
 
 	public function index()
@@ -113,9 +114,14 @@ public function cari(){
         echo json_encode($cari);
     } 
 
-
-	
-
+	public function detail_order($id_order)
+	{
+		$data['detailOrder'] = $this->Model_rekap->getDetailOrder($id_order);
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('dashboard/detail_order', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
 	
 
 

@@ -52,10 +52,12 @@ class Spk extends CI_Controller {
 
 	$id_order = $this->input->post('id_order');
 	$spk = $this->session->userdata('username');
+	$tgl_spk = date('Y-m-d');
 
 	$data = array(
 		'status' => 1,
-		'spk' => $spk
+		'spk' => $spk,
+		'tgl_spk' => $tgl_spk
 		);
 
 	$where = array(
@@ -76,7 +78,7 @@ public function download($file,$filename = NULL)
 public function cetak_spk($id_order)
 {
 	$this->load->view('dashboard/_partials/header');
-	$data['rekapDetail'] = $this->Model_rekap->getDetailLaporan($id_order);
+	$data['orderDetail'] = $this->Model_rekap->getDetailOrder($id_order);
 	$this->load->view('spk/cetak_spk', $data);
 }
 

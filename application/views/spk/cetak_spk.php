@@ -31,47 +31,46 @@
                      <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 20%; max-width: 300px; float:left" />
                      <h4 class="mt-4 ml-5 pl-5 mb-0"><b>SURAT PERINTAH KERJA</b></h3>
                      <?php
-                     $getTahun = explode("-", $rekapDetail->tgl_order);
-                     $explode = explode("-", $rekapDetail->tgl_order);
-                     $getBulan = explode("0", $explode[1]);
-                     $getNoInv = explode("INV-", $rekapDetail->no_inv);
+                     $getTahun = explode("-", $orderDetail->tgl_order);
+                     $getBulan = explode("-", $orderDetail->tgl_order);
+                     $getNoInv = explode("INV-", $orderDetail->no_inv);
                      ?>
                      <p class="ml-5 pl-5">ID. <?= $getNoInv[1] ?>/SPK/<?php $bulan_romawi = $getBulan[1];
                                                                         switch ($bulan_romawi) {
-                                                                           case 1:
+                                                                           case "01":
                                                                               echo "I";
                                                                               break;
-                                                                           case 2:
+                                                                           case "02":
                                                                               echo "II";
                                                                               break;
-                                                                           case 3:
+                                                                           case "03":
                                                                               echo "III";
                                                                               break;
-                                                                           case 4:
+                                                                           case "04":
                                                                               echo "IV";
                                                                               break;
-                                                                           case 5:
+                                                                           case "05":
                                                                               echo "V";
                                                                               break;
-                                                                           case 6:
+                                                                           case "06":
                                                                               echo "VI";
                                                                               break;
-                                                                           case 7:
+                                                                           case "07":
                                                                               echo "VII";
                                                                               break;
-                                                                           case 8:
+                                                                           case "08":
                                                                               echo "VIII";
                                                                               break;
-                                                                           case 9:
+                                                                           case "09":
                                                                               echo "IX";
                                                                               break;
-                                                                           case 10:
+                                                                           case "10":
                                                                               echo "X";
                                                                               break;
-                                                                           case 11:
+                                                                           case "11":
                                                                               echo "XI";
                                                                               break;
-                                                                           case 12:
+                                                                           case "12":
                                                                               echo "XII";
                                                                               break;
                                                                         } ?>/<?= $getTahun[0] ?></p>
@@ -90,17 +89,17 @@
             <table class="tbl">
                <tr>
                   <td width="140px">Kepada Yth</td>
-                  <td>: <?= $rekapDetail->nama_customer ?></td>
-                  <td class="text-right" width="180px">Depok, <?= $rekapDetail->tgl_kirim ?></td>
+                  <td>: <?= $orderDetail->nama_customer ?></td>
+                  <td class="text-right" width="180px">Depok, <?= $orderDetail->tgl_spk ?></td>
                </tr>
                <tr>
                   <td>Email</td>
-                  <td>: <?= $rekapDetail->email ?></td>
-                  <td class="text-right" width="180px">Operator : <?= $rekapDetail->spk ?></td>
+                  <td>: <?= $orderDetail->email ?></td>
+                  <td class="text-right" width="180px">Operator : <?= $orderDetail->spk ?></td>
                </tr>
                <tr>
                   <td>Alamat Kirim</td>
-                  <td>: <?= $rekapDetail->alamat ?></td>
+                  <td>: <?= $orderDetail->alamat ?></td>
                   <td></td>
                </tr>
             </table>
@@ -129,16 +128,16 @@
                </thead>
                <tbody>
                   <tr>
-                     <td><?= $rekapDetail->nama_kerja ?></td>
-                     <td><?= $rekapDetail->nama_bahan ?></td>
-                     <td><?= 'Rp. ' . number_format($rekapDetail->harga_jual, 0, ',', '.') ?></td>
-                     <td><?= $rekapDetail->panjang ?></td>
-                     <td><?= $rekapDetail->lebar ?></td>
-                     <td><?= $rekapDetail->jumlah ?></td>
+                     <td><?= $orderDetail->nama_kerja ?></td>
+                     <td><?= $orderDetail->nama_bahan ?></td>
+                     <td><?= 'Rp. ' . number_format($orderDetail->harga_jual, 0, ',', '.') ?></td>
+                     <td><?= $orderDetail->panjang ?></td>
+                     <td><?= $orderDetail->lebar ?></td>
+                     <td><?= $orderDetail->jumlah ?></td>
                      <?php
-                     $totalUkuran = $rekapDetail->panjang + $rekapDetail->lebar;
-                     $totalHargaSatuan =  $totalUkuran * $rekapDetail->harga_jual;
-                     $totalSemua = $totalHargaSatuan * $rekapDetail->jumlah;
+                     $totalUkuran = $orderDetail->panjang + $orderDetail->lebar;
+                     $totalHargaSatuan =  $totalUkuran * $orderDetail->harga_jual;
+                     $totalSemua = $totalHargaSatuan * $orderDetail->jumlah;
                      ?>
 
                      <td><?= 'Rp. ' . number_format($totalSemua, 0, ',', '.')  ?></td>
@@ -146,16 +145,16 @@
                   <tr>
                      <td>Biaya Design</td>
                      <td>-</td>
-                     <td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
+                     <td><?= 'Rp. ' . number_format($orderDetail->biaya_design, 0, ',', '.') ?></td>
                      <td>-</td>
                      <td>-</td>
                      <td>-</td>
-                     <td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
+                     <td><?= 'Rp. ' . number_format($orderDetail->biaya_design, 0, ',', '.') ?></td>
                   </tr>
                   <tr class="total">
                      <td colspan="6" class="text-right"><b>Total :</b></td>
                      <?php
-                     $biaya_design = $rekapDetail->biaya_design;
+                     $biaya_design = $orderDetail->biaya_design;
                      $total = $totalSemua + $biaya_design;
                      ?>
                      <td><b><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></b></td>
