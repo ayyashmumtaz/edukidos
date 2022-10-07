@@ -31,8 +31,8 @@
                      <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 20%; max-width: 300px; float:left" />
                      <h4 class="mt-4 ml-5 pl-5 mb-0"><b>SURAT PERINTAH KERJA</b></h3>
                      <?php
-                     $getTahun = explode("-", $orderDetail->tgl_order);
-                     $getBulan = explode("-", $orderDetail->tgl_order);
+                     $getTahun = explode("-", $orderDetail->tgl_spk);
+                     $getBulan = explode("-", $orderDetail->tgl_spk);
                      $getNoInv = explode("INV-", $orderDetail->no_inv);
                      ?>
                      <p class="ml-5 pl-5">ID. <?= $getNoInv[1] ?>/SPK/<?php $bulan_romawi = $getBulan[1];
