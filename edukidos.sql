@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2022 at 03:07 AM
+-- Generation Time: Oct 07, 2022 at 05:56 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -112,8 +112,17 @@ CREATE TABLE `orderan` (
   `status` int(1) NOT NULL,
   `status_bayar` int(1) NOT NULL,
   `spk` varchar(255) DEFAULT NULL,
+  `tgl_spk` date DEFAULT NULL,
   `op_finishing` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orderan`
+--
+
+INSERT INTO `orderan` (`id_order`, `tgl_order`, `no_po`, `no_inv`, `nama_kerja`, `urgensi`, `nama`, `kategori`, `id_barang`, `jumlah`, `file`, `panjang`, `lebar`, `biaya_design`, `harga_bahan`, `catatan`, `finishing`, `status`, `status_bayar`, `spk`, `tgl_spk`, `op_finishing`) VALUES
+('633f7ba671c2f', '2022-10-04', 'PO-0001', 'INV-00001', 'Poster', 1, '631ee80d1f5d9', '2', '631ee7d6db8cf', 100, '633f7ba671c2f.png', 10, 50, 5000000, 360000000, 'yang bagus', '1', 4, 1, 'superadmin', NULL, ''),
+('633f8535eb59e', '2022-10-03', 'PO-0002', 'INV-00002', 'Baliho', 0, '631fead535095', '2', '631ee7b6d7296', 200, '633f8535eb59e.png', 100, 50, 10000000, 2147483647, 'nope', '0', 1, 0, 'superadmin', '2022-10-07', '');
 
 --
 -- Triggers `orderan`
@@ -221,7 +230,7 @@ CREATE TABLE `stok` (
 --
 
 INSERT INTO `stok` (`id_barang`, `stok`) VALUES
-('631ee7b6d7296', 328),
+('631ee7b6d7296', 128),
 ('631ee7e8ee99a', 180);
 
 -- --------------------------------------------------------
@@ -265,6 +274,13 @@ CREATE TABLE `surat_jalan` (
   `tgl_kirim` date DEFAULT NULL,
   `jenis_kendaraan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `surat_jalan`
+--
+
+INSERT INTO `surat_jalan` (`id_surat`, `id_order`, `plat_nomor`, `tgl_kirim`, `jenis_kendaraan`) VALUES
+('633f848d81a21', '633f7ba671c2f', 'A 1223 B', '2022-10-07', 'FUSO');
 
 -- --------------------------------------------------------
 
