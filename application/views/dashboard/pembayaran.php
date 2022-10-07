@@ -48,7 +48,7 @@ Swal.fire({
             foreach($allPembayaran as $b){
             ?>
             <tr>
-              <td><a href="<?= base_url('Pembayaran/cek_bayar/').$b->id_order;?>"><?= $b->nama_kerja?></a></td>
+              <td><?= $b->nama_kerja?></td>
                 <td><?= $b->nama_customer?></td>
                   
                 <td><?=$b->tgl_order?></td>
@@ -70,7 +70,7 @@ switch ($favcolor) {
 ?></td>
                 <td>
 
-                  
+    <a href="<?= base_url('Order/detail_order/'.$b->id_order) ?>" class="btn btn-sm btn-success">Detail Pesanan</a>      
     <a class="btn btn-sm btn-primary" href="<?= base_url('produksi/konfirmasi_bayar/'.$b->id_order)?>">Konfirmasi Pembayaran</a>
                       </td>
             </tr>
