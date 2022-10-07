@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>Edukidos Digital Printing App</title>
+    <!-- <title>Edukidos&nbspDigital&nbspPrinting&nbspApp&nbsp|&nbsp</title> -->
 
     <!-- logo -->
     <link rel="icon" href="<?php echo base_url('assets/img/edukidos_logo.png') ?>" type="image/png">
@@ -51,6 +52,12 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
+    <!-- <script>
+      (function titleMarquee() {
+         document.title = document.title.substring(1) + document.title.substring(0, 1);
+         setTimeout(titleMarquee, 200);
+      })();
+   </script> -->
 </head>
 
 <body id="page-top">

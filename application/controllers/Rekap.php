@@ -103,7 +103,7 @@ class Rekap extends CI_Controller {
 	{
 		$data['rekapDetail'] = $this->Model_rekap->getDetailLaporan($id_order);
 		$this->load->view('dashboard/_partials/header');
-		$this->load->view('rekap/invoice', $data);
+		$this->load->view('rekap/cetak_invoice', $data);
 	}
 
 	public function cetak_surat_jalan($id_order)

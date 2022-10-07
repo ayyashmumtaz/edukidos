@@ -29,7 +29,7 @@
                         </tr>
                         <tr>
                            <td><strong>No. Handphone</strong></td>
-                           <td><?= $rekapDetail->no_telp ?></td>
+                           <td><?= $rekapDetail->email ?></td>
                         </tr>
                         <tr>
                            <td><strong>Kategori</strong></td>

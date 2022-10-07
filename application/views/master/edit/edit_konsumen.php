@@ -21,8 +21,8 @@
 
             <div class="col-md-6">
                <div class="form-group">
-                  <label for="last">NO. TELPHONE</label>
-                  <input type="number" class="form-control" name="no_telp" value="<?= $c->no_telp ?>">
+                  <label for="last">EMAIL</label>
+                  <input type="email" class="form-control" name="email" value="<?= $c->email ?>">
                </div>
             </div>
 

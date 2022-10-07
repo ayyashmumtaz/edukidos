@@ -12,6 +12,7 @@ class Spk extends CI_Controller {
     
     }
 		$this->load->model('Model_spk');
+		$this->load->model('Model_rekap');
 	}
 
 	public function index()
@@ -70,6 +71,13 @@ public function download($file,$filename = NULL)
 {
 	 $data = file_get_contents(base_url('/assets/data/'.$file));
 	force_download($filename, $data);
+}
+
+public function cetak_spk($id_order)
+{
+	$this->load->view('dashboard/_partials/header');
+	$data['rekapDetail'] = $this->Model_rekap->getDetailLaporan($id_order);
+	$this->load->view('spk/cetak_spk', $data);
 }
 
 }

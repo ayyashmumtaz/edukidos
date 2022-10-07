@@ -1,88 +1,132 @@
 <style>
    * {
-      font-family: Arial, Helvetica, sans-serif;
       color: black;
    }
+
+   .tbl {
+      width: 100%;
+      line-height: inherit;
+      text-align: left;
+   }
+
+   p {
+      margin-bottom: 0px;
+   }
+
+   p.tab {
+      margin-left: 20px;
+   }
 </style>
+<div class="container my-2">
+   <div class="card p-4 my-3">
+      <div class="row">
+         <div class="col-12">
+            <table class="table mb-0">
+               <tr>
+                  <td style="border-top: 0px;">
+                     <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 25%; max-width: 300px; float:left" />
+                     <h1 class="mt-4 ml-5 pl-5"><b>INVOICE</b></h1>
+                  </td>
+                  <td class="text-right" style="border-top: 0px;">
+                     <b>Alamat</b>
+                     <br>PT. Edukidos Madina Creativa Jl. Muhammad Thohir
+                     <br>Ruko Podomoro Golf View B3 No.10 Gunung Putri, Kab. Bogor
+                     <br>Telp. 081384434480
+                  </td>
+               </tr>
+            </table>
 
-<div class="container">
-   <div class="row">
-      <div class="col-md-12">
-         <div class="card">
-            <div class="card-body">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="row">
-                        <div class="col-md-6">
-                           <h1>Invoice</h1>
-                        </div>
-                        <div class="col-md-6">
-                           <h3 class="text-right">No. Invoice</h3>
-                        </div>
-                     </div>
-                     <hr>
-                     <div class="row">
-                        <div class="col-md-6">
-                           <h5>From</h5>
-                           <p>
-                              <b>Edukidos Digital Printing</b><br>
-                              Jl. Raya Cibadak No. 1, Cibadak, Kec. Cibadak, Kabupaten Sukabumi, Jawa Barat 43171<br>
-                              Phone: 0812-3456-7890<br>
-                              Email:
-                           </p>
-                        </div>
-                        <div class="col-md-6">
-                           <h5>To</h5>
-                           <p>
-                              <b><? //= $invoice->nama 
-                                 ?></b><br>
-                              <? //= $invoice->alamat 
-                              ?><br>
-                              Phone: <? //= $invoice->no_hp 
-                                       ?><br>
-                              Email: <? //= $invoice->email 
-                                       ?>
-                           </p>
-                        </div>
-                     </div>
+            <hr class="mb-3 mt-0" style="height:4px;border:none;color:#333;background-color:#333;">
 
-                     <div class="row">
-                        <div class="col-md-12">
-                           <table class="table table-bordered">
-                              <thead>
-                                 <tr>
-                                    <th>No</th>
-                                    <th>Produk</th>
-                                    <th>Harga</th>
-                                    <th>Jumlah</th>
-                                    <th>Subtotal</th>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                 <?php // $no = 1;
-                                 // foreach ($detail as $d) : 
-                                 ?>
-                                 <tr>
-                                    <td><? //= $no++ 
-                                          ?></td>
-                                    <td><? //= $d->nama_produk 
-                                          ?></td>
-                                    <td>Rp. <? //= number_format($d->harga, 0, ',', '.') 
-                                             ?></td>
-                                    <td><? //= $d->jumlah 
-                                          ?></td>
-                                    <td>Rp. <? //= number_format($d->subtotal, 0, ',', '.') 
-                                             ?></td>
-                                 </tr>
-                                 <?php // endforeach; 
-                                 ?>
-                              </tbody>
-                           </table>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            <table class="tbl">
+               <tr>
+                  <td width="550px"><b>CUSTOMER</b></td>
+                  <td><b>Tanggal Order</b></td>
+                  <td><b>Invoice Number</b></td>
+                  <td><b>Tanggal Selesai</b></td>
+               </tr>
+               <tr>
+                  <td><?= $rekapDetail->nama_customer ?></td>
+                  <td><?= $rekapDetail->tgl_order ?></td>
+                  <td><?= $rekapDetail->no_inv ?></td>
+                  <td><?= $rekapDetail->tgl_kirim ?></td>
+               </tr>
+               <tr>
+                  <td><?= $rekapDetail->email ?></td>
+                  <td></td>
+               </tr>
+               <tr>
+                  <td><?= $rekapDetail->alamat ?></td>
+               </tr>
+            </table>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-12 mt-3">
+            <table class="table table-bordered table-sm">
+               <thead style="background-color: lightgrey;">
+                  <tr>
+                     <th>Nama Pekerjaan</th>
+                     <th>Bahan</th>
+                     <th>Harga</th>
+                     <th>Panjang</th>
+                     <th>Lebar</th>
+                     <th>Qty</th>
+                     <th>Total</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td><?= $rekapDetail->nama_kerja ?></td>
+                     <td><?= $rekapDetail->nama_bahan ?></td>
+                     <td><?= 'Rp. ' . number_format($rekapDetail->harga_jual, 0, ',', '.') ?></td>
+                     <td><?= $rekapDetail->panjang ?></td>
+                     <td><?= $rekapDetail->lebar ?></td>
+                     <td><?= $rekapDetail->jumlah ?></td>
+                     <?php
+                     $totalUkuran = $rekapDetail->panjang + $rekapDetail->lebar;
+                     $totalHargaSatuan =  $totalUkuran * $rekapDetail->harga_jual;
+                     $totalSemua = $totalHargaSatuan * $rekapDetail->jumlah;
+                     ?>
+
+                     <td><?= 'Rp. ' . number_format($totalSemua, 0, ',', '.')  ?></td>
+                  </tr>
+                  <tr>
+                     <td>Biaya Design</td>
+                     <td>-</td>
+                     <td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
+                     <td>-</td>
+                     <td>-</td>
+                     <td>-</td>
+                     <td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
+                  </tr>
+                  <tr class="total">
+                     <td colspan="6" class="text-right"><b>Total :</b></td>
+                     <?php
+                     $biaya_design = $rekapDetail->biaya_design;
+                     $total = $totalSemua + $biaya_design;
+                     ?>
+                     <td><b><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></b></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+
+      <div class="row">
+         <div class="col-12 mt-4">
+            <table class="tbl">
+               <tr>
+                  <td class="text-center" height="50px">KEUANGAN</td>
+                  <td class="text-center" height="50px">CUSTOMER</td>
+               </tr>
+               <tr height="130px">
+                  <td class="text-center">( .................................... )</td>
+                  <td class="text-center">( .................................... )</td>
+               </tr>
+            </table>
          </div>
       </div>
    </div>

@@ -115,14 +115,16 @@
 
 				<tr class="information">
 					<td colspan="2">
-						<hr class="mb-3 mt-0">
+
+						<hr class="mb-3 mt-0" style="height:4px;border:none;color:#333;background-color:#333;">
+
 						<table>
 							<tr>
 								<td>
 									<b>CUSTOMER</b><br />
 									<?= $rekapDetail->nama_customer ?><br />
 									<?= $rekapDetail->alamat ?><br />
-									<?= $rekapDetail->no_telp ?><br />
+									<?= $rekapDetail->email ?><br />
 								</td>
 
 								<td style="float: right;">

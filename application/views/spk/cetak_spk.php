@@ -8,6 +8,7 @@
       line-height: inherit;
       text-align: left;
    }
+
    table tr td {
       vertical-align: top;
    }
@@ -28,7 +29,52 @@
                <tr>
                   <td style="border-top: 0px;">
                      <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 20%; max-width: 300px; float:left" />
-                     <h1 class="mt-3 ml-5 pl-5"><b>SURAT JALAN</b></h1>
+                     <h4 class="mt-4 ml-5 pl-5 mb-0"><b>SURAT PERINTAH KERJA</b></h3>
+                     <?php
+                     $getTahun = explode("-", $rekapDetail->tgl_order);
+                     $explode = explode("-", $rekapDetail->tgl_order);
+                     $getBulan = explode("0", $explode[1]);
+                     $getNoInv = explode("INV-", $rekapDetail->no_inv);
+                     ?>
+                     <p class="ml-5 pl-5">ID. <?= $getNoInv[1] ?>/SPK/<?php $bulan_romawi = $getBulan[1];
+                                                                        switch ($bulan_romawi) {
+                                                                           case 1:
+                                                                              echo "I";
+                                                                              break;
+                                                                           case 2:
+                                                                              echo "II";
+                                                                              break;
+                                                                           case 3:
+                                                                              echo "III";
+                                                                              break;
+                                                                           case 4:
+                                                                              echo "IV";
+                                                                              break;
+                                                                           case 5:
+                                                                              echo "V";
+                                                                              break;
+                                                                           case 6:
+                                                                              echo "VI";
+                                                                              break;
+                                                                           case 7:
+                                                                              echo "VII";
+                                                                              break;
+                                                                           case 8:
+                                                                              echo "VIII";
+                                                                              break;
+                                                                           case 9:
+                                                                              echo "IX";
+                                                                              break;
+                                                                           case 10:
+                                                                              echo "X";
+                                                                              break;
+                                                                           case 11:
+                                                                              echo "XI";
+                                                                              break;
+                                                                           case 12:
+                                                                              echo "XII";
+                                                                              break;
+                                                                        } ?>/<?= $getTahun[0] ?></p>
                   </td>
                   <td class="text-right" style="border-top: 0px;">
                      <b>Alamat</b>
@@ -43,23 +89,19 @@
 
             <table class="tbl">
                <tr>
-                  <td width="140px">ID Surat Jalan</td>
-                  <td>: <?= $rekapDetail->id_surat ?></td>
-                  <td class="text-right" width="180px">Depok, <?= $rekapDetail->tgl_kirim ?></td>
-               </tr>
-               <tr>
-                  <td>Kepada Yth</td>
+                  <td width="140px">Kepada Yth</td>
                   <td>: <?= $rekapDetail->nama_customer ?></td>
-                  <td class="text-right" width="180px">Kendaraan : <?= $rekapDetail->jenis_kendaraan ?></td>
+                  <td class="text-right" width="180px">Depok, <?= $rekapDetail->tgl_kirim ?></td>
                </tr>
                <tr>
                   <td>Email</td>
                   <td>: <?= $rekapDetail->email ?></td>
-                  <td class="text-right" width="180px">Plat Nomor : <?= $rekapDetail->plat_nomor ?></td>
+                  <td class="text-right" width="180px">Operator : <?= $rekapDetail->spk ?></td>
                </tr>
                <tr>
                   <td>Alamat Kirim</td>
                   <td>: <?= $rekapDetail->alamat ?></td>
+                  <td></td>
                </tr>
             </table>
          </div>
@@ -124,26 +166,13 @@
       </div>
 
       <div class="row">
-         <div class="col-12">
-            <p>Catatan :</p>
-            <p>Barang-barang tersebut di atas diserahkan dalam jumlah cukup & baik, tidak dapat dikembalikan tanpa perjanjian terlebih dahulu.
-               <br>Bila ada keluhan atas barang-barang yang dikirim ini, agar diberitahukan kepada kami selambat-lambatnya dalam waktu 2(dua) hari.
-            </p>
-         </div>
-      </div>
-
-      <div class="row">
          <div class="col-12 mt-4">
             <table class="tbl">
-               <tr height="110px">
-                  <td class="text-center">PENERIMA</td>
-                  <td class="text-center">PENGEMUDI</td>
-                  <td class="text-center">PENGIRIM</td>
-                  <td class="text-center">PEMERIKSA</td>
+               <tr height="100px">
+                  <td class="text-center">OPERATOR</td>
+                  <td class="text-center">SUPERVISOR</td>
                </tr>
                <tr>
-                  <td class="text-center">( .................................... )</td>
-                  <td class="text-center">( .................................... )</td>
                   <td class="text-center">( .................................... )</td>
                   <td class="text-center">( .................................... )</td>
                </tr>

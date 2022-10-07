@@ -19,8 +19,8 @@
 
          <div class="col-md-6">
             <div class="form-group">
-               <label for="last">NO. TELPHONE</label>
-               <input type="number" class="form-control" name="no_telp" required>
+               <label for="last">EMAIL</label>
+               <input type="email" class="form-control" name="email" required>
             </div>
          </div>
 

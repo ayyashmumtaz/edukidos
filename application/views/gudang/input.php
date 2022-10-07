@@ -55,7 +55,7 @@ Swal.fire({
       <div class="col-md-3">
         <div class="form-group">
           <label for="last">NO. TELEPON</label>
-          <input type="text" name="no_telp" class="form-control">
+          <input type="text" name="email" class="form-control">
         </div>
    
       </div>

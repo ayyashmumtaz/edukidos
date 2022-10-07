@@ -219,13 +219,13 @@ class Master extends CI_Controller {
 		$id = uniqid();
 		$nama_customer = $this->input->post('nama_customer');
 		$alamat = $this->input->post('alamat');
-		$no_telp = $this->input->post('no_telp');
+		$email = $this->input->post('email');
 
 		$data = array(
 			'id' => $id,
 			'nama_customer' => $nama_customer,
 			'alamat' => $alamat,
-			'no_telp' => $no_telp
+			'email' => $email
 			);
 
 		$this->Model_master->insert_data($data, 'customer');
@@ -251,12 +251,12 @@ class Master extends CI_Controller {
 		$id = $this->input->post('id');
 		$nama_customer = $this->input->post('nama_customer');
 		$alamat = $this->input->post('alamat');
-		$no_telp = $this->input->post('no_telp');
+		$email = $this->input->post('email');
 
 		$data = array(
 			'nama_customer' => $nama_customer,
 			'alamat' => $alamat,
-			'no_telp' => $no_telp
+			'email' => $email
 			);
 
 		$where = array(
