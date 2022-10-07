@@ -33,6 +33,9 @@
                      <br>Ruko Podomoro Golf View B3 No.10 Gunung Putri, Kab. Bogor
                      <br>Telp. 081384434480
                   </td>
+                  <td style="border-top: 0px;">
+                     barcode sini
+                  </td>
                </tr>
             </table>
 

@@ -27,14 +27,17 @@
             <table class="table mb-0">
                <tr>
                   <td style="border-top: 0px;">
-                     <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 20%; max-width: 300px; float:left" />
-                     <h1 class="mt-3 ml-5 pl-5"><b>SURAT JALAN</b></h1>
+                     <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 25%; max-width: 300px; float:left" />
+                     <h3 class="mt-4 ml-5 pl-5"><b>SURAT JALAN</b></h2>
                   </td>
                   <td class="text-right" style="border-top: 0px;">
                      <b>Alamat</b>
                      <br>PT. Edukidos Madina Creativa Jl. Muhammad Thohir
                      <br>Ruko Podomoro Golf View B3 No.10 Gunung Putri, Kab. Bogor
                      <br>Telp. 081384434480
+                  </td>
+                  <td style="border-top: 0px;">
+                     barcode sini
                   </td>
                </tr>
             </table>
