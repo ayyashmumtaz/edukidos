@@ -52,7 +52,7 @@
             </button>
          </div>
          <div class="modal-body">
-            <p>Jika anda menekan tombol "Ya" maka data yang sudah anda rubah tidak akan Dirubah !</p>
+            <p>Jika anda menekan tombol "Ya" maka data yang sudah anda ubah tidak akan Diubah !</p>
          </div>
          <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
