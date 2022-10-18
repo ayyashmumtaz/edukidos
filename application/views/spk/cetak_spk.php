@@ -30,50 +30,50 @@
                   <td style="border-top: 0px;">
                      <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 20%; max-width: 300px; float:left" />
                      <h4 class="mt-4 ml-5 pl-5 mb-0"><b>SURAT PERINTAH KERJA</b></h3>
-                     <?php
-                     $getTahun = explode("-", $orderDetail->tgl_spk);
-                     $getBulan = explode("-", $orderDetail->tgl_spk);
-                     $getNoInv = explode("INV-", $orderDetail->no_inv);
-                     ?>
-                     <p class="ml-5 pl-5">ID. <?= $getNoInv[1] ?>/SPK/<?php $bulan_romawi = $getBulan[1];
-                                                                        switch ($bulan_romawi) {
-                                                                           case "01":
-                                                                              echo "I";
-                                                                              break;
-                                                                           case "02":
-                                                                              echo "II";
-                                                                              break;
-                                                                           case "03":
-                                                                              echo "III";
-                                                                              break;
-                                                                           case "04":
-                                                                              echo "IV";
-                                                                              break;
-                                                                           case "05":
-                                                                              echo "V";
-                                                                              break;
-                                                                           case "06":
-                                                                              echo "VI";
-                                                                              break;
-                                                                           case "07":
-                                                                              echo "VII";
-                                                                              break;
-                                                                           case "08":
-                                                                              echo "VIII";
-                                                                              break;
-                                                                           case "09":
-                                                                              echo "IX";
-                                                                              break;
-                                                                           case "10":
-                                                                              echo "X";
-                                                                              break;
-                                                                           case "11":
-                                                                              echo "XI";
-                                                                              break;
-                                                                           case "12":
-                                                                              echo "XII";
-                                                                              break;
-                                                                        } ?>/<?= $getTahun[0] ?></p>
+                        <?php
+                        $getTahun = explode("-", $orderDetail->tgl_spk);
+                        $getBulan = explode("-", $orderDetail->tgl_spk);
+                        $getNoInv = explode("INV-", $orderDetail->no_inv);
+                        ?>
+                        <p class="ml-5 pl-5">ID. <?= $getNoInv[1] ?>/SPK/<?php $bulan_romawi = $getBulan[1];
+                                                                           switch ($bulan_romawi) {
+                                                                              case "01":
+                                                                                 echo "I";
+                                                                                 break;
+                                                                              case "02":
+                                                                                 echo "II";
+                                                                                 break;
+                                                                              case "03":
+                                                                                 echo "III";
+                                                                                 break;
+                                                                              case "04":
+                                                                                 echo "IV";
+                                                                                 break;
+                                                                              case "05":
+                                                                                 echo "V";
+                                                                                 break;
+                                                                              case "06":
+                                                                                 echo "VI";
+                                                                                 break;
+                                                                              case "07":
+                                                                                 echo "VII";
+                                                                                 break;
+                                                                              case "08":
+                                                                                 echo "VIII";
+                                                                                 break;
+                                                                              case "09":
+                                                                                 echo "IX";
+                                                                                 break;
+                                                                              case "10":
+                                                                                 echo "X";
+                                                                                 break;
+                                                                              case "11":
+                                                                                 echo "XI";
+                                                                                 break;
+                                                                              case "12":
+                                                                                 echo "XII";
+                                                                                 break;
+                                                                           } ?>/<?= $getTahun[0] ?></p>
                   </td>
                   <td class="text-right" style="border-top: 0px;">
                      <b>Alamat</b>
@@ -119,18 +119,15 @@
                   <tr>
                      <th>Nama Pekerjaan</th>
                      <th>Bahan</th>
-                     <th>Harga</th>
                      <th>Panjang</th>
                      <th>Lebar</th>
                      <th>Qty</th>
-                     <th>Total</th>
                   </tr>
                </thead>
                <tbody>
                   <tr>
                      <td><?= $orderDetail->nama_kerja ?></td>
                      <td><?= $orderDetail->nama_bahan ?></td>
-                     <td><?= 'Rp. ' . number_format($orderDetail->harga_jual, 0, ',', '.') ?></td>
                      <td><?= $orderDetail->panjang ?></td>
                      <td><?= $orderDetail->lebar ?></td>
                      <td><?= $orderDetail->jumlah ?></td>
@@ -140,24 +137,6 @@
                      $totalSemua = $totalHargaSatuan * $orderDetail->jumlah;
                      ?>
 
-                     <td><?= 'Rp. ' . number_format($totalSemua, 0, ',', '.')  ?></td>
-                  </tr>
-                  <tr>
-                     <td>Biaya Design</td>
-                     <td>-</td>
-                     <td><?= 'Rp. ' . number_format($orderDetail->biaya_design, 0, ',', '.') ?></td>
-                     <td>-</td>
-                     <td>-</td>
-                     <td>-</td>
-                     <td><?= 'Rp. ' . number_format($orderDetail->biaya_design, 0, ',', '.') ?></td>
-                  </tr>
-                  <tr class="total">
-                     <td colspan="6" class="text-right"><b>Total :</b></td>
-                     <?php
-                     $biaya_design = $orderDetail->biaya_design;
-                     $total = $totalSemua + $biaya_design;
-                     ?>
-                     <td><b><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></b></td>
                   </tr>
                </tbody>
             </table>
