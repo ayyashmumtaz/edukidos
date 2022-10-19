@@ -29,7 +29,7 @@ class Model_gudang extends CI_Model {
    	$this->db->join('stok_retur', 'pembelian.id_beli = stok_retur.id_beli');
    	$this->db->join('kategori', 'bahan.id_kategori = kategori.id');
    	$query = $this->db->get();
-   	return $query->result();      
+      return $query->result();  
    }
 
    public function getStokRetur()
@@ -38,7 +38,7 @@ class Model_gudang extends CI_Model {
       $this->db->from('stok_retur');
       $this->db->join('pembelian', 'stok_retur.id_beli = pembelian.id_beli');
       $this->db->join('bahan', 'stok_retur.id_barang = bahan.id_bahan');
-   	$this->db->join('kategori', 'bahan.id_kategori = kategori.id');
+      $this->db->join('kategori', 'bahan.id_kategori = kategori.id');
       $query = $this->db->get();
       return $query->result();
    }
@@ -56,7 +56,7 @@ class Model_gudang extends CI_Model {
    {
       $this->db->select('*');
       $this->db->from('pembelian');
-   	$this->db->join('bahan', 'pembelian.id_barang = bahan.id_bahan');
+      $this->db->join('bahan', 'pembelian.id_barang = bahan.id_bahan');
       $this->db->join('kategori', 'bahan.id_kategori = kategori.id');
       $this->db->where('pembelian.id_beli', $id_beli);
       $query = $this->db->get();
@@ -69,10 +69,16 @@ class Model_gudang extends CI_Model {
       $this->db->from('stok_retur');
       $this->db->join('pembelian', 'stok_retur.id_beli = pembelian.id_beli');
       $this->db->join('bahan', 'stok_retur.id_barang = bahan.id_bahan');
-   	$this->db->join('kategori', 'bahan.id_kategori = kategori.id');
+      $this->db->join('kategori', 'bahan.id_kategori = kategori.id');
       $this->db->where('stok_retur.id_retur', $id);
       $query = $this->db->get();
       return $query->row();
+   }
+
+   public function cek_stok($id)
+   {
+      $query = $this->db->get_where('stok', array('id_barang' => $id));
+      return $query->result();
    }
 }
 

@@ -159,8 +159,11 @@ class Gudang extends CI_Controller {
 		$this->load->view('dashboard/_partials/footer');
 	}
 
-	
-
+	public function cek_stok($id_barang)
+	{
+		$cek_stok = $this->Model_gudang->cek_stok($id_barang);
+		echo json_encode($cek_stok);
+	}
 }
 
 /* End of file Gudang.php */
