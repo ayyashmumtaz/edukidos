@@ -24,7 +24,7 @@
             <table class="table mb-0">
                <tr>
                   <td style="border-top: 0px;">
-                     <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 25%; max-width: 300px; float:left" />
+                     <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 30%; max-width: 300px; float:left" />
                      <h1 class="mt-4 ml-5 pl-5"><b>INVOICE</b></h1>
                   </td>
                   <td class="text-right" style="border-top: 0px;">
@@ -33,7 +33,7 @@
                      <br>Ruko Podomoro Golf View B3 No.10 Gunung Putri, Kab. Bogor
                      <br>Telp. 081384434480
                   </td>
-                  <td style="border-top: 0px;">
+                  <td style="border-top: 0px;padding-left: 0px">
                      <img src="<?php echo base_url('assets/qrcache/'.$rekapDetail->id_order.'.png') ?>" style="width: 100%; max-width: 100px; float:right" />
                   </td>
                </tr>

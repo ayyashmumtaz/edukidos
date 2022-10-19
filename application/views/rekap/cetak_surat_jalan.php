@@ -8,6 +8,7 @@
       line-height: inherit;
       text-align: left;
    }
+
    table tr td {
       vertical-align: top;
    }
@@ -27,8 +28,8 @@
             <table class="table mb-0">
                <tr>
                   <td style="border-top: 0px;">
-                     <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 25%; max-width: 300px; float:left" />
-                     <h3 class="mt-4 ml-5 pl-5"><b>SURAT JALAN</b></h2>
+                     <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 30%; max-width: 300px; float:left" />
+                     <h2 class="mt-3 ml-5 pl-5"><b>SURAT JALAN</b></h2>
                   </td>
                   <td class="text-right" style="border-top: 0px;">
                      <b>Alamat</b>
@@ -36,8 +37,8 @@
                      <br>Ruko Podomoro Golf View B3 No.10 Gunung Putri, Kab. Bogor
                      <br>Telp. 081384434480
                   </td>
-                  <td style="border-top: 0px;">
-                     barcode sini
+                  <td style="border-top: 0px;padding-left: 0px">
+                     <img src="<?php echo base_url('assets/qrcache/' . $rekapDetail->id_order . '.png') ?>" style="width: 100%; max-width: 100px; float:right" />
                   </td>
                </tr>
             </table>

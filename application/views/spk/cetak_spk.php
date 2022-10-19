@@ -28,8 +28,8 @@
             <table class="table mb-0">
                <tr>
                   <td style="border-top: 0px;">
-                     <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 20%; max-width: 300px; float:left" />
-                     <h4 class="mt-4 ml-5 pl-5 mb-0"><b>SURAT PERINTAH KERJA</b></h3>
+                     <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 25%; max-width: 300px; float:left" />
+                     <h4 class="mt-3 ml-5 pl-5 mb-0"><b>SURAT PERINTAH KERJA</b></h3>
                         <?php
                         $getTahun = explode("-", $orderDetail->tgl_spk);
                         $getBulan = explode("-", $orderDetail->tgl_spk);
@@ -80,6 +80,9 @@
                      <br>PT. Edukidos Madina Creativa Jl. Muhammad Thohir
                      <br>Ruko Podomoro Golf View B3 No.10 Gunung Putri, Kab. Bogor
                      <br>Telp. 081384434480
+                  </td>
+                  <td style="border-top: 0px; padding-left:0px">
+                     <img src="<?php echo base_url('assets/qrcache/' . $orderDetail->id_order . '.png') ?>" style="width: 100%; max-width: 100px; float:right" />
                   </td>
                </tr>
             </table>
