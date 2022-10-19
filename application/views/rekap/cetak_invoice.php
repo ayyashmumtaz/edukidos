@@ -34,7 +34,7 @@
                      <br>Telp. 081384434480
                   </td>
                   <td style="border-top: 0px;">
-                     barcode sini
+                     <img src="<?php echo base_url('assets/qrcache/'.$rekapDetail->id_order.'.png') ?>" style="width: 100%; max-width: 100px; float:right" />
                   </td>
                </tr>
             </table>
