@@ -229,6 +229,11 @@ public function getAllStok()
         return $query;
     }
 
+    function cariBahan($id){
+      $query= $this->db->get_where('bahan',array('id_kategori'=>$id));
+      return $query;
+  }
+
     function suratJalan($id){
         $query= $this->db->get_where('orderan',array('id_order'=>$id));
         return $query;

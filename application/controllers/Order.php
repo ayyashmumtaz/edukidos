@@ -135,6 +135,11 @@ public function cari(){
         echo json_encode($cari);
     } 
 
+	public function cariBahan($id){
+        $cariBah = $this->Model_order->cariBahan($id)->result();
+        echo json_encode($cariBah);
+    } 
+
 	public function detail_order($id_order)
 	{
 		$data['detailOrder'] = $this->Model_rekap->getDetailOrder($id_order);

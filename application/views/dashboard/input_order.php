@@ -89,7 +89,7 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="last">Kategori</label>
-        <select class="form-control" name="kategori" id="kategori" required><?php foreach ($kategori as $i) { ?>
+        <select class="form-control" name="kategori" id="kategori" onchange="return cariKategori();" required><?php foreach ($kategori as $i) { ?>
             <option selected disabled>-- PILIH KATEGORI --</option>
             <option value="<?php echo $i['id']; ?>"><?php echo $i['nama_kategori']; ?></option>
           <?php } ?>
@@ -100,10 +100,8 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="last">Bahan Baku</label>
-        <select class="form-control" id="id" name="id_barang" onchange="autofill();cekStok();" required><?php foreach ($bahanBaku as $i) { ?>
-            <option selected disabled>-- PILIH BAHAN --</option>
-            <option value="<?php echo $i['id_bahan']; ?>"><?php echo $i['nama_bahan']; ?></option>
-          <?php } ?>
+        <select class="form-control" id="id" name="id_barang" onchange="autofill();cekStok();" required>
+         
         </select>
       </div>
     </div>
@@ -314,7 +312,7 @@
           minimumFractionDigits: 0
         }).format(money);
       }
-
+   
       var id = document.getElementById('id').value;
       $.ajax({
         url: "<?php echo base_url(); ?>/Order/cari",
@@ -357,6 +355,37 @@
     //     }
     // });
     // })
+  </script>
+
+  <script>
+
+    function cariKategori() {
+      var kategori = document.getElementById('kategori').value;
+      $.ajax({
+        url: "<?= base_url() ?>Order/cariBahan/" + kategori,
+        data: '&kategori=' + kategori,
+
+        success: function(result) {
+          var data = JSON.parse(result);
+          
+         
+          var i;
+          var html = '';
+          var $select = $("#id").selectize();
+          var selectize = $select[0].selectize;
+          selectize.clearOptions();
+          for (i = 0; i < data.length; i++) {
+            // html += '<option value="' + data[i].id_bahan + '">' + data[i].nama_bahan + '</option>';
+            selectize.addOption([{text: data[i].nama_bahan, value: data[i].id_bahan}]);  
+           
+          }
+          
+         
+          console.log(data[0].harga_beli);
+        }
+      })
+    }
+
   </script>
 
   <script>
