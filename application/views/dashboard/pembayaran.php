@@ -36,9 +36,9 @@ Swal.fire({
             <tr>
                <th>Nama Orderan</th>
                 <th>Nama Customer</th>
-                
                 <th>Tanggal Order</th>
                 <th>Qty</th>
+								<th>DP Awal</th>
                 <th>Status Bayar</th>
                 <th>Action</th>
             </tr>
@@ -49,10 +49,14 @@ Swal.fire({
             ?>
             <tr>
               <td><?= $b->nama_kerja?></td>
-                <td><?= $b->nama_customer?></td>
-                  
+                <td><?= $b->nama_customer?></td>	
                 <td><?=$b->tgl_order?></td>
                 <td><?=$b->jumlah?></td>
+								<?php if($b->dp_awal == 0) : ?>
+									<td class="text-danger">Tidak DP</td>
+								<?php else: ?>
+									<td><?= number_format($b->dp_awal, 0,'.','.') ?></td>
+								<?php endif ?>
                 <td><?php
 $favcolor = $b->status_bayar;
 

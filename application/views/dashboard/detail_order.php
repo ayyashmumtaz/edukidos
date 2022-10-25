@@ -49,11 +49,11 @@
                         </tr>
                         <tr>
                            <td><strong>Panjang</strong></td>
-                           <td><?= $detailOrder->panjang ?></td>
+                           <td><?= $detailOrder->panjang ?> cm</td>
                         </tr>
                         <tr>
                            <td><strong>Lebar</strong></td>
-                           <td><?= $detailOrder->lebar ?></td>
+                           <td><?= $detailOrder->lebar ?> cm</td>
                         </tr>
                         <tr>
                            <td><strong>Catatan</strong></td>

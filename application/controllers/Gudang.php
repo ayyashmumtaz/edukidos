@@ -65,6 +65,7 @@ class Gudang extends CI_Controller {
 	public function tambah_stok()
 	{
 		$data['bahanBaku'] = $this->Model_order->get_bahanBaku();
+		$data['kategori'] = $this->Model_order->get_kategori();
 
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('dashboard/_partials/sidebar');

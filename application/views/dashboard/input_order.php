@@ -1,3 +1,10 @@
+<style>
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>
 <?php if ($this->session->flashdata('order_berhasil')) : ?>
   <script type="text/javascript">
     let timerInterval
@@ -270,7 +277,7 @@
               text: 'Mohon di Cek dan Lakukan Pengisian Stok!',
               footer: '<a href="<?= base_url('Gudang/tambah_stok') ?>">Isi Stok</a>'
             })
-          } else if (data[0].stok < 0) {
+          } else if (data[0].stok <= 0) {
             Swal.fire({
               icon: 'warning',
               title: 'Stok Habis!',

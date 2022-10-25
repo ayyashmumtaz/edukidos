@@ -115,15 +115,24 @@ class Master extends CI_Controller {
 		$harga_beli = $this->input->post('harga_beli');
 		$harga_jual = $this->input->post('harga_jual');
 
+		$hapusSelainAngka_harga_beli = preg_replace('/[^0-9]/', '', $harga_beli);
+		$hapusSelainAngka_harga_jual = preg_replace('/[^0-9]/', '', $harga_jual);
+
 		$data = array(
 			'id_bahan' => $id,
 			'id_kategori' => $id_kategori,
 			'nama_bahan' => $nama_bahan,
-			'harga_beli' => $harga_beli,
-			'harga_jual' => $harga_jual
+			'harga_beli' => $hapusSelainAngka_harga_beli,
+			'harga_jual' => $hapusSelainAngka_harga_jual
 			);
 
+		$data2 = array(
+			'id_barang' => $id,
+			'stok' => 0
+		);
+
 		$this->Model_master->insert_data($data, 'bahan');
+		$this->Model_master->insert_data($data2, 'stok');
 		$this->session->set_flashdata('input-berhasil', ' ');
 		redirect('Master/data_bahan');
 	}
