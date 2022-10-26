@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2022 at 08:19 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.5
+-- Generation Time: Oct 25, 2022 at 01:52 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,8 +31,8 @@ CREATE TABLE `bahan` (
   `id_bahan` varchar(255) NOT NULL,
   `id_kategori` int(255) NOT NULL,
   `nama_bahan` varchar(255) NOT NULL,
-  `harga_jual` int(255) NOT NULL,
-  `harga_beli` int(255) NOT NULL
+  `harga_jual` bigint(255) NOT NULL,
+  `harga_beli` bigint(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -105,8 +105,9 @@ CREATE TABLE `orderan` (
   `file` text NOT NULL,
   `panjang` int(255) NOT NULL,
   `lebar` int(255) NOT NULL,
-  `biaya_design` int(255) NOT NULL,
-  `harga_bahan` int(255) NOT NULL,
+  `biaya_design` bigint(255) NOT NULL,
+  `harga_bahan` bigint(255) NOT NULL,
+  `dp_awal` bigint(20) NOT NULL,
   `catatan` text NOT NULL,
   `finishing` text NOT NULL,
   `status` int(1) NOT NULL,
@@ -115,14 +116,6 @@ CREATE TABLE `orderan` (
   `tgl_spk` date DEFAULT NULL,
   `op_finishing` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orderan`
---
-
-INSERT INTO `orderan` (`id_order`, `tgl_order`, `no_po`, `no_inv`, `nama_kerja`, `urgensi`, `nama`, `kategori`, `id_barang`, `jumlah`, `file`, `panjang`, `lebar`, `biaya_design`, `harga_bahan`, `catatan`, `finishing`, `status`, `status_bayar`, `spk`, `tgl_spk`, `op_finishing`) VALUES
-('633f7ba671c2f', '2022-10-04', 'PO-0001', 'INV-00001', 'Poster', 1, '631ee80d1f5d9', '2', '631ee7d6db8cf', 100, '633f7ba671c2f.png', 10, 50, 5000000, 360000000, 'yang bagus', '1', 4, 1, 'superadmin', NULL, ''),
-('633f8535eb59e', '2022-10-03', 'PO-0002', 'INV-00002', 'Baliho', 0, '631fead535095', '2', '631ee7b6d7296', 200, '633f8535eb59e.png', 100, 50, 10000000, 2147483647, 'nope', '0', 1, 0, 'superadmin', '2022-10-07', '');
 
 --
 -- Triggers `orderan`
@@ -170,6 +163,13 @@ CREATE TABLE `pembelian` (
   `jumlah` int(255) NOT NULL,
   `tgl_beli` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pembelian`
+--
+
+INSERT INTO `pembelian` (`id_beli`, `id_barang`, `no_po`, `jumlah`, `tgl_beli`) VALUES
+('63579e1e421ca', '631ee7d6db8cf', 'PO001', 10, '2022-10-25');
 
 --
 -- Triggers `pembelian`
@@ -225,14 +225,6 @@ CREATE TABLE `stok` (
   `stok` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `stok`
---
-
-INSERT INTO `stok` (`id_barang`, `stok`) VALUES
-('631ee7b6d7296', 128),
-('631ee7e8ee99a', 180);
-
 -- --------------------------------------------------------
 
 --
@@ -274,13 +266,6 @@ CREATE TABLE `surat_jalan` (
   `tgl_kirim` date DEFAULT NULL,
   `jenis_kendaraan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `surat_jalan`
---
-
-INSERT INTO `surat_jalan` (`id_surat`, `id_order`, `plat_nomor`, `tgl_kirim`, `jenis_kendaraan`) VALUES
-('633f848d81a21', '633f7ba671c2f', 'A 1223 B', '2022-10-07', 'FUSO');
 
 -- --------------------------------------------------------
 
