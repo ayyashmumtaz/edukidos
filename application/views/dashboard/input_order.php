@@ -116,7 +116,7 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="last">File Orderan</label>
-        <input type="file" id="berkas" name="berkas" required>
+        <input class="form-control" type="file" id="berkas" name="berkas" required>
         <label>max. 100mb</label>
       </div>
     </div>
@@ -206,6 +206,7 @@
 
   <button class="btn btn-lg btn-primary">Submit</button>
   </form>
+</div>
 
   <script>
     var rupiah = document.getElementById("rupiah");

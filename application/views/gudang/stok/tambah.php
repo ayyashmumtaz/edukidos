@@ -40,14 +40,14 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<label for="last">JUMLAH</label>
-					<input type="number" class="form-control" name="jumlah">
+					<input type="number" class="form-control" name="jumlah" required>
 				</div>
 			</div>
 
 			<div class="col-md-6">
 				<div class="form-group">
 					<label for="last">TANGGAL</label>
-					<input type="date" class="form-control" name="tanggal">
+					<input type="date" class="form-control" name="tanggal" required>
 				</div>
 			</div>
 
