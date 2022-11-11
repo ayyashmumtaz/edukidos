@@ -4,12 +4,12 @@
 	});
 </script>
 
-<?php if ($this->session->flashdata('finishing_packing')) : ?>
+<?php if ($this->session->flashdata('printing_selesai')) : ?>
 	<script type="text/javascript">
 		let timerInterval
 		Swal.fire({
-			title: 'Packing Selesai!',
-			html: 'Segera Lakukan Pengecekan pada Pembayaran atau Surat Jalan!',
+			title: 'Printing Selesai!',
+			html: 'Segera Lakukan Produksi Printing!',
 			icon: 'success',
 			timer: 1500,
 
@@ -23,11 +23,11 @@
 
 		})
 	</script>
-	<?= $this->session->flashdata('finishing_packing') ?>
+	<?= $this->session->flashdata('printing_selesai') ?>
 <?php endif ?>
 
 <div class="container">
-	<h3>FINISHING - PACKING</h3>
+	<h3>SPK - PRINTING</h3>
 	<div class="table-responsive">
 		<table id="example" class="display" style="width:100%">
 			<thead>
@@ -37,13 +37,14 @@
 					<th>Nama Customer</th>
 					<th>Tanggal Order</th>
 					<th>Qty</th>
+					<th>Finishing</th>
 					<th>Status Bayar</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
-				foreach ($finishPacking as $b) {
+				foreach ($orderMasuk as $b) {
 				?>
 					<tr>
 						<td><?php $favcolor = $b->urgensi;
@@ -54,12 +55,23 @@
 									default:
 										echo "Tidak";
 								}
-								?>
-						</td>
+								?></td>
 						<td><?= $b->nama_kerja ?></td>
 						<td><?= $b->nama_customer ?></td>
 						<td><?= $b->tgl_order ?></td>
 						<td><?= $b->jumlah ?></td>
+						<td><?php $favcolor = $b->finishing;
+								switch ($favcolor) {
+									case "cutting":
+										echo "Cutting";
+										break;
+									case "packing":
+										echo "Packing";
+										break;
+									default:
+										echo "Tidak";
+								}
+								?></td>
 						<td><?php $favcolor = $b->status_bayar;
 								switch ($favcolor) {
 									case "0":
@@ -72,13 +84,15 @@
 									default:
 										echo "Tidak";
 								}
-								?>
-						</td>
+								?></td>
 						<td>
-							<a class="btn btn-sm btn-primary" href="<?= base_url('Finishing/finishing_packing/' . $b->id_order) ?>">Selesaikan Packing</a>
+							<form action="<?= base_url('Spk/ambil_kerja_printing/') ?>" method="post">
+								<input type="hidden" name="id_order" value="<?= $b->id_order; ?>">
+								<input type="submit" style="margin-bottom:2%;" class="btn btn-sm btn-primary" value="Ambil Pekerjaan">
+							</form>
+							<a href="<?= base_url('Spk/download/') . $b->file; ?>" class="btn btn-sm btn-primary" value="Download Data">Download Data</a>
 						</td>
-					</tr>
-				<?php } ?>
+					<?php } ?>
 			</tbody>
 		</table>
 	</div>

@@ -85,8 +85,6 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Kategori</th>
-
           <th>Nama Bahan</th>
           <th>Stok</th>
           <th>Harga Beli</th>
@@ -100,16 +98,14 @@
         ?>
           <tr>
             <td><?php echo $b->id_bahan ?></td>
-            <td><?= $b->nama_kategori ?></td>
-
             <td><?= $b->nama_bahan ?></td>
             <?php if ($b->stok == 0) : ?>
               <td style="color: red">Stok Habis</td>
             <?php else : ?>
               <td><?= $b->stok ?></td>
             <?php endif ?>
-            <td><?= 'Rp ' . number_format($b->harga_jual, 0, ',', '.') ?></td>
             <td><?= 'Rp ' . number_format($b->harga_beli, 0, ',', '.') ?></td>
+            <td><?= 'Rp ' . number_format($b->harga_jual, 0, ',', '.') ?></td>
             <td>
               <a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/') . $b->id_bahan; ?>">Edit</a>
               <a class="btn btn-sm btn-danger remove" href="<?= base_url('Master/hapus_bahan/') . $b->id_bahan; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Bahan ID : <?= $b->id_bahan ?> Ini?');">Hapus</a>

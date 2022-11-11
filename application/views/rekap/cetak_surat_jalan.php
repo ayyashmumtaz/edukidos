@@ -37,7 +37,7 @@
 				<table class="table mb-0">
 					<tr>
 						<td style="border-top: 0px; text-align: center; vertical-align: middle;">
-							<img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 33%; max-width: 300px; float:left;" />
+							<img src="<?php echo base_url('assets/img/logo_digimaxie-rbg.png') ?>" style="width: 33%; max-width: 300px; float:left;" />
 							<h1><b>SURAT JALAN</b></h1>
 						</td>
 						<td class="text-right" style="border-top: 0px;">
@@ -69,6 +69,10 @@
 						<td>Email</td>
 						<td>: <?= $rekapDetail->email ?></td>
 						<td class="text-right" width="180px">Plat Nomor : <?= $rekapDetail->plat_nomor ?></td>
+					</tr>
+					<tr>
+						<td>No. HP</td>
+						<td>: <?= $rekapDetail->no_hp ?></td>
 					</tr>
 					<tr>
 						<td>Alamat Kirim</td>
@@ -103,8 +107,8 @@
 							<td><?= $rekapDetail->nama_kerja ?></td>
 							<td><?= $rekapDetail->nama_bahan ?></td>
 							<td><?= 'Rp. ' . number_format($rekapDetail->harga_jual, 0, ',', '.') ?></td>
-							<td><?= $rekapDetail->panjang ?></td>
-							<td><?= $rekapDetail->lebar ?></td>
+							<td><?= $rekapDetail->panjang ?> <?= $rekapDetail->satuan ?></td>
+							<td><?= $rekapDetail->lebar ?> <?= $rekapDetail->satuan ?></td>
 							<td><?= $rekapDetail->jumlah ?></td>
 							<?php
 							$totalUkuran = $rekapDetail->panjang + $rekapDetail->lebar;

@@ -28,7 +28,7 @@
             <table class="table mb-0">
                <tr>
                   <td style="border-top: 0px;">
-                     <img src="<?php echo base_url('assets/img/edukidos_logo.png') ?>" style="width: 25%; max-width: 300px; float:left" />
+                     <img class="mr-2" src="<?php echo base_url('assets/img/logo_digimaxie-rbg.png') ?>" style="width: 25%; height:80px; max-width: 300px; float:left" />
                      <h4 class="mt-3 ml-5 pl-5 mb-0"><b>SURAT PERINTAH KERJA</b></h3>
                         <?php
                         $getTahun = explode("-", $orderDetail->tgl_spk);
@@ -131,8 +131,8 @@
                   <tr>
                      <td><?= $orderDetail->nama_kerja ?></td>
                      <td><?= $orderDetail->nama_bahan ?></td>
-                     <td><?= $orderDetail->panjang ?></td>
-                     <td><?= $orderDetail->lebar ?></td>
+                     <td><?= $orderDetail->panjang ?> <?= $orderDetail->satuan ?></td>
+                     <td><?= $orderDetail->lebar ?> <?= $orderDetail->satuan ?></td>
                      <td><?= $orderDetail->jumlah ?></td>
                      <?php
                      $totalUkuran = $orderDetail->panjang + $orderDetail->lebar;
