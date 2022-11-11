@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2022 at 07:57 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Oct 28, 2022 at 10:59 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `edukidos`
+-- Database: `digimaxie`
 --
 
 -- --------------------------------------------------------
@@ -28,19 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bahan` (
-  `id` varchar(255) NOT NULL,
-  `id_kategori` int(255) NOT NULL,
+  `id_bahan` varchar(255) NOT NULL,
   `nama_bahan` varchar(255) NOT NULL,
-  `harga_jual` int(255) NOT NULL,
-  `harga_beli` int(255) NOT NULL
+  `harga_jual` bigint(255) NOT NULL,
+  `harga_beli` bigint(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `bahan`
---
-
-INSERT INTO `bahan` (`id`, `id_kategori`, `nama_bahan`, `harga_jual`, `harga_beli`) VALUES
-('2', 1, 'AC 230', 20, 10);
 
 -- --------------------------------------------------------
 
@@ -50,36 +42,11 @@ INSERT INTO `bahan` (`id`, `id_kategori`, `nama_bahan`, `harga_jual`, `harga_bel
 
 CREATE TABLE `customer` (
   `id` varchar(255) NOT NULL,
-  `nama` varchar(255) NOT NULL,
+  `nama_customer` varchar(255) NOT NULL,
   `alamat` text NOT NULL,
-  `no_telp` text NOT NULL
+  `email` varchar(255) NOT NULL,
+  `no_hp` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `customer`
---
-
-INSERT INTO `customer` (`id`, `nama`, `alamat`, `no_telp`) VALUES
-('1', 'Edrian', 'bogor', '08888');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kategori`
---
-
-CREATE TABLE `kategori` (
-  `id` varchar(255) NOT NULL,
-  `nama_kategori` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `kategori`
---
-
-INSERT INTO `kategori` (`id`, `nama_kategori`) VALUES
-('1', 'A3'),
-('2', 'Indoor');
 
 -- --------------------------------------------------------
 
@@ -91,30 +58,26 @@ CREATE TABLE `orderan` (
   `id_order` varchar(255) NOT NULL,
   `tgl_order` date NOT NULL,
   `no_po` text NOT NULL,
+  `no_inv` varchar(255) NOT NULL,
+  `nama_kerja` varchar(255) NOT NULL,
   `urgensi` int(1) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `no_telp` text NOT NULL,
-  `kategori` varchar(255) NOT NULL,
   `id_barang` varchar(255) NOT NULL,
   `jumlah` int(255) NOT NULL,
   `file` text NOT NULL,
   `panjang` int(255) NOT NULL,
   `lebar` int(255) NOT NULL,
-  `biaya_design` int(255) NOT NULL,
-  `harga_bahan` int(255) NOT NULL,
+  `biaya_design` bigint(255) NOT NULL,
+  `harga_bahan` bigint(255) NOT NULL,
+  `dp_awal` bigint(20) NOT NULL,
   `catatan` text NOT NULL,
   `finishing` text NOT NULL,
   `status` int(1) NOT NULL,
   `status_bayar` int(1) NOT NULL,
-  `spk` varchar(255) DEFAULT NULL
+  `spk` varchar(255) DEFAULT NULL,
+  `tgl_spk` date DEFAULT NULL,
+  `op_finishing` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orderan`
---
-
-INSERT INTO `orderan` (`id_order`, `tgl_order`, `no_po`, `urgensi`, `nama`, `no_telp`, `kategori`, `id_barang`, `jumlah`, `file`, `panjang`, `lebar`, `biaya_design`, `harga_bahan`, `catatan`, `finishing`, `status`, `status_bayar`, `spk`) VALUES
-('62a8bf46aad36', '2022-06-14', '123123', 1, '1', '', '1', '2', 1, '62a8bf46aad36.png', 100, 122, 3, 3, 'asdasdasdasdasdasdasd', '', 1, 0, 'ayyash');
 
 --
 -- Triggers `orderan`
@@ -131,22 +94,37 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `order_gudang`
+--
+
+CREATE TABLE `order_gudang` (
+  `id_order` varchar(255) NOT NULL,
+  `id_barang` varchar(255) NOT NULL,
+  `tgl_order` date DEFAULT NULL,
+  `supplier` varchar(255) NOT NULL,
+  `qty` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_gudang`
+--
+
+INSERT INTO `order_gudang` (`id_order`, `id_barang`, `tgl_order`, `supplier`, `qty`) VALUES
+('1', '1', '2022-06-09', 'PT. KERTAS', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pembelian`
 --
 
 CREATE TABLE `pembelian` (
-  `id_beli` int(11) NOT NULL,
+  `id_beli` varchar(255) NOT NULL,
   `id_barang` varchar(255) NOT NULL,
+  `no_po` varchar(255) NOT NULL,
   `jumlah` int(255) NOT NULL,
   `tgl_beli` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `pembelian`
---
-
-INSERT INTO `pembelian` (`id_beli`, `id_barang`, `jumlah`, `tgl_beli`) VALUES
-(1, '2', 1, '2022-06-13');
 
 --
 -- Triggers `pembelian`
@@ -159,6 +137,19 @@ WHERE
   id_barang = NEW.id_barang
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rekening`
+--
+
+CREATE TABLE `rekening` (
+  `id` varchar(255) NOT NULL,
+  `atas_nama` varchar(255) NOT NULL,
+  `norek` text NOT NULL,
+  `bank` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -182,12 +173,47 @@ CREATE TABLE `stok` (
   `stok` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `stok`
+-- Table structure for table `stok_retur`
 --
 
-INSERT INTO `stok` (`id_barang`, `stok`) VALUES
-('2', 188);
+CREATE TABLE `stok_retur` (
+  `id_retur` varchar(255) NOT NULL,
+  `id_beli` varchar(255) NOT NULL,
+  `id_barang` varchar(255) NOT NULL,
+  `jumlah_retur` int(255) NOT NULL,
+  `keterangan` text NOT NULL,
+  `tanggal_retur` date NOT NULL,
+  `action` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Triggers `stok_retur`
+--
+DELIMITER $$
+CREATE TRIGGER `stok_retur` AFTER INSERT ON `stok_retur` FOR EACH ROW UPDATE stok  
+SET 
+  stok = stok-NEW.jumlah_retur
+WHERE 
+  id_barang = NEW.id_barang
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_jalan`
+--
+
+CREATE TABLE `surat_jalan` (
+  `id_surat` varchar(255) NOT NULL,
+  `id_order` varchar(255) NOT NULL,
+  `plat_nomor` varchar(255) NOT NULL,
+  `tgl_kirim` date DEFAULT NULL,
+  `jenis_kendaraan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -196,7 +222,7 @@ INSERT INTO `stok` (`id_barang`, `stok`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id_user` int(255) NOT NULL,
+  `id_user` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -208,7 +234,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `nama`, `password`, `role`) VALUES
-(1, 'ayyash', 'Ayyash Mumtaz Hafidz', '123', 0);
+('1', 'superadmin', 'Direktur', '123', 1),
+('2', 'spk', 'Divisi SPK', '123', 2),
+('3', 'gudang', 'Divisi Gudang', '123', 3),
+('4', 'admin', 'Divisi Admin', '123', 4),
+('5', 'finishing', 'Divisi Finishing', '123', 5);
 
 --
 -- Indexes for dumped tables
@@ -218,18 +248,12 @@ INSERT INTO `user` (`id_user`, `username`, `nama`, `password`, `role`) VALUES
 -- Indexes for table `bahan`
 --
 ALTER TABLE `bahan`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_bahan`);
 
 --
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `kategori`
---
-ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -239,10 +263,22 @@ ALTER TABLE `orderan`
   ADD PRIMARY KEY (`id_order`);
 
 --
+-- Indexes for table `order_gudang`
+--
+ALTER TABLE `order_gudang`
+  ADD PRIMARY KEY (`id_order`);
+
+--
 -- Indexes for table `pembelian`
 --
 ALTER TABLE `pembelian`
   ADD PRIMARY KEY (`id_beli`);
+
+--
+-- Indexes for table `rekening`
+--
+ALTER TABLE `rekening`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `satuan`
@@ -257,20 +293,22 @@ ALTER TABLE `stok`
   ADD PRIMARY KEY (`id_barang`);
 
 --
+-- Indexes for table `stok_retur`
+--
+ALTER TABLE `stok_retur`
+  ADD PRIMARY KEY (`id_retur`);
+
+--
+-- Indexes for table `surat_jalan`
+--
+ALTER TABLE `surat_jalan`
+  ADD PRIMARY KEY (`id_surat`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `pembelian`
---
-ALTER TABLE `pembelian`
-  MODIFY `id_beli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

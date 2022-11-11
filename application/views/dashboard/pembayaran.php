@@ -1,78 +1,123 @@
+<?php if ($this->session->flashdata('kerja_selesai')) : ?>
+	<script type="text/javascript">
+		let timerInterval
+		Swal.fire({
+			title: 'Pembayaran Berhasil!',
+			html: 'Pembayaran berhasil, pekerjaan selesai!',
+			icon: 'success',
+			timer: 1500,
+
+			didOpen: () => {
+				Swal.showLoading()
+				const b = Swal.getHtmlContainer().querySelector('b')
+			},
+			willClose: () => {
+				clearInterval(timerInterval)
+			}
+		})
+	</script>
+	<?= $this->session->flashdata('kerja_selesai') ?>
+<?php endif ?>
+
+<?php if ($this->session->flashdata('surat_utang_berhasil')) : ?>
+	<script type="text/javascript">
+		let timerInterval
+		Swal.fire({
+			title: 'Input Surat Utang Sukses!',
+			html: 'Silahkan di Kirimkan dengan Email!',
+			icon: 'success',
+			timer: 1500,
+
+			didOpen: () => {
+				Swal.showLoading()
+				const b = Swal.getHtmlContainer().querySelector('b')
+			},
+			willClose: () => {
+				clearInterval(timerInterval)
+			}
+		})
+	</script>
+	<?= $this->session->flashdata('surat_utang_berhasil') ?>
+<?php endif ?>
+
 <script type="text/javascript">
-    $(document).ready(function () {
-    $('#example').DataTable();
-});
+	$(document).ready(function() {
+		$('#example').DataTable();
+	});
 </script>
 
 
 <div class="container">
-    <h3>Pembayaran</h3>
-    <table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-               
-                <th>Nama Customer</th>
-                
-                <th>Tanggal Order</th>
-                <th>Qty</th>
-                <th>Status Bayar</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach($allPembayaran as $b){
-            ?>
-            <tr>
-    
-                <td><a href="<?= base_url('cek_bayar/').$b->nama;?>"><?= $b->nama_customer?></a></td>
-                  
-                <td><?=$b->tgl_order?></td>
-                <td><?=$b->jumlah?></td>
-                <td><?php
-$favcolor = $b->status_bayar;
-
-switch ($favcolor) {
-  case "0":
-    echo "<button class='btn btn-sm btn-danger'>Belum Lunas</button>";
-    break;
-    case "1":
-    echo "<button class='btn btn-sm btn-success'>Sudah Lunas</button>";
-    break;
-
-  default:
-    echo "Tidak";
-}
-?></td>
-                <td>
-
-                  
-    <a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bayarKerja">Konfirmasi Pembayaran</a>
-                      </td>
-            </tr>
-             <div class="modal fade" id="bayarKerja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Pembayaran?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Pastikan lagi anda sudah mengecek ulang mutasi rekening untuk pekerjaan ini.</div>
-                <div class="modal-footer">
-                  <form action="<?= base_url('produksi/konfirmasi_bayar/')?>" method="post">
-                    <input type="hidden" name="id_order" value="<?=$b->id_order?>">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
-                    <input class="btn btn-primary" type="submit" value="Yakin">
-                  </form>
-                  </div>
-            </div>
-        </div>
-    </div>
-        <?php }?>
-        </tbody>
-       </table>
+	<h3>Pembayaran</h3>
+	<table id="example" class="display" style="width:100%">
+		<thead>
+			<tr>
+				<th>Nama Orderan</th>
+				<th>Nama Customer</th>
+				<th>Tanggal Order</th>
+				<th>Qty</th>
+				<th>DP Awal</th>
+				<th>Status Bayar</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+			foreach ($allPembayaran as $b) {
+			?>
+				<tr>
+					<td><?= $b->nama_kerja ?></td>
+					<td><?= $b->nama_customer ?></td>
+					<td><?= $b->tgl_order ?></td>
+					<td><?= $b->jumlah ?></td>
+					<?php if ($b->dp_awal == 0) : ?>
+						<td class="text-danger">Tidak DP</td>
+					<?php else : ?>
+						<td><?= number_format($b->dp_awal, 0, '.', '.') ?></td>
+					<?php endif ?>
+					<td><?php $favcolor = $b->status_bayar;
+							switch ($favcolor) {
+								case "0":
+									echo "<button class='btn btn-sm btn-danger'>Belum Lunas</button>";
+									break;
+								case "1":
+									echo "<button class='btn btn-sm btn-success'>Sudah Lunas</button>";
+									break;
+								default:
+									echo "Tidak";
+							} ?>
+					</td>
+					<td>
+						<a href="<?= base_url('Order/detail_order/' . $b->id_order) ?>" class="btn btn-sm btn-success mb-1">Detail Pesanan</a>
+						<?php if ($b->ket_surat_utang == null && $b->dp_awal > 0) : ?>
+							<a class="btn btn-sm btn-info mb-1" href="<?= base_url('rekap/input_surat_utang/' . $b->id_order) ?>">Input Surat Utang</a><br>
+						<?php elseif ($b->dp_awal == 0) : ?>
+							<button class="btn btn-sm btn-info mb-1">Bayar Cash</button>
+						<?php else : ?>
+							<a class="btn btn-sm btn-info mb-1" href="<?= base_url('produksi/surat_utang/' . $b->id_order) ?>">Cetak Surat Utang</a><br>
+						<?php endif ?>
+						<a class="btn btn-sm btn-warning mb-1" href="<?= base_url('produksi/kirim_email/' . $b->id_order) ?>">Kirim Email</a>
+						<a class="btn btn-sm btn-primary mb-1" href="<?= base_url('produksi/konfirmasi_bayar/' . $b->id_order) ?>">Konfirmasi Pembayaran</a>
+					</td>
+				</tr>
+			<?php } ?>
+		</tbody>
+	</table>
 </div>
 
+
+<script>
+	function cariSuratUtang() {
+		var id_order = document.getElementById('id_order');
+		var id_order = id_order.value;
+		console.log(id_order);
+
+		$.ajax({
+			url: "<?= base_url('Rekap/cari_surat_utang/') ?>" + id_order,
+			data: '&id_order=' + id_order,
+			success: function(data) {
+				console.log(data);
+			}
+		});
+	}
+</script>
