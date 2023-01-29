@@ -84,7 +84,7 @@
 		<div class="row">
 			<div class="col-12 mt-3">
 				<p class="tab">Dengan Hormat</p>
-				<p class="tab">Bersama ini kami kirimkan barang-barang sebagai berikut</p>
+				<p class="tab">Bersama ini kami kirimkan barang-barang sebagai berikut :</p>
 			</div>
 		</div>
 
