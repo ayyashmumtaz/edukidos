@@ -19,7 +19,7 @@
 
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="last">Bahan</label>
+					<label for="last">BAHAN</label>
 					<select class="form-control" name="id_bahan" id="id_bahan" required>
 						<option selected disabled>-- PILIH BAHAN --</option>
 						<?php foreach ($bahanBaku as $k) { ?>
@@ -29,7 +29,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<label for="last">JUMLAH</label>
 				<div class="input-group mb-3">
 					<input type="number" class="form-control" name="jumlah" required>
@@ -39,10 +39,22 @@
 				</div>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<div class="form-group">
 					<label for="last">TANGGAL DATANG</label>
 					<input type="date" class="form-control" name="tanggal" required>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="last">SUPPLIER</label>
+					<select class="form-control" name="id_supplier" id="id_supplier" required>
+						<option selected disabled>-- PILIH SUPPLIER --</option>
+						<?php foreach ($supplier as $k) { ?>
+							<option value="<?php echo $k['id_supplier']; ?>"><?php echo $k['nama_pabrik']; ?></option>
+						<?php } ?>
+					</select>
 				</div>
 			</div>
 

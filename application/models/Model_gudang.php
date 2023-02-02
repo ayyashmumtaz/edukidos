@@ -1,33 +1,38 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Model_gudang extends CI_Model {
+class Model_gudang extends CI_Model
+{
 
-	public function input_data($data, $table){
+   public function input_data($data, $table)
+   {
       $this->db->insert($table, $data);
    }
 
-   public function update_data($where, $data, $table){
+   public function update_data($where, $data, $table)
+   {
       $this->db->where($where);
       $this->db->update($table, $data);
    }
 
-   public function getHistoryStok(){
-   	$this->db->select('*');
-   	$this->db->from('pembelian');
-   	$this->db->join('bahan', 'pembelian.id_barang = bahan.id_bahan');
-   	$query = $this->db->get();
-   	return $query->result();
+   public function getHistoryStok()
+   {
+      $this->db->select('*');
+      $this->db->from('pembelian');
+      $this->db->join('bahan', 'pembelian.id_barang = bahan.id_bahan');
+      $this->db->join('supplier', 'pembelian.id_supplier = supplier.id_supplier');
+      $query = $this->db->get();
+      return $query->result();
    }
 
    public function getBarangRetur()
    {
       $this->db->select('*');
-   	$this->db->from('pembelian');
-   	$this->db->join('bahan', 'pembelian.id_barang = bahan.id_bahan');
-   	$this->db->join('stok_retur', 'pembelian.id_beli = stok_retur.id_beli');
-   	$query = $this->db->get();
-      return $query->result();  
+      $this->db->from('pembelian');
+      $this->db->join('bahan', 'pembelian.id_barang = bahan.id_bahan');
+      $this->db->join('stok_retur', 'pembelian.id_beli = stok_retur.id_beli');
+      $query = $this->db->get();
+      return $query->result();
    }
 
    public function getStokRetur()
@@ -47,6 +52,19 @@ class Model_gudang extends CI_Model {
       $this->db->join('bahan', 'orderan.id_barang = bahan.id_bahan');
       $query = $this->db->get();
       return $query->result();
+   }
+
+   public function getSupplier()
+   {
+      $this->db->select('*');
+      $this->db->from('supplier');
+      $query = $this->db->get();
+      return $query->result();
+   }
+
+   public function getSupplierArray()
+   {
+      return $this->db->get('supplier')->result_array();
    }
 
    public function BarangRetur($id_beli)

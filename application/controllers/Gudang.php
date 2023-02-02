@@ -65,6 +65,7 @@ class Gudang extends CI_Controller
 	public function tambah_stok()
 	{
 		$data['bahanBaku'] = $this->Model_order->get_bahanBaku();
+		$data['supplier'] = $this->Model_gudang->getSupplierArray();
 
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('dashboard/_partials/sidebar');
@@ -79,11 +80,13 @@ class Gudang extends CI_Controller
 		$id_barang = $this->input->post('id_bahan');
 		$jumlah = $this->input->post('jumlah');
 		$tanggal = $this->input->post('tanggal');
+		$id_supplier = $this->input->post('id_supplier');
 
 		$data = array(
 			'id_beli' => $id_beli,
-			'no_po' => $no_po,
 			'id_barang' => $id_barang,
+			'id_supplier' => $id_supplier,
+			'no_po' => $no_po,
 			'jumlah' => $jumlah,
 			'tgl_beli' => $tanggal,
 		);
@@ -165,6 +168,45 @@ class Gudang extends CI_Controller
 	{
 		$cek_stok = $this->Model_gudang->cek_stok($id_barang);
 		echo json_encode($cek_stok);
+	}
+
+	public function master_gudang()
+	{
+		$data['supplier'] = $this->Model_gudang->getSupplier();
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('gudang/master_gudang', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function tambah_supplier()
+	{
+		$data['supplier'] = $this->Model_gudang->getSupplier();
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('gudang/supplier/tambah', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function insert_supplier()
+	{
+		$id_supplier = uniqid();
+		$nama_pabrik = $this->input->post('nama_pabrik');
+		$alamat = $this->input->post('alamat');
+		$no_telp = $this->input->post('no_telp');
+
+		$data = array(
+			'id_supplier' => $id_supplier,
+			'nama_pabrik' => $nama_pabrik,
+			'alamat' => $alamat,
+			'no_telp' => $no_telp,
+		);
+
+		$this->Model_gudang->input_data($data, 'supplier');
+		$this->session->set_flashdata('supplier_sukses', ' ');
+		redirect('Gudang/master_gudang');
 	}
 }
 

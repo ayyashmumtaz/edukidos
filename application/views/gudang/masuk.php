@@ -36,6 +36,7 @@
 					<th>Tanggal Datang</th>
 					<th>Nama Bahan</th>
 					<th>Qty</th>
+					<th>Supplier</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -48,6 +49,7 @@
 						<td><?= $b->tgl_beli ?></td>
 						<td><?= $b->nama_bahan ?></td>
 						<td><?= $b->jumlah ?></td>
+						<td><?= $b->nama_pabrik ?></td>
 						<td><a class="btn btn-sm btn-danger" href="<?= base_url('Gudang/retur_barang/') . $b->id_beli; ?>">Retur Barang</td>
 					</tr>
 				<?php } ?>
