@@ -43,8 +43,12 @@
 				<li class="nav-item">
 					<a class="nav-link" href="<?= site_url('Order/input_order'); ?>">
 						<i class="fas fa-fw fa-plus"></i>
-						<span>Input Order</span></a>
+						<span>Input Pekerjaan</span></a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<?= site_url('Order/input_penjualan'); ?>">
+						<i class="fas fa-fw fa-list"></i>
+						<span>Input Penjualan</span></a>
 				<li class="nav-item">
 					<a class="nav-link" href="<?= site_url('Beranda/berita_acara'); ?>">
 						<i class="fas fa-fw fa-book"></i>
@@ -243,8 +247,12 @@
 				<li class="nav-item">
 					<a class="nav-link" href="<?= site_url('Order/input_order'); ?>">
 						<i class="fas fa-fw fa-plus"></i>
-						<span>Input Order</span></a>
+						<span>Input Pekerjaan</span></a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<?= site_url('Order/input_penjualan'); ?>">
+						<i class="fas fa-fw fa-list"></i>
+						<span>Input Penjualan</span></a>
 				<li class="nav-item">
 					<a class="nav-link" href="<?= site_url('Beranda/berita_acara'); ?>">
 						<i class="fas fa-fw fa-book"></i>
