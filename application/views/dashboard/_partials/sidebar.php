@@ -95,8 +95,8 @@
 					</a>
 					<div id="reqGudang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="<?= site_url('Beranda/stok'); ?>">Req Barang Masuk</a>
-							<a class="collapse-item" href="<?= site_url('Gudang/barang_masuk'); ?>">Req Barang Keluar</a>
+							<a class="collapse-item" href="<?= site_url('Gudang/reqBarangMasuk'); ?>">Req Barang Masuk</a>
+							<a class="collapse-item" href="<?= site_url('Gudang/reqBarangKeluar'); ?>">Req Barang Keluar</a>
 						</div>
 					</div>
 				</li>
@@ -120,6 +120,18 @@
 							<a class="collapse-item" href="<?= site_url('Gudang/barang_keluar'); ?>">Barang Keluar</a>
 							<a class="collapse-item" href="<?= site_url('Gudang/barang_retur'); ?>">Retur Barang</a>
 
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#reqGudang" aria-expanded="true" aria-controls="reqGudang">
+						<i class="fas fa-fw fa-box"></i>
+						<span>Request Gudang</span>
+					</a>
+					<div id="reqGudang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="<?= site_url('Gudang/reqBarangMasuk'); ?>">Req Barang Masuk</a>
+							<a class="collapse-item" href="<?= site_url('Gudang/reqBarangKeluar'); ?>">Req Barang Keluar</a>
 						</div>
 					</div>
 				</li>
@@ -255,7 +267,8 @@
 					</a>
 					<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="<?= base_url('Master/data_bahan'); ?>">Data Bahan</a>
+							<a class="collapse-item" href="<?= base_url('Master/data_bahan'); ?>">Data Bahan Baku</a>
+							<a class="collapse-item" href="<?= base_url('Master/data_produk'); ?>">Data Produk</a>
 							<a class="collapse-item" href="<?= base_url('Master/rekening'); ?>">Data Rekening</a>
 							<a class="collapse-item" href="<?= base_url('Master/karyawan'); ?>">Karyawan</a>
 							<a class="collapse-item" href="<?= base_url('Master/konsumen'); ?>">Konsumen</a>
@@ -285,7 +298,8 @@
 					</a>
 					<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="<?= base_url('Master/data_bahan'); ?>">Data Bahan</a>
+							<a class="collapse-item" href="<?= base_url('Master/data_bahan'); ?>">Data Bahan Baku</a>
+							<a class="collapse-item" href="<?= base_url('Master/data_produk'); ?>">Data Produk</a>
 							<a class="collapse-item" href="<?= base_url('Master/rekening'); ?>">Data Rekening</a>
 							<a class="collapse-item" href="<?= base_url('Master/karyawan'); ?>">Karyawan</a>
 							<a class="collapse-item" href="<?= base_url('Master/konsumen'); ?>">Konsumen</a>
