@@ -28,6 +28,43 @@ class Master extends CI_Controller
 		$this->load->view('dashboard/_partials/footer');
 	}
 
+	public function data_satuan()
+	{
+		$data['dataSatuan'] = $this->Model_master->getSatuan()->result();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/data_satuan', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function edit_satuan($id)
+	{
+		$where = array('id' => $id);
+		$data['satuan'] = $this->Model_master->edit_data_satuan($where, 'satuan')->result();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/edit/edit_satuan', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	function update_satuan()
+	{
+		$id = $this->input->post('id');
+		$satuan = $this->input->post('satuan');
+
+		$data = array(
+			'satuan' => $satuan,
+		);
+
+		$where = array(
+			'id' => $id
+		);
+
+		$this->Model_master->update_data($where, $data, 'satuan');
+		$this->session->set_flashdata('update_berhasil', ' ');
+		redirect('Master/data_satuan');
+	}
+
 	public function rekening()
 	{
 		$data['rekening'] = $this->Model_master->getRekening()->result();;
@@ -102,6 +139,35 @@ class Master extends CI_Controller
 		$this->load->view('dashboard/_partials/sidebar');
 		$this->load->view('master/create/tambah_bahan');
 		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function tambah_satuan()
+	{
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/create/tambah_satuan');
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function satuan_save()
+	{
+		$satuan = $this->input->post('satuan');
+
+		$data = array(
+			'satuan' => $satuan,
+		);
+
+		$this->Model_master->insert_data($data, 'satuan');
+		$this->session->set_flashdata('input-berhasil', ' ');
+		redirect('Master/data_satuan');
+	}
+
+	public function hapus_satuan($id)
+	{
+		$where = array('id' => $id);
+		$this->Model_master->hapus_data($where, 'satuan');
+		$this->session->set_flashdata('hapus-berhasil', ' ');
+		redirect('Master/data_satuan');
 	}
 
 	public function bahan_save()

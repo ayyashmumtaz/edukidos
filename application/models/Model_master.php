@@ -28,6 +28,13 @@ class Model_master extends CI_Model
 		$query = $this->db->get();
 		return $query;
 	}
+	public function getSatuan()
+	{
+		$this->db->select('*');
+		$this->db->from('satuan');
+		$query = $this->db->get();
+		return $query;
+	}
 
 	public function getKonsumen()
 	{
@@ -45,6 +52,11 @@ class Model_master extends CI_Model
 	}
 
 	public function edit_data_rekening($where, $table)
+	{
+		return $this->db->get_where($table, $where);
+	}
+
+	public function edit_data_satuan($where, $table)
 	{
 		return $this->db->get_where($table, $where);
 	}
