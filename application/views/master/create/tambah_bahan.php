@@ -17,51 +17,14 @@
 				</div>
 			</div>
 
-			<div class="col-md-4">
-				<label for="last">HARGA BELI</label>
-				<div class="form-group mb-3">
-					<input type="text" class="form-control" name="harga_beli" id="rupiah" required>
-				</div>
+			<div class="col-md-2">
+				<label for="last">Kategori</label>
+				
 			</div>
 
-			<div class="col-md-4">
-				<div class="form-group">
-					<label for="last">HARGA JUAL</label>
-					<input type="text" class="form-control" name="harga_jual" id="RP" required>
-				</div>
-			</div>
-		</div>
-
-		<hr>
-		<div class="col-12 d-flex flex-row align-items-center justify-content-between pl-0">
-			<h5 class="mb-0">Masukkan Ukuran Roll</h5>
-		</div>
-		<hr>
-
-		<div class="form-row align-items-center">
-
-			<div class="col-md-3">
-				<label for="panjang">PANJANG</label>
-				<div class="input-group mb-2">
-					<input type="text" class="form-control" name="panjang_roll" required>
-					<div class="input-group-append">
-						<span id="cmm1" class="input-group-text">m</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3">
-				<label for="lebar">LEBAR</label>
-				<div class="input-group mb-2">
-					<input type="text" class="form-control" name="lebar_roll" required>
-					<div class="input-group-append">
-						<span id="cmm2" class="input-group-text">m</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-1">
-				<label for="last">Satuan</label>
+		
+			<div class="col-md-2">
+				<label for="last">Satuan Barang</label>
 				<select name="satuan" id="satuan" class="form-control" onchange="return satuanCek()">
 					<option value="m" selected>m</option>
 					<option value="cm">cm</option>

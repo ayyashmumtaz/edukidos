@@ -13,6 +13,14 @@ class Model_master extends CI_Model
 		return $query;
 	}
 
+	public function getDataProduk()
+	{
+		$this->db->select('*');
+		$this->db->from('produk');
+		$query = $this->db->get();
+		return $query;
+	}
+
 	public function getRekening()
 	{
 		$this->db->select('*');

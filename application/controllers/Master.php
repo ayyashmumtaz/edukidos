@@ -28,6 +28,15 @@ class Master extends CI_Controller
 		$this->load->view('dashboard/_partials/footer');
 	}
 
+	public function data_produk()
+	{
+		$data['dataBahan'] = $this->Model_master->getDataProduk()->result();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/data_produk', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
 	public function data_satuan()
 	{
 		$data['dataSatuan'] = $this->Model_master->getSatuan()->result();
