@@ -150,6 +150,14 @@ class Master extends CI_Controller
 		$this->load->view('dashboard/_partials/footer');
 	}
 
+	public function tambah_produk()
+	{
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/create/tambah_produk');
+		$this->load->view('dashboard/_partials/footer');
+	}
+
 	public function tambah_satuan()
 	{
 		$this->load->view('dashboard/_partials/header');
