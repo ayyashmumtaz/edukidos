@@ -450,6 +450,45 @@ class Master extends CI_Controller
 		$this->load->view('dashboard/_partials/footer');
 	}
 
+	public function edit_kategori($id_kategori)
+	{
+		// return 'hello';
+		$data['kategori'] = $this->Model_master->getKategori();
+		$where = array('id_kategori' => $id_kategori);
+		$data['kategori'] = $this->Model_master->edit_data_kategori($where, 'kategori')->result();
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/edit/edit_kategori', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function update_kategori()
+	{
+		$id_kategori = $this->input->post('id_kategori');
+		$nama_kategori = $this->input->post('nama_kategori');
+
+		$data = array(
+			'nama_kategori' => $nama_kategori,
+		);
+
+		$where = array(
+			'id_kategori' => $id_kategori
+		);
+
+		$this->Model_master->update_data($where, $data, 'kategori');
+		$this->session->set_flashdata('update-berhasil', ' ');
+		redirect('Master/data_kategori');
+	}
+
+	public function hapus_kategori($id_kategori)
+	{
+		$where = array('id_kategori' => $id_kategori);
+		$this->Model_master->hapus_data($where, 'kategori');
+		$this->session->set_flashdata('hapus-berhasil', ' ');
+		redirect('Master/data_kategori');
+	}
+
 	public function update_karyawan()
 	{
 		$id_user = $this->input->post('id_user');

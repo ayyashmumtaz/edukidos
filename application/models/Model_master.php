@@ -77,6 +77,11 @@ class Model_master extends CI_Model
 		return $this->db->get_where($table, $where);
 	}
 
+	public function edit_data_kategori($where, $table)
+	{
+		return $this->db->get_where($table, $where);
+	}
+
 	public function edit_data_konsumen($where, $table)
 	{
 		return $this->db->get_where($table, $where);
