@@ -1,25 +1,25 @@
 <div class="container">
 	<hr>
 	<div class="col-12 d-flex flex-row align-items-center justify-content-between pl-0">
-		<h5 class="mb-0">Edit Satuan</h5>
+		<h5 class="mb-0">Edit Kategori</h5>
 		<button type="button" class="btn btn-sm btn-warning float-right" data-toggle="modal" data-target="#batal">
 			<i class="fa-solid fa-xmark pr-2"></i>Batal
 		</button>
 	</div>
 	<hr>
-	<form action="<?= base_url('Master/update_satuan'); ?>" method="post">
-	<?php foreach ($satuan as $s) { ?>
+	<form action="<?= base_url('Master/update_kategori'); ?>" method="post">
+	<?php foreach ($kategori as $k) { ?>
 		<div class="row">
-			<input type="hidden" name="id" value="<?php echo $s->id ?>">
+			<input type="hidden" name="id_kategori" value="<?php echo $k->id_kategori ?>">
 			<div class="col-md-12">
 				<div class="form-group">
-					<label for="last">SATUAN</label>
-					<input type="text" class="form-control" name="satuan"  value="<?= $s->satuan; ?>" required>
+					<label for="last">Nama Kategori</label>
+					<input type="text" class="form-control" name="nama_kategori"  value="<?= $k->nama_kategori; ?>" required>
 				</div>
 			</div>
 
 		</div>
-		<button class="btn btn-primary">Edit Satuan</button>
+		<button class="btn btn-primary">Edit Kategori</button>
 		<?php } ?>
 	</form>
 </div>
