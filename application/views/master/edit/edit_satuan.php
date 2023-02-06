@@ -1,7 +1,7 @@
 <div class="container">
 	<hr>
 	<div class="col-12 d-flex flex-row align-items-center justify-content-between pl-0">
-		<h5 class="mb-0">Tambah Satuan</h5>
+		<h5 class="mb-0">Edit Satuan</h5>
 		<button type="button" class="btn btn-sm btn-warning float-right" data-toggle="modal" data-target="#batal">
 			<i class="fa-solid fa-xmark pr-2"></i>Batal
 		</button>
@@ -19,7 +19,7 @@
 			</div>
 
 		</div>
-		<button class="btn btn-primary">Tambah Satuan</button>
+		<button class="btn btn-primary">Edit Satuan</button>
 		<?php } ?>
 	</form>
 </div>
