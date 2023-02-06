@@ -114,6 +114,8 @@ class Master extends CI_Controller
 	{
 		$where = array('id_bahan' => $id_bahan);
 		$data['bahan'] = $this->Model_master->edit_data_bahan($where, 'bahan')->result();
+		$data['kategori'] = $this->Model_order->get_kategori();
+		$data['satuan'] = $this->Model_order->getSatuan();
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('dashboard/_partials/sidebar');
 		$this->load->view('master/edit/edit_bahan', $data);
@@ -124,11 +126,12 @@ class Master extends CI_Controller
 	{
 		$id_bahan = $this->input->post('id_bahan');
 		$nama_bahan = $this->input->post('nama_bahan');
+		$kategori = $this->input->post('kategori');
 		$satuan = $this->input->post('satuan');
 		$data = array(
 			'nama_bahan' => $nama_bahan,
-		
-			'satuan' => $satuan,
+			'id_kategori' => $kategori,
+			'id_satuan' => $satuan,
 		);
 
 		$where = array(

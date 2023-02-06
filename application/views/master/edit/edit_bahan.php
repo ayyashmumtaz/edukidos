@@ -19,10 +19,7 @@
 					</div>
 				</div>
 
-		
-	
-
-			<div class="col-md-2">
+			<div class="col-md-4">
 				<label for="last">Kategori</label>
 				<select name="kategori" id="kategori" class="form-control" onchange="return kategoriCek()">
 				<?php foreach ($kategori as $k) { ?>
@@ -31,8 +28,7 @@
 					</select>
 			</div>
 
-		
-			<div class="col-md-2">
+			<div class="col-md-4">
 				<label for="last">Satuan Barang</label>
 				<select name="satuan" id="satuan" class="form-control">
 				<?php foreach ($satuan as $s) { ?>
@@ -41,8 +37,7 @@
 					</select>
 			</div>
 
-		
-
+			</div>
 			<input class="btn btn-primary mt-2" type="submit" name="" value="Update Bahan">
 
 		</form>

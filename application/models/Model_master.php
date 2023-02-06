@@ -8,7 +8,9 @@ class Model_master extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('bahan');
-		$this->db->join('stok', 'bahan.id_bahan = stok.id_barang');
+		// $this->db->join('stok', 'bahan.id_bahan = stok.id_barang');
+		$this->db->join('kategori', 'kategori.id_kategori = bahan.id_kategori');
+		$this->db->join('satuan', 'satuan.id = bahan.id_satuan');
 		$query = $this->db->get();
 		return $query;
 	}
