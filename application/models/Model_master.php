@@ -21,6 +21,14 @@ class Model_master extends CI_Model
 		return $query;
 	}
 
+	public function getkategori()
+	{
+		$this->db->select('*');
+		$this->db->from('kategori');
+		$query = $this->db->get();
+		return $query;
+	}
+
 	public function getRekening()
 	{
 		$this->db->select('*');
