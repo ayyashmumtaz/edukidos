@@ -124,21 +124,10 @@ class Master extends CI_Controller
 	{
 		$id_bahan = $this->input->post('id_bahan');
 		$nama_bahan = $this->input->post('nama_bahan');
-		$harga_beli = $this->input->post('harga_beli');
-		$harga_jual = $this->input->post('harga_jual');
-		$panjang_roll = $this->input->post('panjang_roll');
-		$lebar_roll = $this->input->post('lebar_roll');
 		$satuan = $this->input->post('satuan');
-
-		$hapusSelainAngka_harga_beli = preg_replace('/[^0-9]/', '', $harga_beli);
-		$hapusSelainAngka_harga_jual = preg_replace('/[^0-9]/', '', $harga_jual);
-
 		$data = array(
 			'nama_bahan' => $nama_bahan,
-			'harga_beli' => $hapusSelainAngka_harga_beli,
-			'harga_jual' => $hapusSelainAngka_harga_jual,
-			'panjang_roll' => $panjang_roll,
-			'lebar_roll' => $lebar_roll,
+		
 			'satuan' => $satuan,
 		);
 
@@ -227,23 +216,10 @@ class Master extends CI_Controller
 	{
 		$id = uniqid();
 		$nama_bahan = $this->input->post('nama_bahan');
-		$harga_beli = $this->input->post('harga_beli');
-		$harga_jual = $this->input->post('harga_jual');
-		$panjang_roll = $this->input->post('panjang_roll');
-		$lebar_roll = $this->input->post('lebar_roll');
 		$satuan = $this->input->post('satuan');
-
-
-		$hapusSelainAngka_harga_beli = preg_replace('/[^0-9]/', '', $harga_beli);
-		$hapusSelainAngka_harga_jual = preg_replace('/[^0-9]/', '', $harga_jual);
-
 		$data = array(
 			'id_bahan' => $id,
 			'nama_bahan' => $nama_bahan,
-			'harga_beli' => $hapusSelainAngka_harga_beli,
-			'harga_jual' => $hapusSelainAngka_harga_jual,
-			'panjang_roll' => $panjang_roll,
-			'lebar_roll' => $lebar_roll,
 			'satuan' => $satuan,
 		);
 
