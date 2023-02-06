@@ -190,6 +190,7 @@ class Master extends CI_Controller
 		$satuan = $this->input->post('satuan');
 
 		$data = array(
+			'id' => uniqid(),
 			'satuan' => $satuan,
 		);
 
