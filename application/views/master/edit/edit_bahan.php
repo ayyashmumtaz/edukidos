@@ -23,7 +23,7 @@
 				<label for="last">Kategori</label>
 				<select name="kategori" id="kategori" class="form-control" onchange="return kategoriCek()">
 				<?php foreach ($kategori as $k) { ?>
-						<option value="<?php echo $k['id_kategori']; ?>"><?php echo $k['nama_kategori']; ?></option>
+						<option value="<?php echo $k['id_kategori']; ?>" <?php echo $k['id_kategori'] == $u->id_kategori ? 'selected' : '' ?> ><?php echo $k['nama_kategori']; ?></option>
 					<?php } ?>
 					</select>
 			</div>
@@ -32,7 +32,7 @@
 				<label for="last">Satuan Barang</label>
 				<select name="satuan" id="satuan" class="form-control">
 				<?php foreach ($satuan as $s) { ?>
-						<option value="<?php echo $s['id']; ?>"><?php echo $s['satuan']; ?></option>
+						<option value="<?php echo $s['id']; ?>"  <?php echo $s['id'] == $u->id_satuan ? 'selected' : '' ?> ><?php echo $s['satuan']; ?></option>
 					<?php } ?>
 					</select>
 			</div>
