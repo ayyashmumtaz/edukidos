@@ -13,7 +13,7 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label for="last">Nama Kategori</label>
-					<input type="text" class="form-control" name="nama_Produk" required>
+					<input type="text" class="form-control" name="kategori" required>
 				</div>
 			</div>
 		

@@ -34,6 +34,24 @@ class Gudang extends CI_Controller
 		$this->load->view('dashboard/_partials/footer');
 	}
 
+	public function reqBarangMasuk()
+	{
+		$data['reqBarangMasuk'] = $this->Model_gudang->getReqBarangMasuk();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('gudang/masuk_req', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function reqBarangKeluar()
+	{
+		$data['reqBarangKeluar'] = $this->Model_gudang->getReqBarangKeluar();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('gudang/keluar_req', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
 	public function barang_keluar()
 	{
 		$data['barangKeluar'] = $this->Model_gudang->getBarangKeluar();

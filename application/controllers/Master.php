@@ -196,6 +196,20 @@ class Master extends CI_Controller
 		redirect('Master/data_satuan');
 	}
 
+	public function kategori_save()
+	{
+		$kategori = $this->input->post('kategori');
+
+		$data = array(
+			'id_kategori' => uniqid(),
+			'nama_kategori' => $kategori,
+		);
+
+		$this->Model_master->insert_data($data, 'kategori');
+		$this->session->set_flashdata('input-berhasil', ' ');
+		redirect('Master/data_kategori');
+	}
+
 	public function hapus_satuan($id)
 	{
 		$where = array('id' => $id);

@@ -20,6 +20,24 @@ class Model_gudang extends CI_Model {
    	return $query->result();
    }
 
+   public function getReqBarangMasuk()
+   {
+      $this->db->select('*');
+      $this->db->from('req_barangmasuk');
+      $query = $this->db->get();
+      return $query->result();
+   }
+
+   public function getReqBarangKeluar()
+   {
+      $this->db->select('*');
+      $this->db->from('req_barangkeluar');
+      $query = $this->db->get();
+      return $query->result();
+   }
+
+   
+
    public function getBarangRetur()
    {
       $this->db->select('*');

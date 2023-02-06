@@ -95,12 +95,12 @@
         foreach ($dataBahan as $b) {
         ?>
           <tr>
-            <td><?php echo $b->id_bahan ?></td>
-            <td><?= $b->nama_bahan ?></td>
+            <td><?php echo $b->id_kategori ?></td>
+            <td><?= $b->nama_kategori ?></td>
        
             <td>
-              <a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/') . $b->id_bahan; ?>">Edit</a>
-              <a class="btn btn-sm btn-danger remove" href="<?= base_url('Master/hapus_bahan/') . $b->id_bahan; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Bahan ID : <?= $b->id_bahan ?> Ini?');">Hapus</a>
+              <a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/') . $b->id_kategori; ?>">Edit</a>
+              <a class="btn btn-sm btn-danger remove" href="<?= base_url('Master/hapus_bahan/') . $b->id_kategori; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data ID : <?= $b->id_kategori ?> Ini?');">Hapus</a>
             </td>
           </tr>
         <?php } ?>
