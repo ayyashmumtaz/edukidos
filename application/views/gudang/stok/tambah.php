@@ -33,9 +33,7 @@
 				<label for="last">JUMLAH</label>
 				<div class="input-group mb-3">
 					<input type="number" class="form-control" name="jumlah" required>
-					<div class="input-group-append">
-						<span class="input-group-text">ROLL</span>
-					</div>
+				
 				</div>
 			</div>
 
