@@ -153,6 +153,7 @@ class Master extends CI_Controller
 
 	public function tambah_bahan()
 	{
+		$data['satuan'] = $this->Model_order->getSatuan();
 		$data['kategori'] = $this->Model_order->get_kategori();
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('dashboard/_partials/sidebar');
@@ -162,6 +163,7 @@ class Master extends CI_Controller
 
 	public function tambah_produk()
 	{
+		$data['satuan'] = $this->Model_order->getSatuan();
 		$data['kategori'] = $this->Model_order->get_kategori();
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('dashboard/_partials/sidebar');
