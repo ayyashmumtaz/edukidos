@@ -19,57 +19,29 @@
 					</div>
 				</div>
 
-				<div class="col-md-4">
-					<div class="form-group">
-						<label for="last">HARGA BELI</label>
-						<input class="form-control" type="text" oninput="return rupiah();" id="harga_beli" name="harga_beli" value="<?= 'Rp. ' . number_format($u->harga_beli, 0, ',', '.') ?>" required>
-					</div>
-				</div>
+		
+	
 
-				<div class="col-md-4">
-					<div class="form-group">
-						<label for="last">HARGA JUAL</label>
-						<input type="text" class="form-control" oninput="return rupiah();" name="harga_jual" id="RP" value="<?= 'Rp. ' . number_format($u->harga_jual, 0, ',', '.') ?>" required>
-					</div>
-				</div>
-			</div>
-
-			<hr>
-			<div class="col-12 d-flex flex-row align-items-center justify-content-between pl-0">
-				<h5 class="mb-0">Masukkan Ukuran Roll</h5>
-			</div>
-			<hr>
-
-			<div class="form-row align-items-center">
-
-				<div class="col-md-3">
-					<label for="panjang">PANJANG</label>
-					<div class="input-group mb-2">
-						<input type="text" class="form-control" name="panjang_roll" value="<?= $u->panjang_roll ?>" required>
-						<div class="input-group-append">
-							<span id="cmm1" class="input-group-text">m</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<label for="lebar">LEBAR</label>
-					<div class="input-group mb-2">
-						<input type="text" class="form-control" name="lebar_roll" value="<?= $u->lebar_roll ?>" required>
-						<div class="input-group-append">
-							<span id="cmm2" class="input-group-text">m</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-1">
-					<label for="last">Satuan</label>
-					<select name="satuan" id="satuan" class="form-control" onchange="return satuanCek()">
-						<option value="m" selected>m</option>
-						<option value="cm">cm</option>
+			<div class="col-md-2">
+				<label for="last">Kategori</label>
+				<select name="kategori" id="kategori" class="form-control" onchange="return kategoriCek()">
+				<?php foreach ($kategori as $k) { ?>
+						<option value="<?php echo $k['id_kategori']; ?>"><?php echo $k['nama_kategori']; ?></option>
+					<?php } ?>
 					</select>
-				</div>
 			</div>
+
+		
+			<div class="col-md-2">
+				<label for="last">Satuan Barang</label>
+				<select name="satuan" id="satuan" class="form-control">
+				<?php foreach ($satuan as $s) { ?>
+						<option value="<?php echo $s['id']; ?>"><?php echo $s['satuan']; ?></option>
+					<?php } ?>
+					</select>
+			</div>
+
+		
 
 			<input class="btn btn-primary mt-2" type="submit" name="" value="Update Bahan">
 
