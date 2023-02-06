@@ -19,7 +19,11 @@
 
 			<div class="col-md-2">
 				<label for="last">Kategori</label>
-				
+				<select name="kategori" id="kategori" class="form-control" onchange="return kategoriCek()">
+				<?php foreach ($kategori as $k) { ?>
+						<option value="<?php echo $k['id_kategori']; ?>"><?php echo $k['nama_kategori']; ?></option>
+					<?php } ?>
+					</select>
 			</div>
 
 		
