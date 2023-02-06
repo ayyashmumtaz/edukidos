@@ -161,9 +161,10 @@ class Master extends CI_Controller
 
 	public function tambah_produk()
 	{
+		$data['kategori'] = $this->Model_order->get_kategori();
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('dashboard/_partials/sidebar');
-		$this->load->view('master/create/tambah_produk');
+		$this->load->view('master/create/tambah_produk', $data);
 		$this->load->view('dashboard/_partials/footer');
 	}
 

@@ -119,6 +119,11 @@ class Model_order extends CI_Model
 		return $this->db->get('bahan')->result_array();
 	}
 
+	function get_kategori()
+	{
+		return $this->db->get('kategori')->result_array();
+	}
+
 	function input_data($data, $table)
 	{
 		$this->db->insert($table, $data);

@@ -99,8 +99,8 @@
             <td><?= $b->nama_kategori ?></td>
        
             <td>
-              <a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/') . $b->id_kategori; ?>">Edit</a>
-              <a class="btn btn-sm btn-danger remove" href="<?= base_url('Master/hapus_bahan/') . $b->id_kategori; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data ID : <?= $b->id_kategori ?> Ini?');">Hapus</a>
+              <a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_kategori/') . $b->id_kategori; ?>">Edit</a>
+              <a class="btn btn-sm btn-danger remove" href="<?= base_url('Master/hapus_kategori/') . $b->id_kategori; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data ID : <?= $b->id_kategori ?> Ini?');">Hapus</a>
             </td>
           </tr>
         <?php } ?>
