@@ -115,50 +115,7 @@
 	</div>
 
 	<hr>
-	<h5>Ukuran</h5>
-	<hr>
 
-	<div class="row" id="hilang">
-
-		<div class="col-md-3">
-			<label for="last">Panjang</label>
-			<div class="input-group mb-3">
-				<input class="form-control" onkeyup="autofill(); cari_bahan()" id="panjang" type="number" name="panjang" required>
-				<div class="input-group-append">
-					<div class="input-group-text" id="satuan_panjang"></div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-md-3">
-			<label for="last">Lebar</label>
-			<div class="input-group mb-3">
-				<input class="form-control" onkeyup="autofill(); cari_bahan()" id="lebar" type="number" name="lebar" required>
-				<div class="input-group-append">
-					<div class="input-group-text" id="satuan_lebar"></div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-md-4">
-			<label for="last">Roll</label>
-			<div class="input-group mb-3">
-				<input class="form-control" type="text" name="panjang_roll" id="panjang_roll" value="0" readonly>
-				<div class="input-group-append">
-					<div class="input-group-text" id="ukuran_roll"></div>
-				</div>
-			</div>
-		</div>
-		<!-- <div class="col-md-3">
-			<label for="last">Satuan</label>
-			<select name="satuan" id="satuan" class="form-control" onchange="onChange(); autofill();">
-				<option value="m">/ m</option>
-				<option value="cm">/ cm</option>
-			</select>
-		</div> -->
-	</div>
-
-	<hr>
 	<h5>Total Biaya</h5>
 	<hr>
 	<br>
@@ -170,36 +127,18 @@
 				<input class="form-control" onkeyup="autofill(); cekBanyakStok();" id="jumlah" type="number" min="1" value="1" name="jumlah" required>
 			</div>
 		</div>
-		<div class="col-md-12">
-			<label for="last">Note Order</label>
-			<br>
-			<textarea class="form-control mb-3" name="catatan"></textarea>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label for="last">Biaya Cetak Satuan</label>
-				<input class="form-control" id="harga_jual" type="text" name="harga_bahan" readonly>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label for="last">Biaya Cetak</label>
-				<input class="form-control" id="harga_jual_semua" type="text" name="harga_bahan" readonly>
-			</div>
-		</div>
-
-		<div class="col-md-3">
-			<div class="form-group">
-				<label for="last">Biaya Design</label>
-				<input class="form-control" type="text" name="biaya_design" id="rupiah" placeholder="Masukkan 0 apabila tidak ada" required>
-			</div>
-		</div>
 		<div class="col-md-3">
 			<div class="form-group">
 				<label for="last">DP Awal</label>
-				<input class="form-control" type="text" name="dp_awal" id="dengan-rupiah" placeholder="Masukkan 0 apabila bayar cash" required>
+				<input class="form-control" type="text" name="dp_awal" id="dengan-rupiah" placeholder="Masukkan 0 apabila bayar kontan" required>
 			</div>
 		</div>
+		<div class="col-md-12">
+			<label for="last">Note Pekerjaan</label>
+			<br>
+			<textarea class="form-control mb-3" name="catatan"></textarea>
+					</div>
+	
 	</div>
 
 	<button class="btn btn-lg btn-primary">Submit</button>
