@@ -93,10 +93,11 @@
       </thead>
       <tbody>
         <?php
+        $i = 1;
         foreach ($dataBahan as $b) {
         ?>
           <tr>
-            <td><?php echo $b->id_bahan ?></td>
+            <td><?php echo $i++ ?></td>
             <td><?= $b->nama_bahan ?></td>
             <td><?= $b->satuan ?></td>     
             <td><?= $b->nama_kategori ?></td>
