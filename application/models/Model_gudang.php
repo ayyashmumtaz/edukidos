@@ -32,6 +32,8 @@ class Model_gudang extends CI_Model {
    {
       $this->db->select('*');
       $this->db->from('req_barangkeluar');
+   	$this->db->join('user', 'user.id_user = req_barangkeluar.id_user');
+   	$this->db->join('produk', 'produk.id_produk = req_barangkeluar.id_produk');
       $query = $this->db->get();
       return $query->result();
    }
@@ -93,6 +95,11 @@ class Model_gudang extends CI_Model {
       $query = $this->db->get_where('stok', array('id_barang' => $id));
       return $query->result();
    }
+
+	public function edit_data_req_barangkeluar($where, $table)
+	{
+		return $this->db->get_where($table, $where);
+	}
 }
 
 /* End of file Model_gudang.php */
