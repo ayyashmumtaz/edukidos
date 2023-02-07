@@ -10,14 +10,14 @@
 	<form action="<?= base_url('Master/bahan_save'); ?>" method="post">
 		<div class="row">
 
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="form-group">
 					<label for="last">NAMA BAHAN</label>
 					<input type="text" class="form-control" name="nama_bahan" required>
 				</div>
 			</div>
 
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<label for="last">Kategori</label>
 				<select name="kategori" id="kategori" class="form-control" required>
 				<?php foreach ($kategori as $k) { ?>
@@ -27,7 +27,7 @@
 			</div>
 
 		
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<label for="last">Satuan Barang</label>
 				<select name="satuan" id="satuan" class="form-control" required>
 				<?php foreach ($satuan as $s) { ?>
