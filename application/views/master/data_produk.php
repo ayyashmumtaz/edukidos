@@ -84,7 +84,7 @@
     <table id="example" class="display" style="width:100%">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>#</th>
           <th>Nama Produk</th>
           <th>Satuan</th>
           <th>Kategori</th>
@@ -93,10 +93,11 @@
       </thead>
       <tbody>
         <?php
+        $i = 1;
         foreach ($dataBahan as $b) {
         ?>
           <tr>
-            <td><?php echo $b->id_produk ?></td>
+            <td><?php echo $i++ ?></td>
             <td><?= $b->nama_produk ?></td>
             <td><?= $b->satuan ?></td>     
             <td><?= $b->nama_kategori ?></td>
