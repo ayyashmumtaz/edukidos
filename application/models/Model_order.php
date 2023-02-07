@@ -124,6 +124,12 @@ class Model_order extends CI_Model
 		return $this->db->get('kategori')->result_array();
 	}
 
+	function get_produk_api($id_kategori)
+	{
+		$query = $this->db->get_where('produk', array('id_kategori' => $id_kategori));
+		return $query->result();
+	}
+
 	function getSatuan()
 	{
 		return $this->db->get('satuan')->result_array();

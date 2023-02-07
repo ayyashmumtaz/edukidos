@@ -16,9 +16,21 @@ class Order extends CI_Controller
 		$this->load->model('Model_rekap');
 	}
 
-	public function index()
+	public function input_penjualan()
 	{
+		$data['kategori'] = $this->Model_order->get_kategori();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('dashboard/input_penjualan',$data);
+		$this->load->view('dashboard/_partials/footer');
 	}
+	
+	public function apiProduk($id_produk)
+	{
+		$data['produk'] = $this->Model_order->get_produk_api($id_produk);
+		echo json_encode($data);
+	}
+
 
 	public function input_order()
 	{
