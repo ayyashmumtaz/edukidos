@@ -220,9 +220,11 @@ class Master extends CI_Controller
 		$id = uniqid();
 		$nama_bahan = $this->input->post('nama_bahan');
 		$satuan = $this->input->post('satuan');
+		$kategori = $this->input->post('kategori');
 		$data = array(
 			'id_bahan' => $id,
 			'nama_bahan' => $nama_bahan,
+			'id_kategori' => $kategori,
 			'id_satuan' => $satuan,
 		);
 
