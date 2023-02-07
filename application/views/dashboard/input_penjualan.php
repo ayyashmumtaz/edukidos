@@ -20,14 +20,17 @@
                         <table class="table-striped table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                   
                                     <th>Nama Produk</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga</th>
+                                    <th>Subtotal</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <thead>
                                 <tr>
-                                    <td>1</td>
+                                   
                                 </tr>
                             </thead>
                         </table>
@@ -36,31 +39,56 @@
             </div>
         </div>
         <div class="col-lg-5">
-            <div class="card shadow">
-                <div class="card-body">
+            <div>
+                <div class="card shadow">
+            <div class="card-body">
                     <h5>Input Produk</h5>
                     <hr>
-                    <div class="form-group">
+                    <div class="row">
+                    <div class="form-group col-md-6">
                         <label for="">Kategori</label>
                         <select name="kategori" id="kategori" onchange="pilihKategori();">
-                            <?php 
-                            foreach($kategori as $k) {
-                            ?>
-                            <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
+                                <?php 
+                                foreach($kategori as $k) {
+                                ?>
+                                <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        
+                      
+                        <div class="form-group col-md-6">
+                            <label for="">Jumlah</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" name="jumlah" id="jumlah" placeholder="Jumlah">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Pcs</span>
+                                </div>
+                        </div>
+                        </div>
+                    <div class="form-group col-md-12">
                         <label for="">Nama Produk</label>
                         <select name="produk" id="produk">
                          
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-12">
+                        <label for="">Barcode Produk</label>
+                        <select name="produk" id="produk">
+                         
+                        </select>
+                        <br>
+                        
+                        <div class="form-group">
                         <button type="button" class="btn btn-primary form-control">
                             <i class="fas fa-cart-shopping"></i>
                             Tambah ke keranjang
                         </button>
+                    </div>
+                    </div>
+                 
+                  
+                       
                     </div>
                 </div>
             </div>
