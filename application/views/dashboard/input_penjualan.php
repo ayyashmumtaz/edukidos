@@ -72,9 +72,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Barcode Produk</label>
-                        <select name="produk" id="produk">
-                         
-                        </select>
+                        <input type="text" class="form-control" name="kode_barang">
                         <br>
                         
                         <div class="form-group">
