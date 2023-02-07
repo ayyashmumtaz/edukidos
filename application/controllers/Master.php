@@ -220,7 +220,7 @@ class Master extends CI_Controller
 		$data = array(
 			'id_bahan' => $id,
 			'nama_bahan' => $nama_bahan,
-			'satuan' => $satuan,
+			'id_satuan' => $satuan,
 		);
 
 		$data2 = array(
