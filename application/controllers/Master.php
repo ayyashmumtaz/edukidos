@@ -83,6 +83,40 @@ class Master extends CI_Controller
 		redirect('Master/data_satuan');
 	}
 
+	public function edit_produk($id_produk)
+	{
+		$where = array('id_produk' => $id_produk);
+		$data['kategori'] = $this->Model_order->get_kategori();
+		$data['satuan'] = $this->Model_order->getSatuan();
+		$data['produk'] = $this->Model_master->edit_data_produk($where, 'produk')->result();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/edit/edit_produk', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	function update_produk()
+	{
+		$id_produk = $this->input->post('id_produk');
+		$nama_produk = $this->input->post('nama_produk');
+		$id_satuan = $this->input->post('id_satuan');
+		$id_kategori = $this->input->post('id_kategori');
+
+		$data = array(
+			'nama_produk' => $nama_produk,
+			'id_satuan' => $id_satuan,
+			'id_kategori' => $id_kategori,
+		);
+
+		$where = array(
+			'id_produk' => $id_produk
+		);
+
+		$this->Model_master->update_data($where, $data, 'produk');
+		$this->session->set_flashdata('update_berhasil', ' ');
+		redirect('Master/data_produk');
+	}
+
 	public function rekening()
 	{
 		$data['rekening'] = $this->Model_master->getRekening()->result();;

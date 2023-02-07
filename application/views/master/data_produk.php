@@ -101,7 +101,7 @@
             <td><?= $b->satuan ?></td>     
             <td><?= $b->nama_kategori ?></td>
             <td>
-              <a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_bahan/') . $b->id_produk; ?>">Edit</a>
+              <a class="btn btn-sm btn-primary" href="<?= base_url('Master/edit_produk/') . $b->id_produk; ?>">Edit</a>
               <a class="btn btn-sm btn-danger remove" href="<?= base_url('Master/hapus_produk/') . $b->id_produk; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data ID : <?= $b->id_produk ?> Ini?');">Hapus</a>
             </td>
           </tr>
