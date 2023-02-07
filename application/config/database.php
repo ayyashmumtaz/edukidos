@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'edus3997_admin',
+	'hostname' => '103.214.112.15',
+	'username' => 'digi_admin',
 	'password' => 'edukidosb310',
-	'database' => 'edus3997_pos',
+	'database' => 'digi_pos',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
