@@ -24,7 +24,28 @@ class Order extends CI_Controller
 		$this->load->view('dashboard/input_penjualan',$data);
 		$this->load->view('dashboard/_partials/footer');
 	}
-	
+
+	public function save_input_penjualan()
+	{
+		$kode_penjualan = uniqid();
+		$subtotal_harga = $this->input->post('id_order');
+		$jumlah = $this->input->post('jumlah');
+		$id_produk = $this->input->post('id_produk');
+		$status = 0;
+
+		$data = [
+			'kode_penjualan' => $kode_penjualan,
+			'subtotal_harga' => $subtotal_harga,
+			'jumlah' => $jumlah,
+			'id_produk' => $id_produk,
+			'status' => $status,
+		];
+
+		$this->Model_order->input_data($data, 'penjualan');
+		$this->session->set_flashdata('order_berhasil', ' ');
+		redirect('Order/input_penjualan');
+	}
+
 	public function apiProduk($id_produk)
 	{
 		$data['produk'] = $this->Model_order->get_produk_api($id_produk);
