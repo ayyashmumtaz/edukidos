@@ -239,12 +239,44 @@ class Master extends CI_Controller
 		redirect('Master/data_bahan');
 	}
 
+	public function produk_save()
+	{
+		$id = uniqid();
+		$nama_produk = $this->input->post('nama_produk');
+		$satuan = $this->input->post('satuan');
+		$kategori = $this->input->post('kategori');
+		$data = array(
+			'id_produk' => $id,
+			'nama_produk' => $nama_produk,
+			'id_kategori' => $kategori,
+			'id_satuan' => $satuan,
+		);
+
+		$data2 = array(
+			'id_barang' => $id,
+			'stok' => 0
+		);
+
+		$this->Model_master->insert_data($data, 'produk');
+		$this->Model_master->insert_data($data2, 'stok');
+		$this->session->set_flashdata('input-berhasil', ' ');
+		redirect('Master/data_produk');
+	}
+
 	public function hapus_bahan($id_bahan)
 	{
 		$where = array('id_bahan' => $id_bahan);
 		$this->Model_master->hapus_data($where, 'bahan');
 		$this->session->set_flashdata('hapus-berhasil', ' ');
 		redirect('Master/data_bahan');
+	}
+
+	public function hapus_produk($id_produk)
+	{
+		$where = array('id_produk' => $id_produk);
+		$this->Model_master->hapus_data($where, 'produk');
+		$this->session->set_flashdata('hapus-berhasil', ' ');
+		redirect('Master/data_produk');
 	}
 
 	public function tambah_rekening()

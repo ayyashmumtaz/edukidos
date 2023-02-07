@@ -87,7 +87,7 @@
           <th>ID</th>
           <th>Nama Bahan</th>
           <th>Satuan</th>
-          <th>Nama Kategori</th>
+          <th>Kategori</th>
           <th>Action</th>
         </tr>
       </thead>

@@ -1,25 +1,25 @@
 <div class="container">
 	<hr>
 	<div class="col-12 d-flex flex-row align-items-center justify-content-between pl-0">
-		<h5 class="mb-0">Tambah Data Bahan</h5>
+		<h5 class="mb-0">Tambah Data Produk</h5>
 		<button type="button" class="btn btn-sm btn-warning float-right" data-toggle="modal" data-target="#batal">
 			<i class="fa-solid fa-xmark pr-2"></i>Batal
 		</button>
 	</div>
 	<hr>
-	<form action="<?= base_url('Master/bahan_save'); ?>" method="post">
+	<form action="<?= base_url('Master/produk_save'); ?>" method="post">
 		<div class="row">
 
 			<div class="col-md-4">
 				<div class="form-group">
 					<label for="last">Nama Produk</label>
-					<input type="text" class="form-control" name="nama_Produk" required>
+					<input type="text" class="form-control" name="nama_produk" required>
 				</div>
 			</div>
 
 			<div class="col-md-2">
 				<label for="last">Kategori</label>
-				<select name="kategori" id="kategori" class="form-control">
+				<select name="kategori" id="kategori" class="form-control" required>
 				<?php foreach ($kategori as $k) { ?>
 						<option value="<?php echo $k['id_kategori']; ?>"><?php echo $k['nama_kategori']; ?></option>
 					<?php } ?>
@@ -29,7 +29,7 @@
 		
 			<div class="col-md-2">
 				<label for="last">Satuan Barang</label>
-				<select name="satuan" id="satuan" class="form-control">
+				<select name="satuan" id="satuan" class="form-control" required>
 				<?php foreach ($satuan as $s) { ?>
 						<option value="<?php echo $s['id']; ?>"><?php echo $s['satuan']; ?></option>
 					<?php } ?>

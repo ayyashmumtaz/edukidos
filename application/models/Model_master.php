@@ -19,6 +19,8 @@ class Model_master extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('produk');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori');
+		$this->db->join('satuan', 'satuan.id = produk.id_satuan');
 		$query = $this->db->get();
 		return $query;
 	}
