@@ -19,7 +19,7 @@
 
 			<div class="col-md-3">
 				<label for="last">Kategori</label>
-				<select name="kategori" id="kategori" class="form-control" onchange="return kategoriCek()">
+				<select name="kategori" id="kategori" class="form-control" required>
 				<option disabled selected>- pilih -</option>
 				<?php foreach ($kategori as $k) { ?>
 						<option value="<?php echo $k['id_kategori']; ?>"><?php echo $k['nama_kategori']; ?></option>
@@ -30,7 +30,7 @@
 		
 			<div class="col-md-3">
 				<label for="last">Satuan Barang</label>
-				<select name="satuan" id="satuan" class="form-control">
+				<select name="satuan" id="satuan" class="form-control" required>
 					<option disabled selected>- pilih -</option>
 				<?php foreach ($satuan as $s) { ?>
 						<option value="<?php echo $s['id']; ?>"><?php echo $s['satuan']; ?></option>
