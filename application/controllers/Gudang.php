@@ -130,6 +130,36 @@ class Gudang extends CI_Controller
 		redirect('Gudang/reqBarangKeluar');
 	}
 
+	public function status_diterima_req_barangkeluar($id_request)
+	{
+		$data = array(
+			'status_barang' => 'diterima',
+		);
+
+		$where = array(
+			'id_request' => $id_request,
+		);
+
+		$this->Model_gudang->update_data($where, $data, 'req_barangkeluar');
+		$this->session->set_flashdata('update_status_berhasil', ' ');
+		redirect('Gudang/reqBarangKeluar');
+	}
+
+	public function status_ditolak_req_barangkeluar($id_request)
+	{
+		$data = array(
+			'status_barang' => 'ditolak',
+		);
+
+		$where = array(
+			'id_request' => $id_request,
+		);
+
+		$this->Model_gudang->update_data($where, $data, 'req_barangkeluar');
+		$this->session->set_flashdata('update_status_berhasil', ' ');
+		redirect('Gudang/reqBarangKeluar');
+	}
+
 	public function barang_keluar()
 	{
 		$data['barangKeluar'] = $this->Model_gudang->getBarangKeluar();
