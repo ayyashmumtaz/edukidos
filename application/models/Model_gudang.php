@@ -38,7 +38,16 @@ class Model_gudang extends CI_Model {
       return $query->result();
    }
 
-   
+   public function getReqBarangKeluar_diterima()
+   {
+      $this->db->select('*');
+      $this->db->from('req_barangkeluar');
+   	$this->db->join('user', 'user.id_user = req_barangkeluar.id_user');
+   	$this->db->join('produk', 'produk.id_produk = req_barangkeluar.id_produk');
+      $this->db->where('req_barangkeluar.status_barang', 'diterima');
+      $query = $this->db->get();
+      return $query->result();
+   }
 
    public function getBarangRetur()
    {
