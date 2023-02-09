@@ -132,7 +132,7 @@
                  onclick="return confirm('Anda Yakin Ingin Menolak Request Produk : <?= $rbk->nama_produk ?> Ini?');"
                  class="btn btn-sm btn-danger"><i class="fas fa-times"></i> Tolak</a>
             <?php } elseif($rbk->status_barang == "diterima") { ?>
-              <a href="#" class="btn btn-sm btn-info"><i class="fas fa-check-circle"></i> Diterima</a>
+              <a href="#" class="btn btn-sm btn-success"><i class="fas fa-check-circle"></i> Diterima</a>
             <?php } elseif($rbk->status_barang == "ditolak") { ?>
               <a href="#" class="btn btn-sm btn-secondary"><i class="fas fa-times-circle"></i> Ditolak</a>
             <?php } ?>
