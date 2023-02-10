@@ -7,10 +7,14 @@
     });
   });
 </script>
-
+<select name="produk[]" id="produk" class="form-control" required>
+						<?php foreach ($produk->result_array() as $p) { ?>
+								<option value="<?php echo $p['id_produk'] ?>"><?php echo $p['nama_produk'] ?></option>
+						<?php } ?>
+						</select>
 
 <div class="container">
-  <h3>BARANG KELUAR</h3>
+  <h3>PERMINTAAN BARANG KELUAR</h3>
   <table id="example" class="display" style="width:100%">
       <thead>
         <tr>
@@ -18,8 +22,8 @@
           <th>Nama Produk</th>
           <th>Jumlah</th>
           <th>Tanggal</th>
-          <th>Nama User</th> 
-          <th>Action</th>
+          <th>Nama User</th>
+          <th>Status ?</th> 
         </tr>
       </thead>
       <tbody>
@@ -31,8 +35,18 @@
             <td><?= $rbk->tanggal_req ?></td>
             <td><?= $rbk->nama ?></td> 
             <td>
-              <a class="btn btn-sm btn-primary" href="<?= base_url('Gudang/edit_req_barangkeluar/') . $rbk->id_request; ?>">Edit</a>
-              <a class="btn btn-sm btn-danger remove" href="<?= base_url('Gudang/hapus_req_barangkeluar/') . $rbk->id_request; ?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data ID : <?= $rbk->id_request ?> Ini?');">Hapus</a>
+            <?php if($rbk->status_barang == "pending") { ?>
+              <a href="<?= base_url()?>Gudang/status_diterima_req_barangkeluar/<?php echo $rbk->id_request ?>"  
+                 onclick="return confirm('Anda Yakin Ingin Menerima Request Produk : <?= $rbk->nama_produk ?> Ini?');"
+                 class="btn btn-sm btn-success"><i class="fas fa-check"></i> Terima</a>
+              <a href="<?= base_url()?>Gudang/status_ditolak_req_barangkeluar/<?php echo $rbk->id_request ?>" 
+                 onclick="return confirm('Anda Yakin Ingin Menolak Request Produk : <?= $rbk->nama_produk ?> Ini?');"
+                 class="btn btn-sm btn-danger"><i class="fas fa-times"></i> Tolak</a>
+            <?php } elseif($rbk->status_barang == "diterima") { ?>
+              <a href="#" class="btn btn-sm btn-success"><i class="fas fa-check-circle"></i> Diterima</a>
+            <?php } elseif($rbk->status_barang == "ditolak") { ?>
+              <a href="#" class="btn btn-sm btn-secondary"><i class="fas fa-times-circle"></i> Ditolak</a>
+            <?php } ?>
             </td>
         </tr>
         <?php } ?>
