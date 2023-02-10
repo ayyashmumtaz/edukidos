@@ -1,7 +1,7 @@
 <div class="container">
 	<hr>
 	<div class="col-12 d-flex flex-row align-items-center justify-content-between pl-0">
-		<h5 class="mb-0">Edit Data Rekues Barang Keluar</h5>
+		<h5 class="mb-0">Edit Data Request Barang Keluar</h5>
 		<button type="button" class="btn btn-sm btn-warning float-right" data-toggle="modal" data-target="#batal">
 			<i class="fa-solid fa-xmark pr-2"></i>Batal
 		</button>
@@ -11,21 +11,9 @@
 	<form action="<?= base_url('Gudang/update_req_barangkeluar'); ?>" method="post">
 	<input type="hidden" name="id_request" value="<?= $rbk->id_request; ?>">
 		<div class="row">
-
-        <div class="col-md-6">
+			<div class="col-lg-6">
 				<div class="form-group">
-					<label for="last">NAMA User</label>
-				    <select name="user" id="user" class="form-control" required>
-                    <?php foreach ($user->result_array() as $u) { ?>
-                            <option value="<?php echo $u['id_user']; ?>"<?php echo $u['id_user'] == $rbk->id_user ? 'selected' : ''; ?>><?php echo $u['nama']; ?></option>
-                    <?php } ?>
-                    </select>
-				</div>
-			</div>
-
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="last">NAMA Produk</label>
+					<label for="last">Nama Produk</label>
 				    <select name="produk" id="produk" class="form-control" required>
                     <?php foreach ($produk->result_array() as $p) { ?>
                             <option value="<?php echo $p['id_produk'] ?>" <?php echo $p['id_produk'] == $rbk->id_produk ? 'selected' : ''; ?>><?php echo $p['nama_produk'] ?></option>
@@ -33,15 +21,15 @@
                     </select>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-lg-6">
 				<div class="form-group">
 					<label for="jumlah">Jumlah</label>
 				    <input type="number" name="jumlah" value="<?= $rbk->jumlah ?>" class="form-control">
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-lg-12">
 				<div class="form-group">
-					<label for="tanggal_req">Tanggal Rekues</label>
+					<label for="tanggal_req">Tanggal Request</label>
 				    <input type="date" name="tanggal_req" value="<?= $rbk->tanggal_req ?>" class="form-control">
 				</div>
 			</div>
