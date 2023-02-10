@@ -148,7 +148,7 @@ class Gudang extends CI_Controller
 
 		$this->Model_gudang->update_data($where, $data, 'req_barangkeluar');
 		$this->session->set_flashdata('update_status_berhasil', ' ');
-		redirect('Gudang/reqBarangKeluar');
+		redirect('Gudang/keluar');
 	}
 
 	public function status_ditolak_req_barangkeluar($id_request)
@@ -163,7 +163,7 @@ class Gudang extends CI_Controller
 
 		$this->Model_gudang->update_data($where, $data, 'req_barangkeluar');
 		$this->session->set_flashdata('update_status_berhasil', ' ');
-		redirect('Gudang/reqBarangKeluar');
+		redirect('Gudang/keluar');
 	}
 
 	public function admin_barang_keluar()

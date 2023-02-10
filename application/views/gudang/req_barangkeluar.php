@@ -100,7 +100,7 @@
 
 
 <div class="container">
-  <h3>Data rekues barang keluar</h3>
+  <h3>Request Barang Keluar</h3>
   <a class="btn btn-sm btn-success" href="<?= base_url('Gudang/tambah_reqBarangKeluar'); ?>">+ Tambah Req Barang Keluar</a>
   <div class="table-responsive">
     <table id="example" class="display" >
@@ -140,8 +140,7 @@
                 break;
               case 'pending':
                 echo '<td>';
-                echo '<a href="'.base_url().'Gudang/status_diterima_req_barangkeluar/'.$rbk->id_request.'" onclick="return confirm(`Anda Yakin Ingin Menerima Request Produk : '.$rbk->nama_produk.' Ini?`);" class="btn btn-sm btn-success"><i class="fas fa-check"></i> Terima</a> ';
-                echo '<a href="'.base_url().'Gudang/status_ditolak_req_barangkeluar/'.$rbk->id_request.'" onclick="return confirm(`Anda Yakin Ingin Menolak Request Produk : '.$rbk->nama_produk.' Ini?`);"class="btn btn-sm btn-danger"><i class="fas fa-times"></i> Tolak</a>';
+                echo '<a href="#" class="btn btn-sm btn-warning"><i class="fas fa-clock"></i> Pending</a> ';
                 echo '</td>';
                 echo '<td>';
                 echo '<a class="btn btn-sm btn-primary" href="'.base_url('Gudang/edit_req_barangkeluar/') . $rbk->id_request.'">Edit</a> ';
