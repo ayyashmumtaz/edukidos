@@ -8,44 +8,35 @@
 	</div>
 	<hr>
 	<form action="<?= base_url('Gudang/req_barangkeluar_save'); ?>" method="post">
-		<div class="row">
-
-        <div class="col-md-6">
-				<div class="form-group">
-					<label for="last">NAMA User</label>
-				    <select name="user" id="user" class="form-control" required>
-                    <?php foreach ($user->result_array() as $u) { ?>
-                            <option value="<?php echo $u['id_user']; ?>"><?php echo $u['nama']; ?></option>
-                    <?php } ?>
-                    </select>
-				</div>
-			</div>
-
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="last">NAMA Produk</label>
-				    <select name="produk" id="produk" class="form-control" required>
-                    <?php foreach ($produk->result_array() as $p) { ?>
-                            <option value="<?php echo $p['id_produk'] ?>"><?php echo $p['nama_produk'] ?></option>
-                    <?php } ?>
-                    </select>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="jumlah">Jumlah</label>
-				    <input type="number" name="jumlah" id="" class="form-control">
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="tanggal_req">Tanggal Rekues</label>
-				    <input type="date" name="tanggal_req" id="" class="form-control">
-				</div>
-			</div>
-
-
+		<!-- <div class="table-responsive"> -->
+		<table class="table border-0" id="formProdukJumlah">
+			<tr>
+				<th><label for="last">Nama Produk</label></th>
+				<th><label for="jumlah">Jumlah</label></th>
+				<th></th>
+			</tr>
+			<tr id="row">
+				<td>
+					<input type="text" name="autocomplete_produk[]" id="autocomplete_produk" class="form-control">
+					<input type="hidden" id="produk" name="produk[]">
+					<div class="t">
+					<!-- <select name="produk[]" id="produk" class="form-control"></select> -->
+					</div>
+				</td>
+				<td>
+					<input type="number" name="jumlah[]" id="" class="form-control">
+				</td>
+				<td>
+					<a href="#" id="btnPlus" onclick="addForm()" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+				</td>
+			</tr>
+		</table>
+		<!-- </div> -->
+		<div class="form-group">
+			<label for="tanggal_req">Tanggal Rekues</label>
+			<input type="date" name="tanggal_req" id="" class="form-control">
 		</div>
+		<input type="hidden" value="<?= $this->session->userdata('id_user')?>" name="user">
 		<button class="btn btn-primary">Tambah Request </button>
 	</form>
 </div>
@@ -69,3 +60,86 @@
 		</div>
 	</div>
 </div>
+<script>
+	// $(document).ready(function(){
+	// });
+	let count = 1;
+	const addForm = () => {
+		$.ajax({
+			url:'<?= base_url('Gudang/getProdukApi')?>',
+			method:'GET',
+			success:function(response){
+				let data = JSON.parse(response);
+				let labelData = [];
+				data.forEach(response => {
+					labelData.push({ 
+						label:response.nama_produk,
+						value:response.id_produk
+					});
+				}); 
+				count += 1;
+				let table = "<tr id='row"+count+"'>"
+				table += "<td><input type='text' name='autocomplete_produk[]' id='autocomplete_produk"+count+"' class='form-control'>"
+				table += "<input type='hidden' id='produk"+count+"' name='produk[]'></td>"
+				table += "<td><input type='number' name='jumlah[]' id='jumlah' class='form-control'></td>"
+				table += '<td><a href="#" id="btnTimes" onclick="deleteForm()" class="btn btn-secondary"><i class="fas fa-times"></i></a></td>'
+				table += "</tr>"
+				$('#formProdukJumlah').append(table);
+
+				$("#autocomplete_produk"+count).autocomplete({
+					source:labelData, 
+					select:function(event, ui){
+						event.preventDefault();
+						$("#autocomplete_produk"+count).val(ui.item.label);
+						$("#produk"+count).val(ui.item.value)
+					}
+				})
+			}
+		})
+	}
+		$.ajax({
+			url:'<?= base_url('Gudang/getProdukApi')?>',
+			method:'GET',
+			success:function(response){
+				let data = JSON.parse(response); 
+				let labelData = [];
+				data.forEach(response => {
+					labelData.push({ 
+						label:response.nama_produk,
+						value:response.id_produk
+					});
+				}); 
+				$("#autocomplete_produk").autocomplete({
+					source:labelData, 
+					select:function(event, ui){
+						console.log(ui.item.label)
+						event.preventDefault();
+						$("#autocomplete_produk").val(ui.item.label);
+						$("#produk").val(ui.item.value)
+					}
+				})
+			}
+		});
+		const deleteForm = () => {
+			let deleteRow = $("tr#row").html()
+		}
+		// $('#' + delete_row).
+		// let s = $('select#produk').clone('id','new').append('.t');
+		// $('.t').html(s)
+		// let selectize = $select[0].selectize;
+		// console.log($select)
+		
+		// let select = '<select name="produk[]" id="produk" class="form-control" required>'+<?php foreach ($produk->result_array() as $p) { ?>'+<option value="'+<?php echo $p['id_produk'] ?>+'">'+<?php echo $p['nama_produk'] ?>+'</option>'+<?php } ?>+'</select>';
+	// const data = [{id_produk:20,nama_produk:"fulan_aibiyyu"},{id_produk:21,nama_produk:"fulani"}]
+	// console.log(data)
+	// for (let i = 0; i < data.length; i++) {
+	// 	$("#produk2").append('<option>'+data[i].nama_produk+'</option>');
+	// 	// selectize.addOption([{
+	// 	// 	text: data[i].nama_produk,
+	// 	// 	value: data[i].id_produk
+	// 	// }]);
+		
+	// }
+	// // const produkDropdown = (count) => {
+	// }
+</script>

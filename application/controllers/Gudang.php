@@ -53,6 +53,12 @@ class Gudang extends CI_Controller
 		$this->load->view('dashboard/_partials/footer');
 	}	
 	
+	public function getProdukApi()
+	{
+		$data['produk'] = $this->Model_master->getDataProduk();
+		echo json_encode($data['produk']->result_array());
+	}
+
 	public function tambah_reqBarangKeluar()
 	{
 		// $data['reqBarangKeluar'] = $this->Model_gudang->getReqBarangKeluar();
@@ -73,16 +79,18 @@ class Gudang extends CI_Controller
 		$tanggal_req = $this->input->post('tanggal_req');
 		$status_barang = "pending";
 
-		$data = array(
-			'id_request' => $id_request,
-			'id_user' => $user,
-			'id_produk' => $produk,
-			'jumlah' => $jumlah,
-			'tanggal_req' => $tanggal_req,
-			'status_barang' => $status_barang,
-		);
-
-		$this->Model_gudang->input_data($data, 'req_barangkeluar');
+		for ($i = 0;$i < count($jumlah); $i++) {
+			$data = array(
+				'id_request' => uniqid(),
+				'id_user' => $user,
+				'id_produk' => $produk[$i],
+				'jumlah' => $jumlah[$i],
+				'tanggal_req' => $tanggal_req,
+				'status_barang' => "pending",
+			);
+			$this->Model_gudang->input_data($data, 'req_barangkeluar');
+		}
+			
 		$this->session->set_flashdata('input-berhasil', ' ');
 		redirect('Gudang/reqBarangKeluar');
 	}
@@ -108,23 +116,21 @@ class Gudang extends CI_Controller
 	public function update_req_barangkeluar()
 	{
 		$id_request = $this->input->post('id_request');
-		$user = $this->input->post('user');
 		$produk = $this->input->post('produk');
 		$jumlah = $this->input->post('jumlah');
 		$tanggal_req = $this->input->post('tanggal_req');
-
+		
 		$data = array(
 			'id_request' => $id_request,
-			'id_user' => $user,
 			'id_produk' => $produk,
 			'jumlah' => $jumlah,
 			'tanggal_req' => $tanggal_req,
 		);
-
+		
 		$where = array(
 			'id_request' => $id_request,
 		);
-
+		
 		$this->Model_gudang->update_data($where, $data, 'req_barangkeluar');
 		$this->session->set_flashdata('update_berhasil', ' ');
 		redirect('Gudang/reqBarangKeluar');
@@ -160,12 +166,21 @@ class Gudang extends CI_Controller
 		redirect('Gudang/reqBarangKeluar');
 	}
 
-	public function barang_keluar()
+	public function admin_barang_keluar()
+	{
+		$data['reqBarangKeluar'] = $this->Model_gudang->getReqBarangKeluar();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('gudang/keluar', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function riwayat_barang_keluar()
 	{
 		$data['reqBarangKeluar'] = $this->Model_gudang->getReqBarangKeluar_diterima();
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('dashboard/_partials/sidebar');
-		$this->load->view('gudang/keluar', $data);
+		$this->load->view('gudang/riwayat_keluar', $data);
 		$this->load->view('dashboard/_partials/footer');
 	}
 
