@@ -21,13 +21,18 @@
 
 	<!-- Custom styles for this template-->
 	<link href="<?= base_url(''); ?>/assets/css/sb-admin-2.min.css" rel="stylesheet">
-
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-
+	<link rel="stylesheet" 
+		  href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.min.css" 
+		  integrity="sha512-Mvnc3gzZhD8rZtNMHJkotZpdfvAHunpqankLPnj3hXpphETXpxbfr4+oNMOzF179JYu8B8/EqruGdpsH5fNYww==" 
+		  crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- Bootstrap core JavaScript-->
 	<script src="<?= base_url(''); ?>/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" 
+			integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" 
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
-
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
 
 
