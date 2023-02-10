@@ -34,6 +34,7 @@ class Model_gudang extends CI_Model {
       $this->db->from('req_barangkeluar');
    	$this->db->join('user', 'user.id_user = req_barangkeluar.id_user');
    	$this->db->join('produk', 'produk.id_produk = req_barangkeluar.id_produk');
+      $this->db->order_by('req_barangkeluar.status_barang','DESC');
       $query = $this->db->get();
       return $query->result();
    }
