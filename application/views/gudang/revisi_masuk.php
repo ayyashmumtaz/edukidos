@@ -27,6 +27,18 @@
 
 <?php endif ?>
 
+<?php if ($this->session->flashdata('stok_revisi_gagal')) : ?>
+	<script type="text/javascript">
+		Swal.fire({
+			icon: 'warning',
+			title: 'Stok Melebihi Batas Revisi!',
+			text: 'Mohon di Cek dan Lakukan Pengisian Stok!',
+			footer: '<a href="<?= base_url('Gudang/tambah_stok') ?>">Isi Stok</a>'
+		})
+	</script>
+	<?= $this->session->flashdata('stok_revisi_gagal') ?>
+<?php endif ?>
+
 <div class="container">
 	<h3>Riwayat Revisi Stok</h3>
 	<div class="table-responsive">

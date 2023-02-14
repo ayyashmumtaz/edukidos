@@ -29,7 +29,6 @@
 	</script>
 	<?= $this->session->flashdata('pembelian_sukses') ?>
 <?php endif ?>
-
 <div class="container">
 	<h3>Data Stok</h3>
 	<a class="btn btn-sm btn-success mb-3" href="<?= base_url('Gudang/tambah_stok'); ?>">+ Tambah Stok</a>

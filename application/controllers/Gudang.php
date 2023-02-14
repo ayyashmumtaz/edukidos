@@ -331,6 +331,7 @@ class Gudang extends CI_Controller
 	{
 		$id_beli = $this->input->post('id_beli');
 		$jumlah = $this->input->post('jumlah');
+		$stok_lama = $this->input->post('stok_lama');
 
 		$id_barang = $this->input->post('id_barang');
 		$tanggal_revisi = $this->input->post('tanggal_retur');
@@ -343,10 +344,15 @@ class Gudang extends CI_Controller
 			'tgl_revisi' => $tanggal_revisi
 		);
 
-		$this->Model_gudang->input_data($data_stokRetur, 'revisi_stok');
-		// $this->Model_gudang->update_data($where, $data_pembelian, 'pembelian');
-		$this->session->set_flashdata('update_berhasil', ' ');
-		redirect('Gudang/revisi_stok');
+		if($jumlah > $stok_lama) {
+			$this->session->set_flashdata('stok_revisi_gagal', ' ');
+			redirect('Gudang/revisi_stok');
+		} else {
+			$this->Model_gudang->input_data($data_stokRetur, 'revisi_stok');
+			// $this->Model_gudang->update_data($where, $data_pembelian, 'pembelian');
+			$this->session->set_flashdata('update_berhasil', ' ');
+			redirect('Gudang/revisi_stok');
+		}
 	}
 }
 
