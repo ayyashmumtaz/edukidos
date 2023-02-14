@@ -51,6 +51,15 @@ class Gudang extends CI_Controller
 		$this->load->view('dashboard/_partials/sidebar');
 		$this->load->view('gudang/req_barangkeluar', $data);
 		$this->load->view('dashboard/_partials/footer');
+	}
+	
+	public function revisi_stok()
+	{
+		$data['barangMasuk'] = $this->Model_gudang->getHistoryStok();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('gudang/revisi_masuk', $data);
+		$this->load->view('dashboard/_partials/footer');
 	}	
 	
 	public function getProdukApi()
@@ -259,6 +268,16 @@ class Gudang extends CI_Controller
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('dashboard/_partials/sidebar');
 		$this->load->view('gudang/stok/retur_barang', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function edit_revisi($id_beli)
+	{
+		$data['barangRetur'] = $this->Model_gudang->BarangRetur($id_beli);
+
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('gudang/stok/edit_revisi', $data);
 		$this->load->view('dashboard/_partials/footer');
 	}
 
