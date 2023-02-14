@@ -326,6 +326,28 @@ class Gudang extends CI_Controller
 		$cek_stok = $this->Model_gudang->cek_stok($id_barang);
 		echo json_encode($cek_stok);
 	}
+
+	public function revisi_update()
+	{
+		$id_beli = $this->input->post('id_beli');
+		$jumlah = $this->input->post('jumlah');
+
+		$id_barang = $this->input->post('id_barang');
+		$tanggal_revisi = $this->input->post('tanggal_retur');
+
+		$data_stokRetur = array(
+			'id' => uniqid(),
+			'id_beli' => $id_beli,
+			'id_barang' => $id_barang,
+			'jumlah' => $jumlah,
+			'tgl_revisi' => $tanggal_revisi
+		);
+
+		$this->Model_gudang->input_data($data_stokRetur, 'revisi_stok');
+		// $this->Model_gudang->update_data($where, $data_pembelian, 'pembelian');
+		$this->session->set_flashdata('update_berhasil', ' ');
+		redirect('Gudang/revisi_stok');
+	}
 }
 
 /* End of file Gudang.php */

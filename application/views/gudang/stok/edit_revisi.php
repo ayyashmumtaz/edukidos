@@ -1,3 +1,7 @@
+
+
+
+
 <div class="container">
    <hr>
    <div class="col-12 d-flex flex-row align-items-center justify-content-between pl-0">
@@ -7,10 +11,10 @@
       </button>
    </div>
    <hr>
-   <form action="<?= base_url('Gudang/retur_update'); ?>" method="post">
+   <form action="<?= base_url('Gudang/revisi_update'); ?>" method="post">
       <div class="row">
          <input type="hidden" class="form-control" name="id_beli" value="<?= $barangRetur->id_beli ?>">
-         <input type="hidden" class="form-control" name="id_barang" value="<?= $barangRetur->id_barang ?>">
+         <input type="hidden" class="form-control" id="id_bahan" name="id_barang" value="<?= $barangRetur->id_barang ?>">
 
          <div class="col-md-3">
             <div class="form-group">
@@ -19,12 +23,16 @@
             </div>
          </div>
 
-         <div class="col-md-3">
+         <div class="col-md-6">
             <div class="form-group">
                <label for="last">NAMA BAHAN</label>
                <input type="text" class="form-control" name="nama_bahan" value="<?= $barangRetur->nama_bahan ?>" disabled>
             </div>
          </div>
+</div>
+
+<div class="row">
+
 
          <div class="col-md-3">
             <div class="form-group">
@@ -36,26 +44,20 @@
          <div class="col-md-3">
             <div class="form-group">
                <label for="last">JUMLAH REVISI STOK</label>
-               <input type="number" class="form-control" name="jumlah">
+               <input type="number" min="0" class="form-control" name="jumlah" id="jumlah" onchange="cekStok();" required>
             </div>
          </div>
 
          <div class="col-md-3">
             <div class="form-group">
                <label for="last">TANGGAL REVISI</label>
-               <input type="date" class="form-control" name="tanggal_retur">
+               <input type="date" class="form-control" name="tanggal_retur" required>
             </div>
          </div>
 
-         <div class="col-9">
-            <div class="form-group">
-               <label for="last">KETERANGAN</label>
-               <textarea class="form-control mb-3" name="keterangan" id="keterangan" cols="30" rows="2"></textarea>
-            </div>
-         </div>
-
+        
       </div>
-      <button class="btn btn-primary">Retur Barang</button>
+      <button class="btn btn-primary">Revisi Barang</button>
    </form>
 </div>
 
@@ -78,3 +80,28 @@
       </div>
    </div>
 </div>
+
+<script>
+   function cekStok() {
+
+let jumlah = $('#jumlah').val();
+
+$.ajax({
+   url: "<?= base_url() ?>Gudang/cek_stok/" + $('#id_bahan').val(),
+   data: '&id_barang=' + id_bahan,
+
+   success: function(result) {
+      var data = JSON.parse(result);
+      console.log(data[0].stok);
+      if (data[0].stok > jumlah) {
+         Swal.fire({
+            icon: 'warning',
+            title: 'Stok Melebihi Batas Revisi!',
+            text: 'Mohon di Cek dan Lakukan Pengisian Stok!',
+            footer: '<a href="<?= base_url('Gudang/tambah_stok') ?>">Isi Stok</a>'
+         })
+      }
+   }
+})
+}
+</script>

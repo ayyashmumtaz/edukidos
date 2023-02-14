@@ -126,14 +126,14 @@
             <?php switch ($rbk->status_barang) {
               case 'diterima':
                 echo '<td>';
-                echo '<a href="#" class="btn btn-sm btn-success"><i class="fas fa-check-circle"></i> Diterima</a>';
+                echo '<a href="#" class="btn btn-sm btn-warning"><i class="fas fa-check-circle"></i> Menunggu Pengiriman Barang</a>';
                 echo '</td>';
                 echo '<td>';
                 echo '</td>';
                 break;
               case 'ditolak':
                 echo '<td>';
-                echo '<a href="#" class="btn btn-sm btn-secondary"><i class="fas fa-times-circle"></i> Ditolak</a>';
+                echo '<a href="#" class="btn btn-sm btn-danger"><i class="fas fa-times-circle"></i> Ditolak</a>';
                 echo '</td>';
                 echo '<td>';
                 echo '</td>';

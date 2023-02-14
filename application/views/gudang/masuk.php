@@ -48,7 +48,8 @@
 						<td><?= $b->tgl_beli ?></td>
 						<td><?= $b->nama_bahan ?></td>
 						<td><?= $b->jumlah ?></td>
-						<td><a class="btn btn-sm btn-danger" href="<?= base_url('Gudang/retur_barang/') . $b->id_beli; ?>">Retur Barang</td>
+						<td><a class="btn btn-sm btn-danger" href="<?= base_url('Gudang/retur_barang/') . $b->id_beli; ?>">Retur Barang</a>
+						<a class="btn btn-sm btn-primary" href="<?= base_url('Gudang/edit_revisi/') . $b->id_beli; ?>">Revisi Stok</td>
 					</tr>
 				<?php } ?>
 			</tbody>
