@@ -120,8 +120,10 @@
 						<div class="bg-white py-2 collapse-inner rounded">
 
 							<a class="collapse-item" href="<?= site_url('Beranda/stok'); ?>">Data Stok</a>
-							<a class="collapse-item" href="<?= site_url('Gudang/barang_masuk'); ?>">Barang Masuk</a>
-							<a class="collapse-item" href="<?= site_url('Gudang/barang_keluar'); ?>">Barang Keluar</a>
+							<a class="collapse-item" href="<?= site_url('Gudang/revisi_stok'); ?>">Revisi Stok</a>
+							<a class="collapse-item" href="<?= site_url('Gudang/admin_barang_keluar'); ?>">Permintaan</a>
+							<a class="collapse-item" href="<?= site_url('Gudang/barang_masuk'); ?>">Riwayat Barang Masuk</a>
+							<a class="collapse-item" href="<?= site_url('Gudang/riwayat_barang_keluar'); ?>">Riwayat Barang Keluar</a>
 							<a class="collapse-item" href="<?= site_url('Gudang/barang_retur'); ?>">Retur Barang</a>
 
 						</div>
