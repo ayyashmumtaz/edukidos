@@ -1,7 +1,3 @@
-
-
-
-
 <div class="container">
    <hr>
    <div class="col-12 d-flex flex-row align-items-center justify-content-between pl-0">
@@ -93,7 +89,7 @@ $.ajax({
    success: function(result) {
       var data = JSON.parse(result);
       console.log(data[0].stok);
-      if (data[0].stok > jumlah) {
+      if (data[0].stok < jumlah) {
          Swal.fire({
             icon: 'warning',
             title: 'Stok Melebihi Batas Revisi!',
