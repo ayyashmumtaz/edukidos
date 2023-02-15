@@ -43,19 +43,18 @@
 		<table id="example" class="display" style="width:100%">
 			<thead>
 				<tr>
-					<th>Nomor PO</th>
+
 					<th>Tanggal Revisi</th>
 					<th>Nama Bahan</th>
-					<th>Qty</th>
+					<th>Jumlah Revisi</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
-				foreach ($barangMasuk as $b) {
+				foreach ($revisi as $b) {
 				?>
 					<tr>
-						<td><?php echo $b->no_po ?></td>
-						<td><?= $b->tgl_beli ?></td>
+						<td><?= $b->tgl_revisi ?></td>
 						<td><?= $b->nama_bahan ?></td>
 						<td><?= $b->jumlah ?></td>
 					</tr>

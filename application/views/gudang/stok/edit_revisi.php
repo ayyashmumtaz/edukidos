@@ -101,9 +101,7 @@ $.ajax({
       if (data[0].stok < jumlah) {
          Swal.fire({
             icon: 'warning',
-            title: 'Stok Melebihi Batas Revisi!',
-            text: 'Mohon di Cek dan Lakukan Pengisian Stok!',
-            footer: '<a href="<?= base_url('Gudang/tambah_stok') ?>">Isi Stok</a>'
+            title: 'Stok Melebihi Batas Revisi!'
          })
       }
    }

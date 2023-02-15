@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             <?php
-            foreach($stokRetur as $b){
+            foreach($revisi as $b){
             ?>
             <tr>
                 <td><?= $b->no_po ?></td>

@@ -55,7 +55,7 @@ class Gudang extends CI_Controller
 	
 	public function revisi_stok()
 	{
-		$data['barangMasuk'] = $this->Model_gudang->getHistoryStok();
+		$data['revisi'] = $this->Model_gudang->getHistoryRevisi();
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('dashboard/_partials/sidebar');
 		$this->load->view('gudang/revisi_masuk', $data);

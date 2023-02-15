@@ -20,6 +20,14 @@ class Model_gudang extends CI_Model {
    	return $query->result();
    }
 
+   public function getHistoryRevisi(){
+   	$this->db->select('*');
+   	$this->db->from('revisi_stok');
+   	$this->db->join('bahan', 'revisi_stok.id_barang = bahan.id_bahan');
+   	$query = $this->db->get();
+   	return $query->result();
+   }
+
    public function getReqBarangMasuk()
    {
       $this->db->select('*');
