@@ -1,3 +1,12 @@
+<?php if ($this->session->flashdata('stok_revisi_gagal')) : ?>
+	<script type="text/javascript">
+		Swal.fire({
+			icon: 'warning',
+			title: 'Stok Melebihi Batas Revisi!',
+		})
+	</script>
+	<?= $this->session->flashdata('stok_revisi_gagal') ?>
+<?php endif ?>
 <div class="container">
    <hr>
    <div class="col-12 d-flex flex-row align-items-center justify-content-between pl-0">
@@ -10,7 +19,7 @@
    <form action="<?= base_url('Gudang/retur_update'); ?>" method="post">
       <div class="row">
          <input type="hidden" class="form-control" name="id_beli" value="<?= $barangRetur->id_beli ?>">
-         <input type="hidden" class="form-control" name="id_barang" value="<?= $barangRetur->id_barang ?>">
+         <input type="hidden" class="form-control" id="id_bahan" name="id_barang" value="<?= $barangRetur->id_barang ?>">
 
          <div class="col-md-3">
             <div class="form-group">
@@ -29,21 +38,21 @@
          <div class="col-md-3">
             <div class="form-group">
                <label for="last">JUMLAH BARANG</label>
-               <input type="text" class="form-control" name="stok_lama" value="<?= $barangRetur->jumlah ?>" readonly>
+               <input type="text" class="form-control" name="stok_lama" id="stok_lama" value="<?= $barangRetur->jumlah ?>" readonly>
             </div>
          </div>
 
          <div class="col-md-3">
             <div class="form-group">
                <label for="last">JUMLAH RETUR</label>
-               <input type="number" class="form-control" name="jumlah">
+               <input type="number" class="form-control" name="jumlah" id="jumlah" onchange="cekStok()" min="0" required>
             </div>
          </div>
 
          <div class="col-md-3">
             <div class="form-group">
                <label for="last">TANGGAL RETUR</label>
-               <input type="date" class="form-control" name="tanggal_retur">
+               <input type="date" class="form-control" name="tanggal_retur" required>
             </div>
          </div>
 
@@ -78,3 +87,25 @@
       </div>
    </div>
 </div>
+
+<script>
+   function cekStok() {
+      
+      let jumlah = $('#jumlah').val();
+      
+      $.ajax({
+         url: "<?= base_url() ?>Gudang/cek_stok/" + $('#id_bahan').val(),
+         data: '&id_barang=' + id_bahan,
+         
+         success: function(result) {
+            var data = JSON.parse(result);
+            if (data[0].stok < jumlah) {
+               Swal.fire({
+                  icon: 'warning',
+                  title: 'Stok Melebihi Batas Revisi!'
+               })
+            }
+         }
+      })
+   }
+</script>

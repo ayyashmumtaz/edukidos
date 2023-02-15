@@ -285,6 +285,7 @@ class Gudang extends CI_Controller
 	{
 		$id_beli = $this->input->post('id_beli');
 		$jumlah = $this->input->post('jumlah');
+		$stok_lama = $this->input->post('stok_lama');
 		// $where = array('id_beli' => $id_beli);
 
 		$id_barang = $this->input->post('id_barang');
@@ -305,10 +306,18 @@ class Gudang extends CI_Controller
 			'keterangan' => $keterangan
 		);
 
-		$this->Model_gudang->input_data($data_stokRetur, 'stok_retur');
-		// $this->Model_gudang->update_data($where, $data_pembelian, 'pembelian');
-		$this->session->set_flashdata('retur_sukses', ' ');
-		redirect('Gudang/barang_masuk');
+
+		if($jumlah > $stok_lama) {
+			$this->session->set_flashdata('stok_revisi_gagal', ' ');
+			redirect("Gudang/retur_barang/$id_beli");
+		} else {
+			$this->Model_gudang->input_data($data_stokRetur, 'stok_retur');
+			// $this->Model_gudang->update_data($where, $data_pembelian, 'pembelian');
+			$this->session->set_flashdata('retur_sukses', ' ');
+			redirect('Gudang/barang_masuk');
+		}
+
+
 	}
 
 	public function retur_detail($id_beli)

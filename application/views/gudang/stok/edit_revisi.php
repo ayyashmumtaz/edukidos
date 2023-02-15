@@ -88,23 +88,23 @@
 
 <script>
    function cekStok() {
-
-let jumlah = $('#jumlah').val();
-
-$.ajax({
-   url: "<?= base_url() ?>Gudang/cek_stok/" + $('#id_bahan').val(),
-   data: '&id_barang=' + id_bahan,
-
-   success: function(result) {
-      var data = JSON.parse(result);
-      console.log(data[0].stok);
-      if (data[0].stok < jumlah) {
-         Swal.fire({
-            icon: 'warning',
-            title: 'Stok Melebihi Batas Revisi!'
-         })
-      }
+      
+      let jumlah = $('#jumlah').val();
+      
+      $.ajax({
+         url: "<?= base_url() ?>Gudang/cek_stok/" + $('#id_bahan').val(),
+         data: '&id_barang=' + id_bahan,
+         
+         success: function(result) {
+            var data = JSON.parse(result);
+            console.log(data[0].stok);
+            if (data[0].stok < jumlah) {
+               Swal.fire({
+                  icon: 'warning',
+                  title: 'Stok Melebihi Batas Revisi!'
+               })
+            }
+         }
+      })
    }
-})
-}
 </script>
