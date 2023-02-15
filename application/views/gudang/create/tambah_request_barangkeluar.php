@@ -19,9 +19,6 @@
 				<td>
 					<input type="text" name="autocomplete_produk[]" id="autocomplete_produk" class="form-control">
 					<input type="hidden" id="produk" name="produk[]">
-					<div class="t">
-					<!-- <select name="produk[]" id="produk" class="form-control"></select> -->
-					</div>
 				</td>
 				<td>
 					<input type="number" name="jumlah[]" id="" class="form-control">
@@ -121,7 +118,9 @@
 			}
 		});
 		const deleteForm = () => {
-			let deleteRow = $("tr#row").html()
+			let deleteRow = $("tr#row"+count).remove()
+			count--;
+			console.log(deleteRow);
 		}
 		// $('#' + delete_row).
 		// let s = $('select#produk').clone('id','new').append('.t');
