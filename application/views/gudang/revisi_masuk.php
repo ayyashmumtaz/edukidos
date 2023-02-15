@@ -32,8 +32,6 @@
 		Swal.fire({
 			icon: 'warning',
 			title: 'Stok Melebihi Batas Revisi!',
-			text: 'Mohon di Cek dan Lakukan Pengisian Stok!',
-			footer: '<a href="<?= base_url('Gudang/tambah_stok') ?>">Isi Stok</a>'
 		})
 	</script>
 	<?= $this->session->flashdata('stok_revisi_gagal') ?>

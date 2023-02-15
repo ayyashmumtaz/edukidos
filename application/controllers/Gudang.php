@@ -346,7 +346,7 @@ class Gudang extends CI_Controller
 
 		if($jumlah > $stok_lama) {
 			$this->session->set_flashdata('stok_revisi_gagal', ' ');
-			redirect('Gudang/revisi_stok');
+			redirect("Gudang/edit_revisi/$id_beli");
 		} else {
 			$this->Model_gudang->input_data($data_stokRetur, 'revisi_stok');
 			// $this->Model_gudang->update_data($where, $data_pembelian, 'pembelian');

@@ -1,3 +1,12 @@
+<?php if ($this->session->flashdata('stok_revisi_gagal')) : ?>
+	<script type="text/javascript">
+		Swal.fire({
+			icon: 'warning',
+			title: 'Stok Melebihi Batas Revisi!',
+		})
+	</script>
+	<?= $this->session->flashdata('stok_revisi_gagal') ?>
+<?php endif ?>
 <div class="container">
    <hr>
    <div class="col-12 d-flex flex-row align-items-center justify-content-between pl-0">
