@@ -124,16 +124,31 @@
             <td><?= $rbk->tanggal_req ?></td>
             <td><?= $rbk->nama ?></td>
             <?php switch ($rbk->status_barang) {
+              case 'selesai':
+                echo '<td>';
+                echo '<a href="#" class="btn btn-sm btn-success"><i class="fas fa-thumbs-up"></i> Selesai</a>';
+                echo '</td>';
+                echo '<td>';
+                echo '</td>';
+                break;
+              case 'dikirim':
+                echo '<td>';
+                echo '<a href="#" class="btn btn-sm btn-success"><i class="fas fa-truck"></i> Barang Sudah Dikirim</a>';
+                echo '</td>';
+                echo '<td>';
+                echo '<a href="'.base_url().'Gudang/status_selesai_req_barangkeluar/'.$rbk->id_request.'" onclick="return confirm(`Anda Yakin Barang SUDAH DITERIMA? : '.$rbk->nama_produk.' Ini?`);" class="btn btn-sm btn-primary"><i class="fas fa-check"></i> Konfirmasi Terima Barang</a> ';
+                echo '</td>';
+                break;
               case 'diterima':
                 echo '<td>';
-                echo '<a href="#" class="btn btn-sm btn-warning"><i class="fas fa-check-circle"></i> Menunggu Pengiriman Barang</a>';
+                echo '<a href="#" class="btn btn-sm btn-warning"><i class="fas fa-clock"></i> Menunggu Pengiriman Barang</a>';
                 echo '</td>';
                 echo '<td>';
                 echo '</td>';
                 break;
               case 'ditolak':
                 echo '<td>';
-                echo '<a href="#" class="btn btn-sm btn-danger"><i class="fas fa-times-circle"></i> Ditolak</a>';
+                echo '<a href="#" class="btn btn-sm btn-secondary"><i class="fas fa-times-circle"></i> Ditolak</a>';
                 echo '</td>';
                 echo '<td>';
                 echo '</td>';

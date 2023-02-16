@@ -30,9 +30,18 @@
             <td><?= $rbk->tanggal_req ?></td>
             <td><?= $rbk->nama ?></td> 
             <?php switch ($rbk->status_barang) {
+              case 'selesai':
+                echo '<td>';
+                echo '<a href="#" class="btn btn-sm btn-success"><i class="fas fa-thumbs-up"></i> Selesai</a>';
+                echo '</td>';
+                echo '<td>';
+                echo '</td>';
+                break;
               case 'dikirim':
                 echo '<td>';
                 echo '<a href="#" class="btn btn-sm btn-success"><i class="fas fa-check"></i> Barang Sudah Dikirim</a>';
+                echo '</td>';
+                echo '<td>';
                 echo '</td>';
                 break;
               case 'diterima':
@@ -40,7 +49,7 @@
                 echo '<a href="#" class="btn btn-sm btn-warning"><i class="fas fa-clock"></i> Menunggu Pengiriman Barang</a>';
                 echo '</td>';
                 echo '<td>';
-                echo '<a href="'.base_url().'Gudang/status_dikirim_req_barangkeluar/'.$rbk->id_request.'" onclick="return confirm(`Anda Yakin Ingin Menerima Request Produk : '.$rbk->nama_produk.' Ini?`);" class="btn btn-sm btn-success"><i class="fas fa-check"></i> Kirim Barang</a> ';
+                echo '<a href="'.base_url().'Gudang/status_dikirim_req_barangkeluar/'.$rbk->id_request.'" onclick="return confirm(`Anda Yakin Barang SUDAH DIKIRIM : '.$rbk->nama_produk.' Ini?`);" class="btn btn-sm btn-success"><i class="fas fa-check"></i> Kirim Barang</a> ';
                 echo '</td>';
                 break;
               case 'ditolak':
