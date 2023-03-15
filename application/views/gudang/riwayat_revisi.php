@@ -15,6 +15,7 @@
                 <th>Nama Bahan</th>
                 <th>Tanggal Retur</th>
                 <th>Jumlah Retur</th>
+                <th>Direvisi oleh</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -27,6 +28,7 @@
                 <td><?= $b->nama_bahan ?></td>
                 <td><?= $b->tanggal_retur ?></td>
                 <td><?= $b->jumlah_retur ?></td>
+                <td><?= $b->user ?></td>
                 <td><a class="btn btn-sm btn-info" href="<?= base_url('Gudang/retur_detail/'). $b->id_retur;?>">Detail</td>
             </tr>
         <?php }?>

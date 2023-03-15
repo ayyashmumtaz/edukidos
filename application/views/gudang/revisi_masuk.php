@@ -47,6 +47,7 @@
 					<th>Tanggal Revisi</th>
 					<th>Nama Bahan</th>
 					<th>Jumlah Revisi</th>
+					<th>Direvisi Oleh</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -57,6 +58,7 @@
 						<td><?= $b->tgl_revisi ?></td>
 						<td><?= $b->nama_bahan ?></td>
 						<td><?= $b->jumlah ?></td>
+						<td><?= $b->user ?></td>
 					</tr>
 				<?php } ?>
 			</tbody>

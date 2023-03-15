@@ -85,7 +85,7 @@
       </div>
    </div>
 </div>
-
+<!-- 
 <script>
    function cekStok() {
       
@@ -107,4 +107,4 @@
          }
       })
    }
-</script>
+</script> -->
