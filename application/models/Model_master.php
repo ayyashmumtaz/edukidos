@@ -48,6 +48,15 @@ class Model_master extends CI_Model
 		$query = $this->db->get();
 		return $query;
 	}
+
+	public function getPaket()
+	{
+		$this->db->select('*');
+		$this->db->from('paket');
+		$query = $this->db->get();
+		return $query;
+	}
+
 	public function getSatuan()
 	{
 		$this->db->select('*');

@@ -16,7 +16,7 @@
           <th>Nama Produk</th>
           <th>Jumlah</th>
           <th>Tanggal</th>
-          <th>Nama User</th>
+          <th>Nama User Request</th>
           <th>Status ?</th> 
           <th>Aksi</th>
         </tr>
@@ -42,6 +42,8 @@
                 echo '<a href="#" class="btn btn-sm btn-success"><i class="fas fa-check"></i> Barang Sudah Dikirim</a>';
                 echo '</td>';
                 echo '<td>';
+                echo '<a href="#" class="btn btn-sm btn-primary" style="margin-bottom:3px;">Cetak Surat Jalan Edukidos</a>
+                <a href="#" class="btn btn-sm btn-primary">Cetak Surat Jalan Digimaxie</a>';
                 echo '</td>';
                 break;
               case 'diterima':

@@ -55,6 +55,15 @@ class Master extends CI_Controller
 		$this->load->view('dashboard/_partials/footer');
 	}
 
+	public function data_paket()
+	{
+		$data['dataPaket'] = $this->Model_master->getPaket()->result();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/data_paket', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
 	public function edit_satuan($id)
 	{
 		$where = array('id' => $id);
@@ -177,6 +186,7 @@ class Master extends CI_Controller
 		redirect('Master/data_bahan');
 	}
 
+
 	public function tambah_bahan()
 	{
 		$data['satuan'] = $this->Model_order->getSatuan();
@@ -184,6 +194,16 @@ class Master extends CI_Controller
 		$this->load->view('dashboard/_partials/header');
 		$this->load->view('dashboard/_partials/sidebar');
 		$this->load->view('master/create/tambah_bahan', $data);
+		$this->load->view('dashboard/_partials/footer');
+	}
+
+	public function tambah_paket()
+	{
+		$data['satuan'] = $this->Model_order->getSatuan();
+		$data['kategori'] = $this->Model_order->get_kategori();
+		$this->load->view('dashboard/_partials/header');
+		$this->load->view('dashboard/_partials/sidebar');
+		$this->load->view('master/create/tambah_paket', $data);
 		$this->load->view('dashboard/_partials/footer');
 	}
 

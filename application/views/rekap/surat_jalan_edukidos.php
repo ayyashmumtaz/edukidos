@@ -44,10 +44,10 @@
 							<b>Alamat</b>
 							<br>PT. Edukidos Madina Creativa Jl. Muhammad Thohir
 							<br>Ruko Podomoro Golf View B3 No.10 Gunung Putri, Kab. Bogor
-							<br>Telp. 081384434480
+							<br>Telp. -
 						</td>
 						<td style="border-top: 0px;padding-left: 0px">
-							<img src="<?php echo base_url('assets/qrcache/' . $rekapDetail->id_order . '.png') ?>" style="width: 100%; max-width: 100px; float:right" />
+							<img src="<?php echo base_url('assets/qrcache/' . $rekapDetail->id_request . '.png') ?>" style="width: 100%; max-width: 100px; float:right" />
 						</td>
 					</tr>
 				</table>
@@ -58,21 +58,17 @@
 					<tr>
 						<td width="140px">ID Surat Jalan</td>
 						<td>: <?= $rekapDetail->id_surat ?></td>
-						<td class="text-right" width="180px">Depok, <?= $rekapDetail->tgl_kirim ?></td>
+						<td class="text-right" width="180px">Depok, <?= $rekapDetail->id_request ?></td>
 					</tr>
 					<tr>
 						<td>Kepada Yth</td>
 						<td>: <?= $rekapDetail->nama_customer ?></td>
-						<td class="text-right" width="180px">Kendaraan : <?= $rekapDetail->jenis_kendaraan ?></td>
+						<td class="text-right" width="180px">Driver : <?= $rekapDetail->supir ?></td>
 					</tr>
 					<tr>
 						<td>Email</td>
 						<td>: <?= $rekapDetail->email ?></td>
-						<td class="text-right" width="180px">Plat Nomor : <?= $rekapDetail->plat_nomor ?></td>
-					</tr>
-					<tr>
-						<td>No. HP</td>
-						<td>: <?= $rekapDetail->no_hp ?></td>
+						<td class="text-right" width="180px">Plat Nomor : <?= $rekapDetail->plat ?></td>
 					</tr>
 					<tr>
 						<td>Alamat Kirim</td>
@@ -93,8 +89,7 @@
 				<table class="table table-bordered table-sm">
 					<thead style="background-color: lightgrey;">
 						<tr>
-							<th>Nama Pekerjaan</th>
-							<th>Bahan</th>
+							<th>Nama Produk</th>
 							<th>Harga</th>
 							<th>Panjang</th>
 							<th>Lebar</th>
@@ -104,7 +99,6 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><?= $rekapDetail->nama_kerja ?></td>
 							<td><?= $rekapDetail->nama_bahan ?></td>
 							<td><?= 'Rp. ' . number_format($rekapDetail->harga_jual, 0, ',', '.') ?></td>
 							<td><?= $rekapDetail->panjang ?> <?= $rekapDetail->satuan ?></td>
@@ -118,15 +112,7 @@
 
 							<td><?= 'Rp. ' . number_format($totalSemua, 0, ',', '.')  ?></td>
 						</tr>
-						<tr>
-							<td>Biaya Design</td>
-							<td>-</td>
-							<td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
-							<td>-</td>
-							<td>-</td>
-							<td>-</td>
-							<td><?= 'Rp. ' . number_format($rekapDetail->biaya_design, 0, ',', '.') ?></td>
-						</tr>
+						
 						<tr class="total">
 							<?php if ($rekapDetail->dp_awal == 0) : ?>
 								<td colspan="6" class="text-right"><b>DP Awal :</b></td>

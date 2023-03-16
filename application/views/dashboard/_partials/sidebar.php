@@ -312,6 +312,7 @@
 						<div class="bg-white py-2 collapse-inner rounded">
 							<a class="collapse-item" href="<?= base_url('Master/data_bahan'); ?>">Data Bahan Baku</a>
 							<a class="collapse-item" href="<?= base_url('Master/data_produk'); ?>">Data Produk</a>
+							<a class="collapse-item" href="<?= base_url('Master/data_paket'); ?>">Data Paket</a>
 							<a class="collapse-item" href="<?= base_url('Master/data_kategori'); ?>">Data Kategori</a>
 							<a class="collapse-item" href="<?= base_url('Master/data_satuan'); ?>">Data Satuan</a>
 							<a class="collapse-item" href="<?= base_url('Master/rekening'); ?>">Data Rekening</a>

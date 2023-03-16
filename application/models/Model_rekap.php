@@ -29,6 +29,16 @@ class Model_rekap extends CI_Model
 		return $query->row();
 	}
 
+	public function getBarangKeluar($id_request)
+	{
+		$this->db->select('*');
+		$this->db->from('req_barangkeluar');
+		$this->db->join('produk', 'produk.id_produk = req_barangkeluar.id_produk', 'left');
+		$this->db->where('req_barangkeluar.id_request', $id_request);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 	public function getDetailOrder($id_order)
 	{
 		$this->db->select('*');
