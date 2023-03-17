@@ -109,9 +109,9 @@
           <th>#</th>
           <th>Nama Produk</th>
           <th>Jumlah</th>
-          <th>Tanggal</th>
-          <th>Nama User</th>
-          <th>Status ?</th>
+          <th>Tanggal Request</th>
+          <th>Nama User Request</th>
+          <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -128,7 +128,9 @@
                 echo '<td>';
                 echo '<a href="#" class="btn btn-sm btn-success"><i class="fas fa-thumbs-up"></i> Selesai</a>';
                 echo '</td>';
+               
                 echo '<td>';
+                echo '<a href="#" class="btn btn-sm btn-success"><i class="fas fa-info"></i> Detail</a>';
                 echo '</td>';
                 break;
               case 'dikirim':

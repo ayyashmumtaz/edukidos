@@ -1,5 +1,8 @@
 <style>
 	* {
+		transform: scale(0.98);
+   transform-origin: 0 1;
+
 		color: black;
 	}
 
@@ -30,17 +33,17 @@
 		width: 80%;
 	}
 </style>
-<div class="container my-2">
-	<div class="card p-4 my-3">
+<div class="container">
+	<div class="card p-1 my-1">
 		<div class="row">
 			<div class="col-12">
 				<table class="table mb-0">
 					<tr>
-						<td style="border-top: 0px; text-align: center; vertical-align: middle;">
+						<td style="border-top: 0px; text-align: center;">
 							<img src="<?php echo base_url('assets/img/logo_digimaxie-rbg.png') ?>" style="width: 33%; max-width: 300px; float:left;" />
-							<h3 style="margin-top:25px;"><b>SURAT JALAN</b></h3>
+							<h4 style="margin-top:35px;"><b>SURAT JALAN</b></h3>
 						</td>
-						<td class="text-right" style="border-top: 0px;">
+						<td class="" style="border-top: 0px; font-size:13px;">
 							<b>Alamat</b>
 							<br>PT. DIGIMAX DAKSA NIRANKARA PERGUDANGAN KOPO BIZPARK BLOK A1
 							<br> NO. R11 RTCIBADUYUT, BOJONGLOA KIDUL KOTA BANDUNG JAWA BARAT
@@ -58,7 +61,7 @@
 					<tr>
 						<td width="180px">Nomor PO</td>
 						<td>: <?= $rekapDetail->id_request ?></td>
-						<td class="text-right" width="180px">Depok, <?= $rekapDetail->tgl_kirim ?></td>
+						<td class="text-right" width="180px">Depok, <?php echo date('d F Y', strtotime('1994-02-15'));?></td>
 					</tr>
 					<tr>
 						

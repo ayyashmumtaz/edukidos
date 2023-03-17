@@ -49,11 +49,7 @@
 					<a class="nav-link" href="<?= site_url('Order/input_penjualan'); ?>">
 						<i class="fas fa-fw fa-list"></i>
 						<span>Input Penjualan</span></a>
-				<li class="nav-item">
-					<a class="nav-link" href="<?= site_url('Beranda/berita_acara'); ?>">
-						<i class="fas fa-fw fa-book"></i>
-						<span>Berita Acara</span></a>
-				</li>
+				
 				<li class="nav-item">
 					<a class="nav-link" href="<?= site_url('Beranda/surat_jalan'); ?>">
 						<i class="fas fa-fw fa-book"></i>
@@ -64,17 +60,9 @@
 						<i class="fas fa-fw fa-money-bill"></i>
 						<span>Pembayaran</span></a>
 				</li>
-			<?php endif ?>
-			<!-- Divider -->
-			<?php if ($this->session->userdata('role') == 1) : ?>
+		
 
-				<hr class="sidebar-divider">
-
-				<!-- Heading -->
-				<div class="sidebar-heading">
-					SPK
-				</div>
-
+			
 				<!-- Nav Item - Pages Collapse Menu -->
 				<li class="nav-item">
 					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -101,6 +89,82 @@
 						<div class="bg-white py-2 collapse-inner rounded">
 							<a class="collapse-item" href="<?= site_url('Gudang/reqBarangMasuk'); ?>">Req Barang Masuk</a>
 							<a class="collapse-item" href="<?= site_url('Gudang/reqBarangKeluar'); ?>">Req Barang Keluar</a>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+						<i class="fas fa-fw fa-wrench"></i>
+						<span>SPK</span>
+					</a>
+					<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="<?= site_url('Spk/printing'); ?>">PRINTING</a>
+							<a class="collapse-item" href="<?= site_url('Spk/heating'); ?>">HEATING</a>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produksi" aria-expanded="true" aria-controls="produksi">
+						<i class="fas fa-fw fa-pen"></i>
+						<span>Produksi</span>
+					</a>
+					<div id="produksi" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="<?= base_url('Produksi/printing'); ?>">PRINTING</a>
+							<a class="collapse-item" href="<?= base_url('Produksi/heating'); ?>">HEATING</a>
+						</div>
+					</div>
+				</li>
+				
+				
+
+					<li class="nav-item">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#rekapHarian" aria-expanded="true" aria-controls="rekapHarian">
+						<i class="fas fa-fw fa-calendar"></i>
+						<span>Finishing</span>
+					</a>
+					<div id="rekapHarian" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="<?= base_url('Finishing/cutting'); ?>">CUTTING</a>
+							<a class="collapse-item" href="<?= base_url('Finishing/packing'); ?>">PACKING</a>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#laporan" aria-expanded="true" aria-controls="laporan">
+						<i class="fas fa-fw fa-chart-line"></i>
+						<span>Laporan</span>
+					</a>
+					<div id="laporan" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="<?= base_url('Rekap/laporan_cetak'); ?>">Laporan Cetak</a>
+
+						</div>
+					</div>
+				</li>
+
+				<!-- Heading -->
+			
+
+				<!-- Nav Item - Pages Collapse Menu -->
+				<li class="nav-item">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+						<i class="fas fa-fw fa-bars"></i>
+						<span>Master Data</span>
+					</a>
+					<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="<?= base_url('Master/data_bahan'); ?>">Data Bahan Baku</a>
+							<a class="collapse-item" href="<?= base_url('Master/data_produk'); ?>">Data Produk</a>
+							<a class="collapse-item" href="<?= base_url('Master/data_paket'); ?>">Data Paket</a>
+							<a class="collapse-item" href="<?= base_url('Master/data_kategori'); ?>">Data Kategori</a>
+							<a class="collapse-item" href="<?= base_url('Master/data_satuan'); ?>">Data Satuan</a>
+							<a class="collapse-item" href="<?= base_url('Master/rekening'); ?>">Data Rekening</a>
+							<a class="collapse-item" href="<?= base_url('Master/karyawan'); ?>">Karyawan</a>
+							<a class="collapse-item" href="<?= base_url('Master/konsumen'); ?>">Konsumen</a>
 						</div>
 					</div>
 				</li>
@@ -172,33 +236,6 @@
 				</li>
 			<?php endif ?>
 
-			<?php if ($this->session->userdata('role') == 1) : ?>
-				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-						<i class="fas fa-fw fa-wrench"></i>
-						<span>SPK</span>
-					</a>
-					<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="<?= site_url('Spk/printing'); ?>">PRINTING</a>
-							<a class="collapse-item" href="<?= site_url('Spk/heating'); ?>">HEATING</a>
-						</div>
-					</div>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produksi" aria-expanded="true" aria-controls="produksi">
-						<i class="fas fa-fw fa-pen"></i>
-						<span>Produksi</span>
-					</a>
-					<div id="produksi" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="<?= base_url('Produksi/printing'); ?>">PRINTING</a>
-							<a class="collapse-item" href="<?= base_url('Produksi/heating'); ?>">HEATING</a>
-						</div>
-					</div>
-				</li>
-			<?php endif ?>
 
 			<?php if ($this->session->userdata('role') == 5) : ?>
 
@@ -216,34 +253,7 @@
 				</li>
 			<?php endif ?>
 
-			<?php if ($this->session->userdata('role') == 1) : ?>
-				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#rekapHarian" aria-expanded="true" aria-controls="rekapHarian">
-						<i class="fas fa-fw fa-calendar"></i>
-						<span>Finishing</span>
-					</a>
-					<div id="rekapHarian" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="<?= base_url('Finishing/cutting'); ?>">CUTTING</a>
-							<a class="collapse-item" href="<?= base_url('Finishing/packing'); ?>">PACKING</a>
-						</div>
-					</div>
-				</li>
 
-				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#laporan" aria-expanded="true" aria-controls="laporan">
-						<i class="fas fa-fw fa-chart-line"></i>
-						<span>Laporan</span>
-					</a>
-					<div id="laporan" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="<?= base_url('Rekap/laporan_cetak'); ?>">Laporan Cetak</a>
-
-						</div>
-					</div>
-				</li>
-
-			<?php endif ?>
 
 			<?php if ($this->session->userdata('role') == 4) : ?>
 				<li class="nav-item">
@@ -255,11 +265,7 @@
 					<a class="nav-link" href="<?= site_url('Order/input_penjualan'); ?>">
 						<i class="fas fa-fw fa-list"></i>
 						<span>Input Penjualan</span></a>
-				<li class="nav-item">
-					<a class="nav-link" href="<?= site_url('Beranda/berita_acara'); ?>">
-						<i class="fas fa-fw fa-book"></i>
-						<span>Berita Acara</span></a>
-				</li>
+				
 				<li class="nav-item">
 					<a class="nav-link" href="<?= site_url('Beranda/surat_jalan'); ?>">
 						<i class="fas fa-fw fa-book"></i>
@@ -271,57 +277,22 @@
 						<span>Pembayaran</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-						<i class="fas fa-fw fa-bars"></i>
-						<span>Master Data</span>
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#reqGudang" aria-expanded="true" aria-controls="reqGudang">
+						<i class="fas fa-fw fa-box"></i>
+						<span>Request Gudang</span>
 					</a>
-					<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div id="reqGudang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="<?= base_url('Master/data_bahan'); ?>">Data Bahan Baku</a>
-							<a class="collapse-item" href="<?= base_url('Master/data_produk'); ?>">Data Produk</a>
-							<a class="collapse-item" href="<?= base_url('Master/data_kategori'); ?>">Data Kategori</a>
-							<a class="collapse-item" href="<?= base_url('Master/data_satuan'); ?>">Data Satuan</a>
-							<a class="collapse-item" href="<?= base_url('Master/rekening'); ?>">Data Rekening</a>
-							<a class="collapse-item" href="<?= base_url('Master/karyawan'); ?>">Karyawan</a>
-							<a class="collapse-item" href="<?= base_url('Master/konsumen'); ?>">Konsumen</a>
+						<a class="collapse-item" href="<?= site_url('Gudang/reqBarangMasuk'); ?>">Req Barang Masuk</a>
+							<a class="collapse-item" href="<?= site_url('Gudang/reqBarangKeluar'); ?>">Req Barang Keluar</a>
 						</div>
 					</div>
 				</li>
-
+				
 
 			<?php endif ?>
 
-			<?php if ($this->session->userdata('role') == 1) : ?>
-
-				<!-- Divider -->
-				<hr class="sidebar-divider">
-
-				<!-- Heading -->
-				<div class="sidebar-heading">
-					Config
-				</div>
-
-
-				<!-- Nav Item - Pages Collapse Menu -->
-				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-						<i class="fas fa-fw fa-bars"></i>
-						<span>Master Data</span>
-					</a>
-					<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="<?= base_url('Master/data_bahan'); ?>">Data Bahan Baku</a>
-							<a class="collapse-item" href="<?= base_url('Master/data_produk'); ?>">Data Produk</a>
-							<a class="collapse-item" href="<?= base_url('Master/data_paket'); ?>">Data Paket</a>
-							<a class="collapse-item" href="<?= base_url('Master/data_kategori'); ?>">Data Kategori</a>
-							<a class="collapse-item" href="<?= base_url('Master/data_satuan'); ?>">Data Satuan</a>
-							<a class="collapse-item" href="<?= base_url('Master/rekening'); ?>">Data Rekening</a>
-							<a class="collapse-item" href="<?= base_url('Master/karyawan'); ?>">Karyawan</a>
-							<a class="collapse-item" href="<?= base_url('Master/konsumen'); ?>">Konsumen</a>
-						</div>
-					</div>
-				</li>
-			<?php endif ?>
+			
 			<!-- Nav Item - Charts -->
 
 

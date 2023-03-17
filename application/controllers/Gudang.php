@@ -162,8 +162,13 @@ class Gudang extends CI_Controller
 
 	public function status_dikirim_req_barangkeluar($id_request)
 	{
+		$tgl_kirim = date('Y-m-d');
 		$data = array(
 			'status_barang' => 'dikirim',
+			'plat' => $this->input->post('plat'),
+			'supir' => $this->input->post('supir'),
+			'jenis_kendaraan' => $this->input->post('jenis_kendaraan'),
+			'tgl_kirim' => $tgl_kirim,
 		);
 
 		$where = array(
