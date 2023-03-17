@@ -42,8 +42,8 @@
                 echo '<a href="#" class="btn btn-sm btn-success"><i class="fas fa-check"></i> Barang Sudah Dikirim</a>';
                 echo '</td>';
                 echo '<td>';
-                echo '<a href="#" class="btn btn-sm btn-primary" style="margin-bottom:3px;">Cetak Surat Jalan Edukidos</a>
-                <a href="#" class="btn btn-sm btn-primary">Cetak Surat Jalan Digimaxie</a>';
+                echo '<a href="'.base_url().'Surat/sj_edukidos/'.$rbk->id_request.'" target="_blank" class="btn btn-sm btn-primary" style="margin-bottom:3px;">Cetak Surat Jalan Edukidos</a>
+                <a href="'.base_url().'Surat/sj_digimaxie/'.$rbk->id_request.'" target="_blank" class="btn btn-sm btn-primary">Cetak Surat Jalan Digimaxie</a>';
                 echo '</td>';
                 break;
               case 'diterima':

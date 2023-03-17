@@ -18,6 +18,7 @@ public function sj_digimaxie($id_request){
 
 public function sj_edukidos($id_request){
     $data['rekapDetail'] = $this->Model_rekap->getBarangKeluar($id_request);
+    $this->load->view('dashboard/_partials/header');
     $this->load->view('rekap/surat_jalan_edukidos', $data);
 }
 

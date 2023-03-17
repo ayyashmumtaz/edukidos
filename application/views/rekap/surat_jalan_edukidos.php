@@ -37,13 +37,13 @@
 				<table class="table mb-0">
 					<tr>
 						<td style="border-top: 0px; text-align: center; vertical-align: middle;">
-							<img src="<?php echo base_url('assets/img/logo_digimaxie-rbg.png') ?>" style="width: 33%; max-width: 300px; float:left;" />
-							<h1><b>SURAT JALAN</b></h1>
+							<img src="<?php echo base_url('assets/img/edukidos.png') ?>" style="width: 33%; max-width: 300px; float:left;" />
+							<h3 style="margin-top:25px;"><b>SURAT JALAN</b></h3>
 						</td>
 						<td class="text-right" style="border-top: 0px;">
 							<b>Alamat</b>
-							<br>PT. Edukidos Madina Creativa Jl. Muhammad Thohir
-							<br>Ruko Podomoro Golf View B3 No.10 Gunung Putri, Kab. Bogor
+							<br>PT. Edukidos Madina Creativa, Podomoro Golf View Jl. Muhammad Thohir
+							<br> Ruko Granada Blok B3 No. 10 Kel. Bojong Nangka Kec. Gunung Putri Kabupaten Bogor
 							<br>Telp. -
 						</td>
 						<td style="border-top: 0px;padding-left: 0px">
@@ -56,23 +56,23 @@
 
 				<table class="tbl">
 					<tr>
-						<td width="140px">ID Surat Jalan</td>
-						<td>: <?= $rekapDetail->id_surat ?></td>
-						<td class="text-right" width="180px">Depok, <?= $rekapDetail->id_request ?></td>
+						<td width="180px">Nomor PO</td>
+						<td>: <?= $rekapDetail->id_request ?></td>
+						<td class="text-right" width="180px">Depok, <?= $rekapDetail->tgl_kirim ?></td>
 					</tr>
 					<tr>
-						<td>Kepada Yth</td>
-						<td>: <?= $rekapDetail->nama_customer ?></td>
-						<td class="text-right" width="180px">Driver : <?= $rekapDetail->supir ?></td>
+						
+						<td class="text-left" width="180px">Driver</td>
+						<td> : <?= $rekapDetail->supir ?></td>
+					</tr> 
+					<tr>
+						
+					<td class="text-left" width="180px">Plat Nomor</td>
+					<td> : <?= $rekapDetail->plat ?></td>
 					</tr>
 					<tr>
-						<td>Email</td>
-						<td>: <?= $rekapDetail->email ?></td>
-						<td class="text-right" width="180px">Plat Nomor : <?= $rekapDetail->plat ?></td>
-					</tr>
-					<tr>
-						<td>Alamat Kirim</td>
-						<td>: <?= $rekapDetail->alamat ?></td>
+					<td class="text-left" width="180px">Jenis Kendaraan</td>
+					<td> : <?= $rekapDetail->jenis_kendaraan ?></td>
 					</tr>
 				</table>
 			</div>
@@ -90,55 +90,23 @@
 					<thead style="background-color: lightgrey;">
 						<tr>
 							<th>Nama Produk</th>
-							<th>Harga</th>
-							<th>Panjang</th>
-							<th>Lebar</th>
 							<th>Qty</th>
-							<th>Total</th>
+						
+						
+						
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><?= $rekapDetail->nama_bahan ?></td>
-							<td><?= 'Rp. ' . number_format($rekapDetail->harga_jual, 0, ',', '.') ?></td>
-							<td><?= $rekapDetail->panjang ?> <?= $rekapDetail->satuan ?></td>
-							<td><?= $rekapDetail->lebar ?> <?= $rekapDetail->satuan ?></td>
-							<td><?= $rekapDetail->jumlah ?></td>
-							<?php
-							$totalUkuran = $rekapDetail->panjang + $rekapDetail->lebar;
-							$totalHargaSatuan =  $totalUkuran * $rekapDetail->harga_jual;
-							$totalSemua = $totalHargaSatuan * $rekapDetail->jumlah;
-							?>
-
-							<td><?= 'Rp. ' . number_format($totalSemua, 0, ',', '.')  ?></td>
-						</tr>
+							<td><?= $rekapDetail->nama_produk ?></td>
+							<td><?= $rekapDetail->jumlah?></td>
 						
-						<tr class="total">
-							<?php if ($rekapDetail->dp_awal == 0) : ?>
-								<td colspan="6" class="text-right"><b>DP Awal :</b></td>
-								<td class="text-danger"><b>Tidak DP</b></td>
-							<?php else : ?>
-								<td colspan="6" class="text-right"><b>DP Awal :</b></td>
-								<td><b><?= 'Rp. ' .  number_format($rekapDetail->dp_awal, 0, '.', '.') ?></b></td>
-							<?php endif ?>
 						</tr>
-						<tr class="total">
-							<td colspan="6" class="text-right"><b>Total :</b></td>
-							<?php
-							$biaya_design = $rekapDetail->biaya_design;
-							$total = $totalSemua + $biaya_design;
-							?>
-							<td><b><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></b></td>
-						</tr>
-						<tr class="total">
-							<td colspan="6" class="text-right"><b></b></td>
-							<?php
-							$biaya_design = $rekapDetail->biaya_design;
-							$total = $totalSemua + $biaya_design;
-							?>
-							<td><button class="lunas btn-success">Lunas</button></td>
-						</tr>
+					
+						
+					
 					</tbody>
+				
 				</table>
 			</div>
 		</div>
@@ -159,10 +127,9 @@
 						<td class="text-center">PENERIMA</td>
 						<td class="text-center">PENGEMUDI</td>
 						<td class="text-center">PENGIRIM</td>
-						<td class="text-center">PEMERIKSA</td>
+				
 					</tr>
 					<tr>
-						<td class="text-center">( .................................... )</td>
 						<td class="text-center">( .................................... )</td>
 						<td class="text-center">( .................................... )</td>
 						<td class="text-center">( .................................... )</td>
