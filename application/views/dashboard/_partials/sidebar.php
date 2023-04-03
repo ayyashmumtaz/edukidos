@@ -193,18 +193,7 @@
 						</div>
 					</div>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#reqGudang" aria-expanded="true" aria-controls="reqGudang">
-						<i class="fas fa-fw fa-box"></i>
-						<span>Request Gudang</span>
-					</a>
-					<div id="reqGudang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="<?= site_url('Gudang/reqBarangMasuk'); ?>">Req Barang Masuk</a>
-							<a class="collapse-item" href="<?= site_url('Gudang/reqBarangKeluar'); ?>">Req Barang Keluar</a>
-						</div>
-					</div>
-				</li>
+				
 			<?php endif ?>
 			<!-- Nav Item - Utilities Collapse Menu -->
 			<?php if ($this->session->userdata('role') == 2) : ?>
