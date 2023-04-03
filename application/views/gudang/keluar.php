@@ -40,19 +40,19 @@
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Plat Nomor :</label>
-            <input type="text" class="form-control" >
+            <input type="text" class="form-control" name="plat">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nama Supir :</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="supir">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Jenis Kendaraan :</label>
-            <input type="text" class="form-control" >
+            <input type="text" class="form-control" name="jenis_kendaraan">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Tanggal Kirim :</label>
-            <input type="date" class="form-control" require>
+            <input type="date" class="form-control" name="tgl_kirim" require>
           </div>
           <button class="btn btn-primary" type="submit">Kirim Barang</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
