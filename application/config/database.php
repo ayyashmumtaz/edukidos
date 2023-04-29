@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '103.214.112.15',
+	'hostname' => 'localhost',
 	'username' => 'digi_admin',
 	'password' => 'edukidosb310',
 	'database' => 'digi_pos',
